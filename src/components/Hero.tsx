@@ -118,11 +118,12 @@ export function Hero() {
             <p className="mt-6 text-lg text-gray-600">
               {/* Enfin une solution simple et rapide pour gérer son parc EPI que */}
               {/* vous soyez moniteur·rice d'escalade, de canyoning, de spéléo, de via ferrata ou de grimpe d'arbres, guide de haute montagne ou enco */}
-              Enfin une solution simple et rapide pour gérer ses parcs EPI
-              adaptée pour les moniteur·rices d'escalade, de canyoning, de
-              spéléo, de via ferrata ou de grimpe d'arbres, les guides de haute
-              montagne, les clubs et salles d'escalade ou encore les PAH
-              (Parcours Accrobatiques en Hauteur).
+              Enfin une solution simple et rapide pour gérer ses parcs EPI.
+              <br />
+              Conçu spécifiquement pour les moniteur·rices d'escalade, de
+              canyoning, de spéléo, de via ferrata ou de grimpe d'arbres, les
+              guides de haute montagne, les clubs et salles d'escalade ou encore
+              les PAH (Parcours Accrobatiques en Hauteur).
             </p>
             {/* <p className="mt-2 text-lg text-gray-600">
               Particuliers, Indépendants, Associations ou Entreprises vous allez

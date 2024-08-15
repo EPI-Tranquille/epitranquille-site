@@ -121,7 +121,7 @@ export function Header() {
                             <Button href="#" variant="outline">
                               Connexion
                             </Button>
-                            <Button href="#">C'est parti !</Button>
+                            <Button href="#">Inscription</Button>
                           </div>
                         </PopoverPanel>
                       </>
@@ -134,7 +134,7 @@ export function Header() {
               Connexion
             </Button>
             <Button href="#" className="hidden lg:block">
-              C'est parti
+              Inscription
             </Button>
           </div>
         </Container>
