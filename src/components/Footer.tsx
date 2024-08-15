@@ -79,9 +79,14 @@ export function Footer() {
           </div> */}
         </div>
         <div className="flex flex-col items-center border-t border-gray-200 pb-12 pt-8 md:flex-row-reverse md:justify-between md:pt-6">
-          <form className="flex w-full flex-wrap items-stretch justify-center sm:flex-nowrap md:w-auto">
+          <form
+            className="flex w-full flex-wrap items-stretch justify-center sm:flex-nowrap md:w-auto"
+            method="POST"
+            action="https://docs.google.com/forms/d/e/1FAIpQLSfk9x4DRODPaQ-UPbzlQXpG7mgd69fmaXgx-_CLsPv2FaTygA/formResponse"
+          >
             <TextField
               type="email"
+              name="entry.1488880179"
               aria-label="Email address"
               placeholder="Adresse e-mail"
               autoComplete="email"
