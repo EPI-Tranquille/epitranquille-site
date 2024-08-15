@@ -36,6 +36,7 @@ export default {
       },
       colors: ({ colors }) => ({
         gray: colors.neutral,
+        primary: '#08c770',
       }),
       fontFamily: {
         sans: 'var(--font-inter)',

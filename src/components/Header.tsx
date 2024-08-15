@@ -109,21 +109,19 @@ export function Header() {
                         >
                           <div className="space-y-4">
                             <MobileNavLink href="/#features">
-                              Features
+                              Fonctionnalités
                             </MobileNavLink>
-                            <MobileNavLink href="/#reviews">
-                              Reviews
-                            </MobileNavLink>
+                            <MobileNavLink href="/#reviews">Avis</MobileNavLink>
                             <MobileNavLink href="/#pricing">
-                              Pricing
+                              Tarifs
                             </MobileNavLink>
                             <MobileNavLink href="/#faqs">FAQs</MobileNavLink>
                           </div>
                           <div className="mt-8 flex flex-col gap-4">
-                            <Button href="/login" variant="outline">
-                              Log in
+                            <Button href="#" variant="outline">
+                              Connexion
                             </Button>
-                            <Button href="#">Download the app</Button>
+                            <Button href="#">C'est parti !</Button>
                           </div>
                         </PopoverPanel>
                       </>
@@ -132,11 +130,11 @@ export function Header() {
                 </>
               )}
             </Popover>
-            <Button href="/login" variant="outline" className="hidden lg:block">
-              Log in
+            <Button href="#" variant="outline" className="hidden lg:block">
+              Connexion
             </Button>
             <Button href="#" className="hidden lg:block">
-              Download
+              C'est parti
             </Button>
           </div>
         </Container>
