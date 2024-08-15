@@ -36,8 +36,8 @@ export function Logo(props: React.ComponentPropsWithoutRef<'svg'>) {
     //     />
     //   </g>
     // </svg>
-    <div className="flex h-10 w-auto items-center space-x-4">
-      <Image src={logo} alt="Logo" {...props} />
+    <div className="flex items-center space-x-4">
+      <Image src={logo} alt="Logo" className="h-10 w-auto" />
       <span className="text-base font-medium">EPI Tranquille</span>
     </div>
   )
