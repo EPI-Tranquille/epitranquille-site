@@ -1,10 +1,10 @@
+import logo from '@/images/logos/logo_nobg_primary.svg'
 import Image from 'next/image'
 import Link from 'next/link'
 
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { TextField } from '@/components/Fields'
-import { Logomark } from '@/components/Logo'
 import { NavLinks } from '@/components/NavLinks'
 import qrCode from '@/images/qr-code.svg'
 
@@ -27,10 +27,11 @@ export function Footer() {
         <div className="flex flex-col items-start justify-between gap-y-12 pb-6 pt-16 lg:flex-row lg:items-center lg:py-16">
           <div>
             <div className="flex items-center text-gray-900">
-              <Logomark className="h-10 w-10 flex-none fill-cyan-500" />
+              <Image src={logo} alt="Logo" className="h-10 w-auto" />
+
               <div className="ml-4">
-                <p className="text-base font-semibold">Pocket</p>
-                <p className="mt-1 text-sm">Invest at the perfect time.</p>
+                <p className="text-base font-semibold">EPI Tranquille</p>
+                <p className="mt-0.5 text-sm">Gérez vos EPI simplement.</p>
               </div>
             </div>
             <nav className="mt-11 flex gap-8">
