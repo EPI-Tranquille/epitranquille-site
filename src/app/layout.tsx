@@ -15,7 +15,8 @@ export const metadata: Metadata = {
     template: '%s - EPI Tranquille',
     default: 'EPI Tranquille - Gérez vos EPI simplement.',
   },
-  description: '',
+  description:
+    'EPI Tranquille est une application permettant de gérer vos équipements de protection individuelle (EPI) simplement.',
 }
 
 export default function RootLayout({

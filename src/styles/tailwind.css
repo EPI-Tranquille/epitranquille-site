@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.custom-typography {
+  @apply prose prose-neutral max-w-none prose-a:text-blue-600 hover:prose-a:text-blue-500 prose-ul:list-['-_'];
+}
+
+.alert-warning {
+  @apply w-full rounded-md bg-yellow-200 px-4 py-2 text-sm text-yellow-700;
+}
