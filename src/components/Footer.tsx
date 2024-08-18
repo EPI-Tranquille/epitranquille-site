@@ -35,7 +35,7 @@ const navigation = {
     {
       name: 'Instagram',
       href: '#',
-      icon: (props) => (
+      icon: (props: React.ComponentPropsWithoutRef<'svg'>) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
             fillRule="evenodd"
@@ -48,7 +48,7 @@ const navigation = {
     {
       name: 'YouTube',
       href: '#',
-      icon: (props) => (
+      icon: (props: React.ComponentPropsWithoutRef<'svg'>) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
             fillRule="evenodd"
