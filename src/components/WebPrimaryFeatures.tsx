@@ -86,10 +86,9 @@ export function PrimaryFeatures() {
             Tout ce dont vous avez besoin pour votre registre EPI
           </h2>
           <p className="mt-2 text-lg text-gray-400">
-            Pocket was built for investors like you who play by their own rules
-            and aren’t going to let SEC regulations get in the way of their
-            dreams. If other investing tools are afraid to build it, Pocket has
-            it.
+            Les fonctionnalités principales sont présentées ici mais bien sûr il
+            y en a d'autres. Nous allons les détailler dans les prochaines
+            semaines, soyez patients !
           </p>
         </div>
         <TabGroup
