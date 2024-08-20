@@ -17,7 +17,7 @@ const plans = [
       "Idéal pour gérer son parc en tant que particulier/indépendant avec très peu d'EPI.",
     button: {
       label: "S'inscrire gratuitement",
-      href: 'https://app.epitranquille.com/register',
+      href: '#',
     },
     features: [
       'Gestion du registre',
@@ -37,7 +37,7 @@ const plans = [
       'Parfait pour les indépendants qui veulent gérer leur parc EPI de manière simple.',
     button: {
       label: "S'inscrire",
-      href: '/register',
+      href: '#',
     },
     features: [
       'Gestion du registre',
@@ -59,7 +59,7 @@ const plans = [
       "Adapté pour les bureaux, les clubs et les indépendants avec plus d'EPI.",
     button: {
       label: "S'inscrire",
-      href: '/register',
+      href: '#',
     },
     features: [
       'Gestion du registre',
@@ -84,7 +84,7 @@ const plans = [
       "À destination des salles d'escalade, des collectivités ou des gros clubs.",
     button: {
       label: "S'inscrire",
-      href: '/register',
+      href: '#',
     },
     features: [
       'Gestion du registre',
@@ -288,7 +288,7 @@ export function Pricing() {
             <div
               aria-hidden="true"
               className={clsx(
-                'pointer-events-none absolute inset-0 z-10 grid grid-cols-2 overflow-hidden rounded-lg bg-cyan-500 transition-all duration-300',
+                'pointer-events-none absolute inset-0 z-10 grid grid-cols-2 overflow-hidden rounded-lg bg-primary transition-all duration-300',
                 activePeriod === 'Monthly'
                   ? '[clip-path:inset(0_50%_0_0)]'
                   : '[clip-path:inset(0_0_0_calc(50%-1px))]',
@@ -325,7 +325,7 @@ export function Pricing() {
             problème nous pouvons faire une offre sur mesure pour vous.
           </p>
           <Button
-            href="#"
+            href="mailto:contact@epitranquille.com"
             color="gray"
             className="mt-6"
             aria-label="Demander un devis"

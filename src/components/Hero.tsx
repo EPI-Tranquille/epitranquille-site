@@ -109,7 +109,7 @@ function RocketLaunch(props: React.ComponentPropsWithoutRef<'svg'>) {
 
 export function Hero() {
   return (
-    <div className="overflow-hidden py-20 sm:py-32 lg:pb-32 xl:pb-36">
+    <div className="sm:py-26 overflow-hidden py-20 lg:pb-20 xl:pb-20">
       <Container>
         <div className="lg:grid lg:grid-cols-12 lg:gap-x-8 lg:gap-y-20">
           <div className="relative z-10 mx-auto max-w-2xl lg:col-span-7 lg:max-w-none lg:pt-6 xl:col-span-6">
@@ -125,6 +125,7 @@ export function Hero() {
               canyoning, de spéléo, de via ferrata ou de grimpe d'arbres, les
               guides de haute montagne, les clubs et salles d'escalade ou encore
               les PAH (Parcours Accrobatiques en Hauteur).
+              <br />
               <br />
               Disponible sur le web et bientôt disponible sur iOS et Android.
             </p>
@@ -147,7 +148,7 @@ export function Hero() {
                   Bientôt disponible en version web et mobile
                 </span>
               </Button> */}
-            <LaunchForm className="item mt-12 sm:flex" />
+            <LaunchForm className="item mt-6 sm:flex" />
             <p className="mt-1 text-xs leading-5 text-gray-400">
               Promis on ne vous enverra pas plus de deux e-mails. Lire notre{' '}
               <Link href="/politique-confidentialite" className="underline">
