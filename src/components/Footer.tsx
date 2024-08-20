@@ -1,17 +1,16 @@
 import logo from '@/images/logos/logo_nobg_primary.svg'
 import Image from 'next/image'
 
-import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
-import { TextField } from '@/components/Fields'
 import Link from 'next/link'
+import { LaunchForm } from './LaunchForm'
 
 const navigation = {
   solutions: [
     { name: 'Fonctionnalités', href: '#' },
-    { name: 'Avis', href: '#' },
+    // { name: 'Avis', href: '#' },
     { name: 'Tarifs', href: '#' },
-    { name: 'FAQs', href: '#' },
+    // { name: 'FAQs', href: '#' },
   ],
   support: [
     { name: 'Documentation', href: '#' },
@@ -23,7 +22,7 @@ const navigation = {
     { name: 'Devenir partenaire', href: '#' },
   ],
   legal: [
-    { name: "Conditions d'utilisation", href: '/conditions-utilisation' },
+    { name: "Conditions d'utilisation", href: '/cgu' },
     {
       name: 'Politique de confidentialité',
       href: '/politique-confidentialite',
@@ -84,9 +83,9 @@ export function Footer() {
             <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
               <div className="md:grid md:grid-cols-2 md:gap-8">
                 <div>
-                  {/* <h3 className="text-sm font-semibold leading-6 text-white">
-                    Solutions
-                  </h3> */}
+                  <h3 className="text-sm font-semibold leading-6">
+                    Notre solution
+                  </h3>
                   <ul role="list" className="mt-6 space-y-4">
                     {navigation.solutions.map((item) => (
                       <li key={item.name}>
@@ -101,9 +100,9 @@ export function Footer() {
                   </ul>
                 </div>
                 <div className="mt-10 md:mt-0">
-                  {/* <h3 className="text-sm font-semibold leading-6 text-white">
-                    Support
-                  </h3> */}
+                  <h3 className="text-sm font-semibold leading-6">
+                    Des questions ?
+                  </h3>
                   <ul role="list" className="mt-6 space-y-4">
                     {navigation.support.map((item) => (
                       <li key={item.name}>
@@ -120,9 +119,9 @@ export function Footer() {
               </div>
               <div className="md:grid md:grid-cols-2 md:gap-8">
                 <div>
-                  {/* <h3 className="text-sm font-semibold leading-6 text-white">
-                    Company
-                  </h3> */}
+                  <h3 className="text-sm font-semibold leading-6">
+                    À propos d'EPI Tranquille
+                  </h3>
                   <ul role="list" className="mt-6 space-y-4">
                     {navigation.company.map((item) => (
                       <li key={item.name}>
@@ -137,9 +136,9 @@ export function Footer() {
                   </ul>
                 </div>
                 <div className="mt-10 md:mt-0">
-                  {/* <h3 className="text-sm font-semibold leading-6 text-white">
-                    Legal
-                  </h3> */}
+                  <h3 className="text-sm font-semibold leading-6">
+                    Informations légales
+                  </h3>
                   <ul role="list" className="mt-6 space-y-4">
                     {navigation.legal.map((item) => (
                       <li key={item.name}>
@@ -166,29 +165,7 @@ export function Footer() {
                 vous enverra pas plus de deux e-mails.
               </p>
             </div>
-            <form className="mt-6 sm:flex sm:max-w-md lg:mt-0">
-              <label htmlFor="entry.1488880179" className="sr-only">
-                Adresse e-mail
-              </label>
-              <TextField
-                type="email"
-                name="entry.1488880179"
-                aria-label="Email address"
-                placeholder="Entrez votre adresse e-mail"
-                autoComplete="email"
-                required
-                className="w-full min-w-0 appearance-none sm:w-56"
-              />
-              <div className="mt-4 sm:ml-4 sm:mt-0 sm:flex-shrink-0">
-                <Button
-                  type="submit"
-                  color="primary"
-                  className="flex w-full items-center justify-center"
-                >
-                  Être notifié du lancement
-                </Button>
-              </div>
-            </form>
+            <LaunchForm className="mt-6 sm:flex sm:max-w-md lg:mt-0" />
           </div>
           <div className="mt-8 border-t border-white/10 pt-8 md:flex md:items-center md:justify-between">
             <div className="flex space-x-6 md:order-2">

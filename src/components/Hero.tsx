@@ -1,9 +1,10 @@
 import { useId } from 'react'
 
-import { AppDemo } from '@/components/AppDemo'
-import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { PhoneFrame } from '@/components/PhoneFrame'
+import Link from 'next/link'
+import { AppScreen } from './AppScreen'
+import { LaunchForm } from './LaunchForm'
 
 function BackgroundIllustration(props: React.ComponentPropsWithoutRef<'div'>) {
   let id = useId()
@@ -35,8 +36,8 @@ function BackgroundIllustration(props: React.ComponentPropsWithoutRef<'div'>) {
             y2="1025"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stopColor="#06b6d4" />
-            <stop offset="1" stopColor="#06b6d4" stopOpacity="0" />
+            <stop stopColor="#08c770" />
+            <stop offset="1" stopColor="#08c770" stopOpacity="0" />
           </linearGradient>
         </defs>
       </svg>
@@ -65,8 +66,8 @@ function BackgroundIllustration(props: React.ComponentPropsWithoutRef<'div'>) {
             y2="913"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stopColor="#06b6d4" />
-            <stop offset="1" stopColor="#06b6d4" stopOpacity="0" />
+            <stop stopColor="#08c770" />
+            <stop offset="1" stopColor="#08c770" stopOpacity="0" />
           </linearGradient>
         </defs>
       </svg>
@@ -124,13 +125,15 @@ export function Hero() {
               canyoning, de spéléo, de via ferrata ou de grimpe d'arbres, les
               guides de haute montagne, les clubs et salles d'escalade ou encore
               les PAH (Parcours Accrobatiques en Hauteur).
+              <br />
+              Disponible sur le web et bientôt disponible sur iOS et Android.
             </p>
             {/* <p className="mt-2 text-lg text-gray-600">
               Particuliers, Indépendants, Associations ou Entreprises vous allez
               trouvez la formule qui vous convient.
             </p> */}
-            <div className="mt-8 flex flex-wrap gap-x-6 gap-y-4">
-              {/* <AppStoreLink />
+            {/* <div className="mt-8 flex flex-wrap gap-x-6 gap-y-4"> */}
+            {/* <AppStoreLink />
               <Button
                 href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
                 variant="outline"
@@ -139,19 +142,30 @@ export function Hero() {
                 <span className="ml-2.5">Watch the video</span>
               </Button> */}
 
-              <Button href="#" variant="outline">
-                {/* <RocketLaunch className="h-5 w-5 flex-none" /> */}
+            {/* <Button href="#" variant="outline">
                 <span className="ml-2.5">
                   Bientôt disponible en version web et mobile
                 </span>
-              </Button>
-            </div>
+              </Button> */}
+            <LaunchForm className="item mt-12 sm:flex" />
+            <p className="mt-1 text-xs leading-5 text-gray-400">
+              Promis on ne vous enverra pas plus de deux e-mails. Lire notre{' '}
+              <Link href="/politique-confidentialite" className="underline">
+                politique de confidentialité
+              </Link>
+              .
+            </p>
+            {/* </div> */}
           </div>
           <div className="relative mt-10 sm:mt-20 lg:col-span-5 lg:row-span-2 lg:mt-0 xl:col-span-6">
             <BackgroundIllustration className="absolute left-1/2 top-4 h-[1026px] w-[1026px] -translate-x-1/3 stroke-gray-300/70 [mask-image:linear-gradient(to_bottom,white_20%,transparent_75%)] sm:top-16 sm:-translate-x-1/2 lg:-top-16 lg:ml-12 xl:-top-14 xl:ml-0" />
             <div className="-mx-4 h-[448px] px-9 [mask-image:linear-gradient(to_bottom,white_60%,transparent)] sm:mx-0 lg:absolute lg:-inset-x-10 lg:-bottom-20 lg:-top-10 lg:h-auto lg:px-0 lg:pt-10 xl:-bottom-32">
               <PhoneFrame className="mx-auto max-w-[366px]" priority>
-                <AppDemo />
+                {/* <AppDemo /> */}
+                <AppScreen className="text-center">
+                  {/* <AppScreen.Title>App mobile</AppScreen.Title> */}
+                  <AppScreen.Subtitle>Visuel à venir...</AppScreen.Subtitle>
+                </AppScreen>
               </PhoneFrame>
             </div>
           </div>

@@ -1,4 +1,5 @@
 import logo from '@/images/logos/logo_nobg_primary.svg'
+import screenshotRegistry from '@/images/mobile/mobile_hero.jpg'
 import clsx from 'clsx'
 import Image from 'next/image'
 import { forwardRef } from 'react'
@@ -42,7 +43,7 @@ export function AppScreen({
 }: React.ComponentPropsWithoutRef<'div'>) {
   return (
     <div className={clsx('flex flex-col', className)} {...props}>
-      <div className="flex justify-between px-4 pt-4">
+      <div className="mb-4 flex justify-between px-4 pt-4">
         <MenuIcon className="h-6 w-6 flex-none" />
         <Logo className="h-6 flex-none" />
         <UserIcon className="h-6 w-6 flex-none" />
@@ -98,3 +99,20 @@ AppScreen.Body = forwardRef<
     </div>
   )
 })
+
+export function AppScreenImage({
+  className,
+  ...props
+}: React.ComponentPropsWithoutRef<'div'>) {
+  return (
+    <div className={clsx('flex flex-col', className)} {...props}>
+      <Image
+        className="w-full"
+        src={screenshotRegistry}
+        alt=""
+        priority
+        // sizes="(min-width: 1024px) 67.8125rem, (min-width: 640px) 100vw, 45rem"
+      />
+    </div>
+  )
+}

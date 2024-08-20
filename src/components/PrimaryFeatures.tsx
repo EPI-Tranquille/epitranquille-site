@@ -1,6 +1,5 @@
 'use client'
 
-import { Fragment, useEffect, useId, useRef, useState } from 'react'
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react'
 import clsx from 'clsx'
 import {
@@ -10,6 +9,7 @@ import {
   AnimatePresence,
   motion,
 } from 'framer-motion'
+import { Fragment, useEffect, useId, useRef, useState } from 'react'
 import { useDebouncedCallback } from 'use-debounce'
 
 import { AppScreen } from '@/components/AppScreen'

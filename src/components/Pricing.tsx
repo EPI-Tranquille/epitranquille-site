@@ -1,8 +1,8 @@
 'use client'
 
-import { useState } from 'react'
 import { Radio, RadioGroup } from '@headlessui/react'
 import clsx from 'clsx'
+import { useState } from 'react'
 
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
@@ -10,61 +10,97 @@ import { Logomark } from '@/components/Logo'
 
 const plans = [
   {
-    name: 'Starter',
+    name: 'Basique',
     featured: false,
-    price: { Monthly: '$0', Annually: '$0' },
+    price: { Monthly: 'Gratuit', Annually: 'Gratuit' },
     description:
-      'You’re new to investing but want to do it right. Get started for free.',
+      "Idéal pour gérer son parc en tant que particulier/indépendant avec très peu d'EPI.",
     button: {
-      label: 'Get started for free',
-      href: '/register',
+      label: "S'inscrire gratuitement",
+      href: 'https://app.epitranquille.com/register',
     },
     features: [
-      'Commission-free trading',
-      'Multi-layered encryption',
-      'One tip every day',
-      'Invest up to $1,500 each month',
+      'Gestion du registre',
+      'Export du registre en PDF',
+      "Base de données d'EPI",
+      '50 EPI',
+      '1 parc EPI',
+      '1 utilisateur / parc',
     ],
     logomarkClassName: 'fill-gray-300',
   },
   {
-    name: 'Investor',
+    name: 'Indépendant',
     featured: false,
-    price: { Monthly: '$7', Annually: '$70' },
+    price: { Monthly: '4 €', Annually: '48 €' },
     description:
-      'You’ve been investing for a while. Invest more and grow your wealth faster.',
+      'Parfait pour les indépendants qui veulent gérer leur parc EPI de manière simple.',
     button: {
-      label: 'Subscribe',
+      label: "S'inscrire",
       href: '/register',
     },
     features: [
-      'Commission-free trading',
-      'Multi-layered encryption',
-      'One tip every hour',
-      'Invest up to $15,000 each month',
-      'Basic transaction anonymization',
+      'Gestion du registre',
+      'Export du registre en PDF',
+      "Base de données d'EPI",
+      '250 EPI',
+      '2 parcs EPI',
+      '2 utilisateurs / parc',
+      "Import d'un registre existant",
+      'Alertes EPI et contrôles',
     ],
     logomarkClassName: 'fill-gray-500',
   },
   {
-    name: 'VIP',
+    name: 'Premium',
     featured: true,
-    price: { Monthly: '$199', Annually: '$1,990' },
+    price: { Monthly: '12 €', Annually: '144 €' },
     description:
-      'You’ve got a huge amount of assets but it’s not enough. To the moon.',
+      "Adapté pour les bureaux, les clubs et les indépendants avec plus d'EPI.",
     button: {
-      label: 'Subscribe',
+      label: "S'inscrire",
       href: '/register',
     },
     features: [
-      'Commission-free trading',
-      'Multi-layered encryption',
-      'Real-time tip notifications',
-      'No investment limits',
-      'Advanced transaction anonymization',
-      'Automated tax-loss harvesting',
+      'Gestion du registre',
+      'Export du registre en PDF',
+      "Base de données d'EPI",
+      '500 EPI',
+      '5 parcs EPI',
+      '5 utilisateurs / parc',
+      "Import d'un registre existant",
+      'Alertes EPI et contrôles',
+      'Paramétrage des alertes',
+      "Gestion des prêts d'EPI",
+      'Support prioritaire e-mail',
     ],
-    logomarkClassName: 'fill-cyan-500',
+    logomarkClassName: 'fill-primary',
+  },
+  {
+    name: 'Entreprise',
+    featured: false,
+    price: { Monthly: '35 €', Annually: '420 €' },
+    description:
+      "À destination des salles d'escalade, des collectivités ou des gros clubs.",
+    button: {
+      label: "S'inscrire",
+      href: '/register',
+    },
+    features: [
+      'Gestion du registre',
+      'Export du registre en PDF',
+      "Base de données d'EPI",
+      '2000 EPI',
+      'Parcs EPI illimités',
+      '10 utilisateurs / parc',
+      "Import d'un registre existant",
+      'Alertes EPI et contrôles',
+      'Paramétrage des alertes',
+      "Gestion des prêts d'EPI",
+      "Aide à l'import",
+      'Support prioritaire e-mail et téléphone',
+    ],
+    logomarkClassName: 'fill-yellow-500',
   },
 ]
 
@@ -123,7 +159,7 @@ function Plan({
     >
       <h3
         className={clsx(
-          'flex items-center text-sm font-semibold',
+          'text-md flex items-center font-semibold',
           featured ? 'text-white' : 'text-gray-900',
         )}
       >
@@ -183,12 +219,7 @@ function Plan({
         >
           {features.map((feature) => (
             <li key={feature} className="flex py-2">
-              <CheckIcon
-                className={clsx(
-                  'h-6 w-6 flex-none',
-                  featured ? 'text-white' : 'text-cyan-500',
-                )}
-              />
+              <CheckIcon className="h-6 w-6 flex-none text-primary" />
               <span className="ml-4">{feature}</span>
             </li>
           ))}
@@ -196,7 +227,7 @@ function Plan({
       </div>
       <Button
         href={button.href}
-        color={featured ? 'cyan' : 'gray'}
+        color={featured ? 'primary' : 'gray'}
         className="mt-6"
         aria-label={`Get started with the ${name} plan for ${price}`}
       >
@@ -219,15 +250,13 @@ export function Pricing() {
     >
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-          <h2
-            id="pricing-title"
-            className="text-3xl font-medium tracking-tight text-gray-900"
-          >
-            Flat pricing, no management fees.
+          <h2 id="pricing-title" className="section-title">
+            Tarifs
           </h2>
-          <p className="mt-2 text-lg text-gray-600">
-            Whether you’re one person trying to get ahead or a big firm trying
-            to take over the world, we’ve got a plan for you.
+          <p className="section-subtitle">
+            Que vous soyez un particulier, un indépendant, une association, une
+            collectivité ou une structure plus importante nous avons le tarif
+            qu'il vous faut.
           </p>
         </div>
 
@@ -238,7 +267,10 @@ export function Pricing() {
               onChange={setActivePeriod}
               className="grid grid-cols-2"
             >
-              {['Monthly', 'Annually'].map((period) => (
+              {[
+                ['Monthly', 'Mensuellement'],
+                ['Annually', 'Annuellement'],
+              ].map(([period, periodLabel]) => (
                 <Radio
                   key={period}
                   value={period}
@@ -249,7 +281,7 @@ export function Pricing() {
                       : '-ml-px rounded-r-lg',
                   )}
                 >
-                  {period}
+                  {periodLabel}
                 </Radio>
               ))}
             </RadioGroup>
@@ -262,7 +294,10 @@ export function Pricing() {
                   : '[clip-path:inset(0_0_0_calc(50%-1px))]',
               )}
             >
-              {['Monthly', 'Annually'].map((period) => (
+              {[
+                ['Monthly', 'Mensuellement'],
+                ['Annually', 'Annuellement'],
+              ].map(([period, periodLabel]) => (
                 <div
                   key={period}
                   className={clsx(
@@ -270,17 +305,33 @@ export function Pricing() {
                     period === 'Annually' && '-ml-px',
                   )}
                 >
-                  {period}
+                  {periodLabel}
                 </div>
               ))}
             </div>
           </div>
         </div>
 
-        <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 items-start gap-x-8 gap-y-10 sm:mt-20 lg:max-w-none lg:grid-cols-3">
+        <div className="mx-auto mt-16 grid grid-cols-1 items-start gap-x-8 gap-y-10 sm:mt-20 md:grid-cols-2 lg:max-w-none lg:grid-cols-4">
           {plans.map((plan) => (
             <Plan key={plan.name} {...plan} activePeriod={activePeriod} />
           ))}
+        </div>
+
+        <div className="mx-auto mt-20 max-w-2xl text-center">
+          <p className="section-subtitle">
+            Vous ne trouvez pas le tarif qui vous convient ? Vous voulez plus
+            d'EPI mais pas forcément autant de parcs ou d'utilisateurs ? Pas de
+            problème nous pouvons faire une offre sur mesure pour vous.
+          </p>
+          <Button
+            href="#"
+            color="gray"
+            className="mt-6"
+            aria-label="Demander un devis"
+          >
+            Demander un devis
+          </Button>
         </div>
       </Container>
     </section>

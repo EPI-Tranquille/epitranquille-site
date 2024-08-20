@@ -3,9 +3,17 @@
 @tailwind utilities;
 
 .custom-typography {
-  @apply prose prose-neutral max-w-none prose-a:text-blue-600 hover:prose-a:text-blue-500 prose-ul:list-['-_'];
+  @apply prose prose-sm prose-neutral max-w-none prose-a:text-blue-600 hover:prose-a:text-blue-500 prose-ul:list-['-_'] prose-li:marker:text-[--prose-body] prose-table:table-fixed prose-table:border-collapse prose-table:border prose-th:border prose-th:p-2 prose-th:font-medium prose-td:border prose-td:p-2;
 }
 
 .alert-warning {
   @apply w-full rounded-md bg-yellow-200 px-4 py-2 text-sm text-yellow-700;
+}
+
+.section-title {
+  @apply text-3xl font-medium tracking-tight text-gray-900;
+}
+
+.section-subtitle {
+  @apply mt-2 text-lg text-gray-600;
 }

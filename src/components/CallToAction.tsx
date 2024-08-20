@@ -1,6 +1,6 @@
-import { AppStoreLink } from '@/components/AppStoreLink'
 import { CircleBackground } from '@/components/CircleBackground'
 import { Container } from '@/components/Container'
+import { Button } from './Button'
 
 export function CallToAction() {
   return (
@@ -14,15 +14,15 @@ export function CallToAction() {
       <Container className="relative">
         <div className="mx-auto max-w-md sm:text-center">
           <h2 className="text-3xl font-medium tracking-tight text-white sm:text-4xl">
-            Get your first tips today
+            Commencez aujourd'hui
           </h2>
           <p className="mt-4 text-lg text-gray-300">
-            It takes 30 seconds to sign up. Download the app and create an
-            account today and we’ll send you a tip guaranteed to double your
-            first investment.
+            Créer un compte gratuitement prends 1 minute et ensuite vous pourrez
+            commencer à gérer vos EPI.
           </p>
           <div className="mt-8 flex justify-center">
-            <AppStoreLink color="white" />
+            {/* <AppStoreLink color="white" /> */}
+            <Button color="white">Créer mon compte</Button>
           </div>
         </div>
       </Container>

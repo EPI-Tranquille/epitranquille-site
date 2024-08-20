@@ -18,7 +18,7 @@ export default function PolitiqueCookies() {
           Politique de gestion des cookies
         </h1>
         <div className="custom-typography">
-          <p className="text-center text-sm">En vigueur au 10/09/2024</p>
+          <p className="text-center text-sm">En vigueur au 15/09/2024</p>
           <p>
             Lors de l’utilisation de nos services des cookies (ou autres
             traceurs) sont déposés ou lus sur l’appareil que vous utilisez
@@ -34,33 +34,26 @@ export default function PolitiqueCookies() {
           </p>
           <ul>
             <li>
-              <p>
-                le site disponible à l’url{' '}
-                <Link href="/">epitranquille.com</Link>, ci-après le “Site”
-              </p>
+              le site disponible à l’url <Link href="/">epitranquille.com</Link>
+              , ci-après le “Site”
             </li>
-          </ul>
-          <ul>
             <li>
-              <p>
-                l’application web disponible à l’url{' '}
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer nofollow"
-                  href="https://app.epitranquille.com"
-                >
-                  app.epitranquille.com
-                </a>{' '}
-                et l’application mobile “EPI Tranquille” disponible sur le Play
-                Store et l’Apple Store, ci-après l’ “Application”
-              </p>
+              l’application web disponible à l’url{' '}
+              <a
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                href="https://app.epitranquille.com"
+              >
+                app.epitranquille.com
+              </a>{' '}
+              et l’application mobile “EPI Tranquille” disponible sur le Play
+              Store et l’Apple Store, ci-après l’ “Application”
             </li>
           </ul>
           <p>
             Sauf mention explicite contraire, les sections ci-dessous
             s’appliquent au Site et à l’Application.
           </p>
-          <p></p>
           <p>
             La présente politique des gestion des cookies est faite conformément
             aux dispositions de la Loi n°78-17 du 6 janvier 1978 (dite « Loi
@@ -114,58 +107,44 @@ export default function PolitiqueCookies() {
           <p>Nous utilisons les cookies suivants :</p>
           <ul>
             <li>
-              <p>
-                Cookies fonctionnels : ils nous permettent d'améliorer le
-                fonctionnement du site internet et de le rendre plus convivial
-                pour le visiteur.
-              </p>
+              Cookies fonctionnels : ils nous permettent d'améliorer le
+              fonctionnement du site internet et de le rendre plus convivial
+              pour le visiteur ;
             </li>
             <li>
-              <p>
-                Cookies de mesure d'audience : ils garantissent qu'un cookie
-                anonyme est généré à chaque fois que vous visitez un site
-                internet. Ces cookies permettent de savoir si vous avez déjà
-                visité le site auparavant ou non. Ce n'est que lors de la
-                première visite qu’un cookie est créé. Lors des visites
-                suivantes, l'utilisation du cookie déjà existant est
-                automatique. Ce cookie n'est utilisé qu'à des fins statistiques.
-                De cette façon, les données suivantes peuvent être collectées
-                :&nbsp;
-              </p>
+              Cookies de mesure d'audience : ils garantissent qu'un cookie
+              anonyme est généré à chaque fois que vous visitez un site
+              internet. Ces cookies permettent de savoir si vous avez déjà
+              visité le site auparavant ou non. Ce n'est que lors de la première
+              visite qu’un cookie est créé. Lors des visites suivantes,
+              l'utilisation du cookie déjà existant est automatique. Ce cookie
+              n'est utilisé qu'à des fins statistiques. De cette façon, les
+              données suivantes peuvent être collectées :
               <ul>
+                <li>le nombre de visiteurs uniques ;</li>
                 <li>
-                  <p>le nombre de visiteurs uniques</p>
+                  la fréquence à laquelle les utilisateurs visitent le site ;
+                </li>
+                <li>quelles pages les visiteurs consultent ;</li>
+                <li>
+                  combien de temps les utilisateurs consultent une page
+                  particulière ;
                 </li>
                 <li>
-                  <p>
-                    la fréquence à laquelle les utilisateurs visitent le site
-                  </p>
-                </li>
-                <li>
-                  <p>quelles pages les visiteurs consultent</p>
-                </li>
-                <li>
-                  <p>
-                    combien de temps les utilisateurs consultent une page
-                    particulière
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    la page à partir de laquelle les visiteurs quittent le site
-                  </p>
+                  la page à partir de laquelle les visiteurs quittent le site.
                 </li>
               </ul>
             </li>
           </ul>
-          <p>Liste des cookies utilisés :&nbsp;</p>
+          <p>Liste des cookies utilisés :</p>
           <ul>
             <li>
-              <p>ProductHog : permet de faire du suivi d'audiences….</p>
+              PostHog : permet de faire du suivi d'audiences sur le Site et
+              d'analyser le trafic.
             </li>
           </ul>
           <p>La durée de vie de ces cookies est de treize mois.</p>
-          <h2>Consentement&nbsp;</h2>
+          <h2>Consentement</h2>
           <p>
             Votre consentement est requis pour l'utilisation de certains
             cookies. Nous le recueillons au moyen d'une bannière informative
