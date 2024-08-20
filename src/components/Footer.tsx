@@ -13,16 +13,16 @@ const navigation = {
     // { name: 'FAQs', href: '#' },
   ],
   support: [
-    { name: 'Documentation', href: '#' },
-    { name: 'Tutoriels', href: '#' },
+    { name: 'Documentation (bientôt)', href: '#' },
+    { name: 'Tutoriels (bientôt)', href: '#' },
   ],
   company: [
-    { name: 'À propos', href: '/about' },
-    { name: 'Partenaires', href: '#' },
-    { name: 'Devenir partenaire', href: '#' },
+    { name: 'À propos (bientôt)', href: '/about' },
+    { name: 'Partenaires (bientôt)', href: '#' },
+    { name: 'Devenir partenaire (bientôt)', href: '#' },
   ],
   legal: [
-    { name: "Conditions d'utilisation", href: '/cgu' },
+    { name: "Conditions générales d'utilisation", href: '/cgu' },
     {
       name: 'Politique de confidentialité',
       href: '/politique-confidentialite',

@@ -111,11 +111,11 @@ export function Header() {
                             <MobileNavLink href="/#features">
                               Fonctionnalités
                             </MobileNavLink>
-                            <MobileNavLink href="/#reviews">Avis</MobileNavLink>
+                            {/* <MobileNavLink href="/#reviews">Avis</MobileNavLink> */}
                             <MobileNavLink href="/#pricing">
                               Tarifs
                             </MobileNavLink>
-                            <MobileNavLink href="/#faqs">FAQs</MobileNavLink>
+                            {/* <MobileNavLink href="/#faqs">FAQs</MobileNavLink> */}
                           </div>
                           <div className="mt-8 flex flex-col gap-4">
                             <Button href="#" variant="outline">

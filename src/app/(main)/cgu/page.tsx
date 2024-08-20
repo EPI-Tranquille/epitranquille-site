@@ -15,7 +15,7 @@ export default function ConditionsUtilisation() {
     >
       <Container>
         <h1 className="text-center text-3xl font-medium tracking-tight text-gray-900">
-          Conditions d'utilisation de nos services
+          Conditions générales d'utilisation de nos services
         </h1>
         <div className="custom-typography">
           <p className="text-center text-sm">En vigueur au 15/09/2024</p>
@@ -618,10 +618,10 @@ export default function ConditionsUtilisation() {
           <p>
             Certaines fonctionnalités des Services sont disponibles seulement
             moyennant un abonnement payant. Les différents abonnements et leurs
-            tarifs sont disponibles <Link href="/#tarifs">ici</Link>. Les tarifs
-            sont affichés en prix TTC. Le statut de l’Exploitant étant une
-            entreprise individuelle, la TVA est non applicable d’après l’article
-            293 B du CGI.
+            tarifs sont disponibles <Link href="/#pricing">ici</Link>. Les
+            tarifs sont affichés en prix TTC. Le statut de l’Exploitant étant
+            une entreprise individuelle, la TVA est non applicable d’après
+            l’article 293 B du CGI.
           </p>
           <p>
             L’Utilisateur qui souscrit à un abonnement payant est facturé en

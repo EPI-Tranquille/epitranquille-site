@@ -20,19 +20,19 @@ const features = [
   {
     title: 'Base de données',
     description:
-      "All of your receipts organized into one place, as long as you don't mind typing in the data by hand.",
+      "Une base de données avec beaucoup d'EPI à portée de clic afin d'accélérer la saisie de vos EPI.",
     image: screenshotBdd,
   },
   {
     title: 'Inspection rapide',
     description:
-      "We only sell our software to companies who don't deal with VAT at all, so technically we do all the VAT stuff they need.",
+      "Besoin d'inspecter un lot de plusieurs EPI rapidement ? C'est possible avec le contrôle par lot.",
     image: screenshotBatchControl,
   },
   {
     title: 'Utilisateurs',
     description:
-      'Easily export your data into an Excel spreadsheet where you can do whatever the hell you want with it.',
+      "Vous êtes plusieurs gestionnaires d'EPI dans un club ou une collectivté ? Vous effectuez les contrôles EPI d'un club en tant que moniteur·rice ? Invitez des personnes à rejoindre un parc EPI pour une gestion collaborative.",
     image: screenshotMultiUsers,
   },
 ]
@@ -105,8 +105,8 @@ export function PrimaryFeatures() {
                       className={clsx(
                         'group relative rounded-full px-4 py-1 lg:rounded-l-xl lg:rounded-r-none lg:p-6',
                         selectedIndex === featureIndex
-                          ? 'bg-white lg:bg-white/10 lg:ring-1 lg:ring-inset lg:ring-white/10'
-                          : 'hover:bg-white/10 lg:hover:bg-white/5',
+                          ? 'bg-primary lg:bg-white/10 lg:ring-1 lg:ring-inset lg:ring-white/10'
+                          : 'hover:bg-primary lg:hover:bg-white/5',
                       )}
                     >
                       <h3>
@@ -114,8 +114,8 @@ export function PrimaryFeatures() {
                           className={clsx(
                             'font-display text-lg ui-not-focus-visible:outline-none',
                             selectedIndex === featureIndex
-                              ? 'text-blue-600 lg:text-white'
-                              : 'text-blue-100 hover:text-white lg:text-white',
+                              ? 'text-white'
+                              : 'text-gray-400 hover:text-white lg:text-white',
                           )}
                         >
                           <span className="absolute inset-0 rounded-full lg:rounded-l-xl lg:rounded-r-none" />
