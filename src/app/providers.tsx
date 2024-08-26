@@ -9,6 +9,6 @@ if (typeof window !== 'undefined') {
   })
 }
 
-export function CSPostHogProvider({ children }) {
+export function CSPostHogProvider({ children }: { children: React.ReactNode }) {
   return <PostHogProvider client={posthog}>{children}</PostHogProvider>
 }
