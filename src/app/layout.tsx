@@ -1,3 +1,4 @@
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import clsx from 'clsx'
 import { type Metadata } from 'next'
 import { Inter } from 'next/font/google'
@@ -28,7 +29,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={clsx('bg-gray-50 antialiased', inter.variable)}>
       <CSPostHogProvider>
-        <body>{children}</body>
+        <body>
+          {children}
+          <SpeedInsights />
+        </body>
       </CSPostHogProvider>
     </html>
   )
