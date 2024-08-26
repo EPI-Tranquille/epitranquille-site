@@ -3,6 +3,7 @@ import { type Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
 import '@/styles/tailwind.css'
+import { CSPostHogProvider } from './providers'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -26,7 +27,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={clsx('bg-gray-50 antialiased', inter.variable)}>
-      <body>{children}</body>
+      <CSPostHogProvider>
+        <body>{children}</body>
+      </CSPostHogProvider>
     </html>
   )
 }
