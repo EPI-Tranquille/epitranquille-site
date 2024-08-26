@@ -1,4 +1,4 @@
-import logo from '@/images/logos/logo_nobg_primary.svg'
+youtuimport logo from '@/images/logos/logo_nobg_primary.svg'
 import Image from 'next/image'
 
 import { Container } from '@/components/Container'
@@ -46,7 +46,7 @@ const navigation = {
     },
     {
       name: 'YouTube',
-      href: '#',
+      href: 'https://www.youtube.com/channel/UCVw1rgsmCZj2N8g6iJWCyUQ',
       icon: (props: React.ComponentPropsWithoutRef<'svg'>) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
