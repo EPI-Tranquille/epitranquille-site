@@ -60,7 +60,7 @@ const navigation = {
   ],
 }
 
-export function Footer() {
+export default function Footer() {
   return (
     <footer
       aria-labelledby="footer-heading"

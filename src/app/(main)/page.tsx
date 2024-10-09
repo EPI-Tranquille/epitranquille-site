@@ -1,13 +1,16 @@
 import { CallToAction } from '@/components/CallToAction'
 import { Hero } from '@/components/Hero'
-import { Pricing } from '@/components/Pricing'
+// import { Pricing } from '@/components/Pricing'
 import { PrimaryFeatures } from '@/components/WebPrimaryFeatures'
+import dynamic from 'next/dynamic'
 import {
   OnlineBusiness,
   WebApplication,
   WebSite,
   WithContext,
 } from 'schema-dts'
+
+const Pricing = dynamic(() => import('@/components/Pricing'), { ssr: false })
 
 export default function Home() {
   const WebSiteSchema: WithContext<WebSite> = {
