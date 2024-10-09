@@ -2,7 +2,12 @@ import { CallToAction } from '@/components/CallToAction'
 import { Hero } from '@/components/Hero'
 import { Pricing } from '@/components/Pricing'
 import { PrimaryFeatures } from '@/components/WebPrimaryFeatures'
-import { OnlineBusiness, WebSite, WithContext } from 'schema-dts'
+import {
+  OnlineBusiness,
+  WebApplication,
+  WebSite,
+  WithContext,
+} from 'schema-dts'
 
 export default function Home() {
   const WebSiteSchema: WithContext<WebSite> = {
@@ -37,6 +42,18 @@ export default function Home() {
       email: 'support@epitranquille.com',
     },
   }
+  const WebApplicationSchema: WithContext<WebApplication> = {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: 'EPI Tranquille',
+    applicationCategory: 'UtilitiesApplication',
+    offers: {
+      '@type': 'Offer',
+      price: 0.0,
+      priceCurrency: 'EUR',
+    },
+    downloadUrl: 'https://epitranquille.com',
+  }
   return (
     <>
       <script
@@ -47,6 +64,12 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(OnlineBusinessSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(WebApplicationSchema),
         }}
       />
       <Hero />
