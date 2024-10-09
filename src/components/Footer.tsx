@@ -1,4 +1,4 @@
-youtuimport logo from '@/images/logos/logo_nobg_primary.svg'
+import logo from '@/images/logos/logo_nobg_primary.svg'
 import Image from 'next/image'
 
 import { Container } from '@/components/Container'
