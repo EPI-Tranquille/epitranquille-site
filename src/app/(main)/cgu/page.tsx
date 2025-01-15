@@ -830,7 +830,7 @@ export default function ConditionsUtilisation() {
             validité des autres dispositions qui continueront de s'appliquer
             entre les Utilisateurs et l’Exploitant.
           </p>
-          <h2>Article 11 - Litiges</h2>
+          <h2>Article 11 - Litiges / Médiation à la consommation</h2>
           <p>
             Les présentes CGU sont soumises au droit français. En cas de
             difficultés dans l’application des présentes CGU, l’Utilisateur
@@ -839,17 +839,17 @@ export default function ConditionsUtilisation() {
             compétentes (l’Utilisateur adressera une réclamation écrite auprès
             du professionnel).
           </p>
+
           <p>
-            Conformément aux dispositions du Code de la consommation concernant
-            le règlement amiable des litiges, l’Exploitant adhère au Service du
-            Médiateur de la consommation de la SMP (Société Médiation
-            Professionnelle). À défaut d’accord amiable ou en l’absence de
-            réponse du professionnel dans un délai raisonnable d’un mois,
-            l’Utilisateur (qui aurait souscrit un abonnement payant)
-            consommateur au sens de l’article L.133-4 du code de la consommation
-            a la possibilité de saisir gratuitement, si un désaccord subsiste,
-            le médiateur compétent inscrit sur la liste des médiateurs établie
-            par la Commission d’évaluation et de contrôle de la médiation de la
+            En cas de litige entre l'Utilisateur et l’Exploitant, ceux-ci
+            s’efforceront de le résoudre à l’amiable (l'Utilisateur adressera
+            une réclamation écrite auprès de l’Exploitant). À défaut d’accord
+            amiable ou en l’absence de réponse de l’Exploitant dans un délai
+            raisonnable d’un (1) mois, l'Utilisateur consommateur au sens de
+            l’article L.133-4 du code de la consommation a la possibilité de
+            saisir gratuitement, si un désaccord subsiste, le médiateur
+            compétent inscrit sur la liste des médiateurs établie par la
+            Commission d’évaluation et de contrôle de la médiation de la
             consommation en application de l’article L.615-1 du code de la
             consommation, à savoir :
           </p>
@@ -863,7 +863,7 @@ export default function ConditionsUtilisation() {
               www.mediateur-consommation-smp.fr
             </a>
           </p>
-          <p>24 rue Albert de Mun - 33000 Bordeaux</p>
+          <p>Alteritae 5 rue Salvaing 12000 Rodez</p>
           <h2>Article 12 - Avis et retours</h2>
           <p>
             Nous accueillons les retours, les suggestions d’améliorations et les
