@@ -118,10 +118,10 @@ export function Header() {
                             {/* <MobileNavLink href="/#faqs">FAQs</MobileNavLink> */}
                           </div>
                           <div className="mt-8 flex flex-col gap-4">
-                            <Button href="#" variant="outline">
+                            <Button href="https://app.epitranquille.com" variant="outline">
                               Connexion
                             </Button>
-                            <Button href="#">Inscription</Button>
+                            <Button href="https://app.epitranquille.com/signup/">Inscription</Button>
                           </div>
                         </PopoverPanel>
                       </>

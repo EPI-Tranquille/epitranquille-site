@@ -22,7 +22,7 @@ export function CallToAction() {
           </p>
           <div className="mt-8 flex justify-center">
             {/* <AppStoreLink color="white" /> */}
-            <Button color="white">Créer mon compte</Button>
+            <Button color="white" href="https://app.epitranquille.com/signup/">Créer mon compte</Button>
           </div>
         </div>
       </Container>
