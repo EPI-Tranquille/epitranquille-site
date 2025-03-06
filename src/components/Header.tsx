@@ -130,10 +130,10 @@ export function Header() {
                 </>
               )}
             </Popover>
-            <Button href="#" variant="outline" className="hidden lg:block">
+            <Button href="https://app.epitranquille.com" variant="outline" className="hidden lg:block">
               Connexion
             </Button>
-            <Button href="#" className="hidden lg:block">
+            <Button href="https://app.epitranquille.com/signup/" className="hidden lg:block">
               Inscription
             </Button>
           </div>
