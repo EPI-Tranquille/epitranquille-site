@@ -17,7 +17,7 @@ const plans = [
       "Idéal pour gérer son parc en tant que particulier/indépendant avec très peu d'EPI.",
     button: {
       label: "S'inscrire gratuitement",
-      href: '#',
+      href: 'https://app.epitranquille.com/signup/',
     },
     features: [
       'Gestion du registre',
@@ -37,7 +37,7 @@ const plans = [
       'Parfait pour les indépendants qui veulent gérer leur parc EPI de manière simple.',
     button: {
       label: "S'inscrire",
-      href: '#',
+      href: 'https://app.epitranquille.com/signup/',
     },
     features: [
       'Gestion du registre',
@@ -59,7 +59,7 @@ const plans = [
       "Adapté pour les bureaux, les clubs et les indépendants avec plus d'EPI.",
     button: {
       label: "S'inscrire",
-      href: '#',
+      href: 'https://app.epitranquille.com/signup/',
     },
     features: [
       'Gestion du registre',
@@ -84,7 +84,7 @@ const plans = [
       "À destination des salles d'escalade, des collectivités ou des gros clubs.",
     button: {
       label: "S'inscrire",
-      href: '#',
+      href: 'https://app.epitranquille.com/signup/',
     },
     features: [
       'Gestion du registre',
