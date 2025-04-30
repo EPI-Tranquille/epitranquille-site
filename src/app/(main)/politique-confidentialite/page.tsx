@@ -485,9 +485,9 @@ export default function PolitiqueConfidentialite() {
             <a
               target="_blank"
               rel="noopener noreferrer nofollow"
-              href="mailto:contact@epitranquille.com"
+              href="mailto:data@epitranquille.com"
             >
-              contact@epitranquille.com
+              data@epitranquille.com
             </a>
             .
           </p>

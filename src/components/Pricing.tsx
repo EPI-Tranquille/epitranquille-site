@@ -32,7 +32,7 @@ const plans = [
   {
     name: 'Indépendant',
     featured: false,
-    price: { Monthly: '4 €', Annually: '48 €' },
+    price: { Monthly: '5 €', Annually: '54 €' },
     description:
       'Parfait pour les indépendants qui veulent gérer leur parc EPI de manière simple.',
     button: {
@@ -54,7 +54,7 @@ const plans = [
   {
     name: 'Premium',
     featured: true,
-    price: { Monthly: '12 €', Annually: '144 €' },
+    price: { Monthly: '13 €', Annually: '140 €' },
     description:
       "Adapté pour les bureaux, les clubs et les indépendants avec plus d'EPI.",
     button: {
@@ -79,7 +79,7 @@ const plans = [
   {
     name: 'Entreprise',
     featured: false,
-    price: { Monthly: '35 €', Annually: '420 €' },
+    price: { Monthly: '40 €', Annually: '432 €' },
     description:
       "À destination des salles d'escalade, des collectivités ou des gros clubs.",
     button: {
