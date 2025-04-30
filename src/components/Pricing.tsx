@@ -296,7 +296,7 @@ export default function Pricing() {
             >
               {[
                 ['Monthly', 'Mensuellement'],
-                ['Annually', 'Annuellement'],
+                ['Annually', 'Annuellement (-10%)'],
               ].map(([period, periodLabel]) => (
                 <div
                   key={period}
