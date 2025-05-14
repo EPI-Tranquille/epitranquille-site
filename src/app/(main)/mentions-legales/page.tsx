@@ -62,10 +62,10 @@ export default function MentionsLegales() {
           <h3>1.1 Éditeur (ci-après « l'Éditeur »)</h3>
           <p>
             L’édition, la direction et la publication du présent Site est
-            assurée par l’entreprise individuelle Samuel Girardin, domiciliée 11
-            rue fondère 13004 Marseille et immatriculée au RNE sous le numéro
-            822551941, dont le numéro de téléphone est 0752673234, et l'adresse
-            e-mail{' '}
+            assurée par l’entreprise individuelle Samuel Girardin, domiciliée 17
+            rue de la pierre ronde 21190 Saint-Romain et immatriculée au RNE
+            sous le numéro 822551941, dont le numéro de téléphone est
+            0752673234, et l'adresse e-mail{' '}
             <a
               target="_blank"
               rel="noopener noreferrer nofollow"

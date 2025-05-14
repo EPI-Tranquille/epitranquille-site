@@ -269,13 +269,13 @@ export default function Pricing() {
             >
               {[
                 ['Monthly', 'Mensuellement'],
-                ['Annually', 'Annuellement'],
+                ['Annually', 'Annuellement (-10%)'],
               ].map(([period, periodLabel]) => (
                 <Radio
                   key={period}
                   value={period}
                   className={clsx(
-                    'cursor-pointer border border-gray-300 px-[calc(theme(spacing.3)-1px)] py-[calc(theme(spacing.2)-1px)] text-sm text-gray-700 outline-2 outline-offset-2 transition-colors hover:border-gray-400',
+                    'cursor-pointer border border-gray-300 px-[calc(theme(spacing.3)-1px)] py-[calc(theme(spacing.2)-1px)] text-center text-sm text-gray-700 outline-2 outline-offset-2 transition-colors hover:border-gray-400',
                     period === 'Monthly'
                       ? 'rounded-l-lg'
                       : '-ml-px rounded-r-lg',
@@ -301,7 +301,7 @@ export default function Pricing() {
                 <div
                   key={period}
                   className={clsx(
-                    'py-2 text-center text-sm font-semibold text-white',
+                    'shrink-0 py-2 text-center text-sm font-semibold text-white',
                     period === 'Annually' && '-ml-px',
                   )}
                 >

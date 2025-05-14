@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={clsx('bg-gray-50 antialiased', inter.variable)}>
       <CSPostHogProvider>
-        <body>
+        <body className="flex h-full flex-col">
           {children}
           <SpeedInsights />
         </body>

@@ -17,12 +17,14 @@ export function CallToAction() {
             Commencez aujourd'hui
           </h2>
           <p className="mt-4 text-lg text-gray-300">
-            Créer un compte gratuitement prends 1 minute et ensuite vous pourrez
+            Créer un compte gratuitement prend 1 minute pour pouvoir ensuite
             commencer à gérer vos EPI.
           </p>
           <div className="mt-8 flex justify-center">
             {/* <AppStoreLink color="white" /> */}
-            <Button color="white" href="https://app.epitranquille.com/signup/">Créer mon compte</Button>
+            <Button color="white" href="https://app.epitranquille.com/signup/">
+              Créer mon compte
+            </Button>
           </div>
         </div>
       </Container>
