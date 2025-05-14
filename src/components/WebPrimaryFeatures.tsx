@@ -20,7 +20,7 @@ const features = [
   {
     title: 'Base de données',
     description:
-      "Une base de données avec beaucoup d'EPI à portée de clic afin d'accélérer la saisie de vos EPI.",
+      "Une base de données d'EPI à portée de clic afin d'accélérer la saisie de vos EPI.",
     image: screenshotBdd,
   },
   {
@@ -32,7 +32,7 @@ const features = [
   {
     title: 'Utilisateurs',
     description:
-      "Vous êtes plusieurs gestionnaires d'EPI dans un club ou une collectivté ? Vous effectuez les contrôles EPI d'un club en tant que moniteur·rice ? Invitez des personnes à rejoindre un parc EPI pour une gestion collaborative.",
+      "Vous êtes plusieurs gestionnaires d'EPI dans un club ou une collectivité ? Vous effectuez les contrôles EPI d'un club en tant que moniteur·rice ? Invitez des personnes à rejoindre un parc EPI pour une gestion collaborative.",
     image: screenshotMultiUsers,
   },
 ]
