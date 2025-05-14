@@ -78,6 +78,12 @@ export default function Footer() {
               <div className="ml-4">
                 <p className="text-base font-semibold">EPI Tranquille</p>
                 <p className="mt-0.5 text-sm">Gérez vos EPI simplement.</p>
+                <a
+                  href="mailto:contact@epitranquille.com"
+                  className="text-sm text-blue-500 underline"
+                >
+                  contact@epitranquille.com
+                </a>
               </div>
             </div>
             <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">

@@ -136,7 +136,7 @@ export function Hero() {
             </p> */}
             <div className="mt-6 flex flex-wrap gap-x-6 gap-y-4">
               {/* <AppStoreLink /> */}
-              <Button href="https://app.epitranquille.com" variant="outline">
+              <Button href="https://app.epitranquille.com" variant="solid">
                 <PlayIcon className="h-6 w-6 flex-none" />
                 <span className="ml-2.5">Essayer l'application</span>
               </Button>
