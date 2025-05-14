@@ -20,6 +20,7 @@ const navigation = {
     { name: 'À propos (bientôt)', href: '/about' },
     { name: 'Partenaires', href: '/partenaires' },
     { name: 'Devenir partenaire (bientôt)', href: '#' },
+    { name: 'Nous contacter', href: '/contact' },
   ],
   legal: [
     { name: "Conditions générales d'utilisation", href: '/cgu' },

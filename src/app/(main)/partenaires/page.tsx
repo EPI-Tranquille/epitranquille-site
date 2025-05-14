@@ -89,7 +89,7 @@ export default function PartnersPage() {
           <h2 className="section-title">Partenaires</h2>
           <p className="section-subtitle">
             Nous sommes fiers de collaborer avec les partenaires suivants qui
-            nous soutiennent et qui vous permettent d'avoir un tarif
+            nous soutiennent et qui vous permettent de bénéficier d'un tarif
             préférentiel.
           </p>
         </div>
