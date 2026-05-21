@@ -79,7 +79,7 @@ const plans = [
   {
     name: 'Entreprise',
     featured: false,
-    price: { Monthly: '40 €', Annually: '432 €' },
+    price: { Monthly: '50 €', Annually: '540 €' },
     description:
       "À destination des salles d'escalade, des collectivités ou des gros clubs.",
     button: {
