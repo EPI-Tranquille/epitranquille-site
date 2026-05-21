@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google'
 
 import '@/styles/tailwind.css'
 import { CSPostHogProvider } from './providers'
+import CrispChat from '@/components/CrispChat'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -30,6 +31,7 @@ export default function RootLayout({
     <html lang="en" className={clsx('bg-gray-50 antialiased', inter.variable)}>
       <CSPostHogProvider>
         <body className="flex h-full flex-col">
+            <CrispChat />
           {children}
           <SpeedInsights />
         </body>
