@@ -78,6 +78,14 @@ function BackgroundIllustration(props: React.ComponentPropsWithoutRef<'div'>) {
   )
 }
 
+function BoltIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
+      <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" />
+    </svg>
+  )
+}
+
 function ArrowRightIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
@@ -147,12 +155,14 @@ export function Hero() {
             </div>
             <Link
               href="/snapec"
-              className="group mt-10 flex items-center justify-between gap-4 rounded-2xl bg-linear-to-r from-primary to-green-400 px-6 py-4 text-white shadow-lg shadow-primary/20 transition-transform hover:scale-[1.02]"
+              className="group mt-8 inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 py-2 pl-3 pr-4 text-sm text-green-900 transition-colors hover:bg-primary/15"
             >
-              <span className="text-sm font-semibold sm:text-base">
-                Vous êtes au SNAPEC ? Bénéficiez d'un compte gratuitement !
+              <BoltIcon className="h-4 w-4 flex-none text-primary" />
+              <span>
+                <span className="font-semibold">Vous êtes au SNAPEC ?</span>{' '}
+                Bénéficiez d'un compte gratuitement
               </span>
-              <ArrowRightIcon className="h-5 w-5 flex-none transition-transform group-hover:translate-x-1" />
+              <ArrowRightIcon className="h-4 w-4 flex-none transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
           <div className="relative mt-10 sm:mt-20 lg:col-span-5 lg:row-span-2 lg:mt-0 xl:col-span-6">
