@@ -14,13 +14,15 @@ const partners = [
     name: 'SNAPEC',
     role: "Syndicat NAtional des Professionnels de l'Escalade et du Canyoning",
     logo: logo_snapec,
-    href: 'https://snapec.org',
+    href: '/snapec',
+    external: false,
   },
   {
     name: 'SNPSC',
     role: 'Syndicat National des Professionnels de la Spéléologie et du Canyonisme',
     logo: logo_snpsc,
     href: 'https://www.syndicat-speleo-canyon.org',
+    external: true,
   },
 ]
 
@@ -102,10 +104,11 @@ export default function PartnersPage() {
           >
             {partners.map((partner) => (
               <li key={partner.name}>
-                <a
+                <Link
                   href={partner.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  {...(partner.external
+                    ? { target: '_blank', rel: 'noopener noreferrer' }
+                    : {})}
                   className="flex cursor-pointer flex-col items-center gap-4 xl:flex-row"
                 >
                   <Image
@@ -119,7 +122,7 @@ export default function PartnersPage() {
                     </h3>
                     <p className="text-base/7 text-gray-600">{partner.role}</p>
                   </div>
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
