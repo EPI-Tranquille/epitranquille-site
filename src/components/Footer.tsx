@@ -22,7 +22,7 @@ const navigation = {
   company: [
     { name: 'À propos', href: '/about' },
     { name: 'Partenaires', href: '/partenaires' },
-    { name: 'Devenir partenaire (bientôt)', href: '#' },
+    { name: 'Devenir partenaire', href: '/devenir-partenaire' },
     { name: 'Nous contacter', href: '/contact' },
   ],
   legal: [
