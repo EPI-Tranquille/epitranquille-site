@@ -120,7 +120,7 @@ function StepCard({
 export default function SnapecPage() {
   return (
     <>
-      <section className="py-20 sm:py-32">
+      <section className="pt-12 pb-20 sm:pt-16 sm:pb-32">
         <Container>
           <div className="mx-auto max-w-2xl text-center">
             <div className="mb-10 flex items-center justify-center">
@@ -139,13 +139,12 @@ export default function SnapecPage() {
               </a>
             </div>
             <h1 className="section-title">
-              Membre du SNAPEC ? Gérez votre registre EPI simplement.
+              Membre du SNAPEC ? Gérez votre registre EPI facilement et gratuitement.
             </h1>
             <p className="section-subtitle">
-              EPI Tranquille est développée aux côtés du SNAPEC (Syndicat
-              NAtional des Professionnels de l'Escalade et du Canyoning) pour
-              vous simplifier une obligation du métier : le suivi de votre
-              registre EPI. Créez votre compte gratuitement, sans engagement.
+              EPI Tranquille est partenaire du SNAPEC pour
+              simplifier la gestion de vos EPI : un forfait développé spécialement pour vous
+              est mis à disposition gratuitement afin que vous puissiez gérer votre parc et éventuellement ceux des clubs/structures dans lesquels vous travailler.
             </p>
           </div>
 
@@ -189,7 +188,7 @@ export default function SnapecPage() {
                 <>
                   Cliquez sur <strong>« Connexion / Création de compte »</strong> :
                   votre compte EPI Tranquille est créé automatiquement, sans
-                  aucune information à renseigner.
+                  aucune information à renseigner. Vous recevez un mail de confirmation vous invitant à valider votre compte.
                 </>,
                 <>
                   Cliquez sur le lien de vérification reçu par e-mail — c'est
@@ -200,11 +199,11 @@ export default function SnapecPage() {
                 <>
                   Pour vous reconnecter ensuite, utilisez ce même bouton
                   depuis l'extranet si vous êtes déconnecté·e de
-                  l'application.
+                  l'application. Vous pourrez également définir votre mot de passe depuis l'application par la suite.
                 </>
               }
               cta={{
-                label: "Aller sur l'extranet SNAPEC",
+                label: "Aller sur l'extranet du SNAPEC",
                 href: SNAPEC_EXTRANET_URL,
                 external: true,
               }}
@@ -224,43 +223,17 @@ export default function SnapecPage() {
                 </>,
                 <>Votre adhésion active est vérifiée automatiquement.</>,
                 <>
-                  Votre compte est créé gratuitement, avec une formule conçue
-                  sur mesure pour vous.
+                  Votre compte est créé gratuitement. Vous recevez un mail de confirmation vous invitant à valider votre compte.
+                </>,
+                 <>
+                  Cliquez sur le lien de vérification reçu par e-mail — c'est
+                  prêt.
                 </>,
               ]}
-              cta={{ label: 'Créer mon compte', href: SIGNUP_URL }}
+              cta={{ label: 'Créer mon compte gratuitement', href: SIGNUP_URL }}
             />
           </div>
 
-          <div className="mx-auto mt-24 max-w-2xl text-center">
-            <h2 className="section-title">Pourquoi EPI Tranquille ?</h2>
-          </div>
-          <div className="mx-auto mt-12 grid max-w-2xl grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-3">
-            {benefits.map((benefit) => (
-              <div key={benefit.title} className="rounded-3xl bg-gray-50 p-8">
-                <h3 className="text-lg font-semibold text-gray-900">
-                  {benefit.title}
-                </h3>
-                <p className="mt-3 text-sm text-gray-700">
-                  {benefit.description}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mx-auto mt-20 max-w-2xl text-center">
-            <Button href={SIGNUP_URL} variant="solid">
-              Créer mon compte gratuitement
-            </Button>
-            <p className="mt-4 text-sm text-gray-600">
-              Vous avez déjà plus de 50 EPI ou besoin de gérer plusieurs
-              parcs ? Découvrez nos{' '}
-              <Link href="/#pricing" className="underline">
-                autres formules
-              </Link>
-              .
-            </p>
-          </div>
         </Container>
       </section>
       <Faqs />

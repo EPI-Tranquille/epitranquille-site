@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <section className="py-20 sm:py-32">
+    <section className="pt-12 pb-20 sm:pt-16 sm:pb-32">
       <Container>
         <h1 className="section-title">Nous contacter</h1>
         <p className="section-subtitle">
@@ -17,8 +17,8 @@ export default function ContactPage() {
             className="text-blue-500 underline hover:text-blue-600"
           >
             contact@epitranquille.com
-          </a>
-          .
+          </a>{' '}
+          ou bien via le chat en bas à droite, nous répondrons avec plaisir à vos questions !
         </p>
       </Container>
     </section>
