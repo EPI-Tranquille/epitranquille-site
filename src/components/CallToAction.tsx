@@ -1,11 +1,13 @@
 import { CircleBackground } from '@/components/CircleBackground'
 import { Container } from '@/components/Container'
 import { Button } from './Button'
+import { AppStoreLink } from './AppStoreLink'
+import { GooglePlayLink } from './GooglePlayLink'
 
 export function CallToAction() {
   return (
     <section
-      id="get-free-shares-today"
+      id="essai-gratuit"
       className="relative overflow-hidden bg-gray-900 py-20 sm:py-28"
     >
       <div className="absolute left-20 top-1/2 -translate-y-1/2 sm:left-1/2 sm:-translate-x-1/2">
@@ -21,10 +23,13 @@ export function CallToAction() {
             commencer à gérer vos EPI.
           </p>
           <div className="mt-8 flex justify-center">
-            {/* <AppStoreLink color="white" /> */}
             <Button color="white" href="https://app.epitranquille.com/signup/">
               Créer mon compte
             </Button>
+          </div>
+          <div className="mt-6 flex flex-wrap justify-center gap-4">
+            <AppStoreLink color="white" />
+            <GooglePlayLink color="white" />
           </div>
         </div>
       </Container>

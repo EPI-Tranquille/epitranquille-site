@@ -1,6 +1,7 @@
 import { Container } from '@/components/Container'
 import { type Metadata } from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
 import logo_snapec from '@/images/logos/logo_snapec.png'
 import logo_snpsc from '@/images/logos/logo_snpsc.jpeg'
 
@@ -122,6 +123,16 @@ export default function PartnersPage() {
               </li>
             ))}
           </ul>
+        </div>
+
+        <div className="mx-auto mt-16 max-w-2xl text-center">
+          <p className="text-base text-gray-600">
+            Membre du SNAPEC ?{' '}
+            <Link href="/snapec" className="font-semibold text-primary underline">
+              Créez votre compte EPI Tranquille gratuitement
+            </Link>
+            .
+          </p>
         </div>
       </Container>
     </section>

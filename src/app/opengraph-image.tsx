@@ -1,0 +1,73 @@
+import { ImageResponse } from 'next/og'
+
+export const alt = 'EPI Tranquille - Gérez vos EPI simplement.'
+export const size = { width: 1200, height: 630 }
+export const contentType = 'image/png'
+
+export default async function Image() {
+  return new ImageResponse(
+    (
+      <div
+        style={{
+          width: '100%',
+          height: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'flex-start',
+          justifyContent: 'center',
+          padding: '80px',
+          background: '#08c770',
+          backgroundImage:
+            'radial-gradient(circle at 85% 20%, rgba(255,255,255,0.16), rgba(255,255,255,0) 45%), radial-gradient(circle at 100% 100%, rgba(0,0,0,0.12), rgba(0,0,0,0) 55%)',
+        }}
+      >
+        <svg
+          width="96"
+          height="96"
+          viewBox="0 0 217.753 271.076"
+          fill="none"
+          style={{ marginBottom: 40 }}
+        >
+          <g transform="translate(-376.91 -336.247)">
+            <path
+              d="m564.291 412.109-4.537-13.666a13.543 13.543 0 0 0-12.596-9.233l-3.351-10.095c-13.56-40.844-63.358-56.108-97.476-29.879l-40.843 31.391c-31 23.834-37.783 67.828-15.403 99.894l71.038 101.73c14.966 21.232 42.035 30.212 66.724 22.137l25.958-8.62c30.785-10.26 47.456-43.505 37.264-74.313l-1.687-5.083c4.53-3.51 6.36-9.49 4.57-14.933l-4.537-13.666c4.53-3.51 6.36-9.49 4.57-14.933l-17.099-51.498a13.543 13.543 0 0 0-12.595-9.233zm-26.374 92.764 4.538 13.665a13.543 13.543 0 0 0 12.595 9.234l1.688 5.082c3.919 11.85-2.493 24.636-14.333 28.583l-25.958 8.619a22.737 22.737 0 0 1-25.659-8.513l-71.04-101.734c-11.315-16.21-7.886-38.452 7.786-50.501l40.843-31.392c14.386-11.056 35.38-4.62 41.098 12.599l3.352 10.095a13.543 13.543 0 0 0-4.571 14.933l4.537 13.665a13.543 13.543 0 0 0-4.57 14.934l17.1 51.497a13.543 13.543 0 0 0 12.594 9.234zm-21.078-92.18a4.526 4.526 0 0 1 2.866-5.717l25.75-8.55a4.526 4.526 0 0 1 5.716 2.867l4.275 12.875-34.332 11.4zm65.664 97.312-25.749 8.55a4.526 4.526 0 0 1-5.716-2.866l-4.275-12.875 34.332-11.4 4.275 12.875a4.526 4.526 0 0 1-2.867 5.716zm2.9-34.315a4.526 4.526 0 0 1-2.867 5.716l-42.914 14.25a4.526 4.526 0 0 1-5.717-2.866l-17.1-51.498a4.526 4.526 0 0 1 2.867-5.717l42.915-14.249a4.526 4.526 0 0 1 5.716 2.867z"
+              fill="#ffffff"
+            />
+          </g>
+        </svg>
+        <div
+          style={{
+            display: 'flex',
+            fontSize: 72,
+            fontWeight: 700,
+            color: '#ffffff',
+            letterSpacing: '-0.02em',
+          }}
+        >
+          EPI Tranquille
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            marginTop: 20,
+            fontSize: 34,
+            color: 'rgba(255,255,255,0.92)',
+          }}
+        >
+          Gérez vos EPI simplement, sur le web et mobile.
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            marginTop: 28,
+            fontSize: 24,
+            color: 'rgba(255,255,255,0.72)',
+          }}
+        >
+          Escalade · Canyoning · Spéléologie · Via ferrata · PAH
+        </div>
+      </div>
+    ),
+    { ...size },
+  )
+}

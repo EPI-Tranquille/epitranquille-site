@@ -14,6 +14,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://epitranquille.com'),
   title: {
     template: '%s - EPI Tranquille',
     default: 'EPI Tranquille - Gérez vos EPI simplement.',
@@ -28,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={clsx('bg-gray-50 antialiased', inter.variable)}>
+    <html lang="fr" className={clsx('bg-gray-50 antialiased', inter.variable)}>
       <CSPostHogProvider>
         <body className="flex h-full flex-col">
             <CrispChat />

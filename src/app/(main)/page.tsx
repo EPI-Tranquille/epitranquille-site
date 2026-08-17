@@ -1,7 +1,8 @@
 import { CallToAction } from '@/components/CallToAction'
+import { Faqs } from '@/components/Faqs'
 import { Hero } from '@/components/Hero'
-// import { Pricing } from '@/components/Pricing'
-import { PrimaryFeatures } from '@/components/WebPrimaryFeatures'
+import { PrimaryFeatures } from '@/components/PrimaryFeatures'
+import { WebFeatures } from '@/components/WebPrimaryFeatures'
 import dynamic from 'next/dynamic'
 import {
   OnlineBusiness,
@@ -66,11 +67,10 @@ export default function Home() {
       />
       <Hero />
       <PrimaryFeatures />
-      {/* <SecondaryFeatures /> */}
-      {/* <Reviews /> */}
+      <WebFeatures />
       <Pricing />
       <CallToAction />
-      {/* <Faqs /> */}
+      <Faqs />
     </>
   )
 }

@@ -3,53 +3,53 @@ import { Container } from '@/components/Container'
 const faqs = [
   [
     {
-      question: 'How do I know the tips are good?',
+      question: "Suis-je obligé d'avoir un registre EPI ?",
       answer:
-        'Our whole business depends on our tips being good, so it’s in our best interest that they are. The results of our customers speak for themselves, just trust us.',
+        "Dans votre pratique professionnelle d'encadrement d'activités utilisant des EPI, vous devez vous assurer d'avoir le registre EPI du matériel que vous utilisez (que vous soyez indépendant ou salarié). Les EPI doivent être valides et un contrôle annuel doit être effectué. Idem pour l'utilisation d'EPI dans une pratique associative en club.",
     },
     {
-      question: 'Isn’t this insider trading?',
+      question: 'Puis-je importer mon fichier Excel/Google Sheet/CSV ?',
       answer:
-        'Yes exactly. But at scale! Historically you could only make insider trades with knowledge from your direct network. Pocket brings you insider trading tips from people you don’t even know.',
+        "Oui pour gagner du temps vous pouvez importer votre registre EPI depuis un fichier Excel sur l'application web. Ce fichier doit respecter quelques règles de format mais c'est rapide si toutes les informations sont là !",
     },
     {
-      question: 'But isn’t insider trading illegal?',
+      question: 'Est-ce que je gagne du temps avec cet outil ?',
       answer:
-        'Here’s the thing: you’re the one doing the insider trading, not us. We’re just giving you the tips and some tools to make trades. We’re not doing anything wrong here.',
-    },
-  ],
-  [
-    {
-      question: 'Do the people giving you tips realize what they are doing?',
-      answer:
-        'Again I would argue this isn’t really our responsibility. People make their own choices. If they don’t research the consequences that’s on them, not on us.',
-    },
-    {
-      question: 'Where is Pocket based?',
-      answer:
-        'Let’s just say it’s not somewhere where the SEC is going to find us.',
-    },
-    {
-      question: 'Is there any age limit to trading on Pocket?',
-      answer:
-        'For our free plan, the age limit is based on the minimum age to trade in your country of residence. Our VIP plan uses advanced transaction anonymization though, so you can use that plan even if you’re 9 years old. Or a dog.',
+        "Oui : l'ajout d'un EPI depuis notre base de données, les contrôles par lot et les alertes automatiques de péremption remplacent en quelques clics ce qui prenait auparavant des heures sur un tableur.",
     },
   ],
   [
     {
-      question: 'How did you get this on the App Store?',
+      question: "L'application est-elle disponible sur mobile et sur le web ?",
       answer:
-        'Honestly we were surprised too, but eventually we found out that the app reviewer found the app so compelling they approved it just so they could use it themselves.',
+        "EPI Tranquille est disponible dès maintenant sur le web, accessible depuis n'importe quel navigateur. Notre application mobile iOS et Android arrive très prochainement pour retrouver votre registre directement sur le terrain.",
     },
     {
-      question: 'How do I explain the money I withdraw from Pocket to the IRS?',
+      question: 'Puis-je essayer EPI Tranquille gratuitement ?',
       answer:
-        'This feels like one-hundred percent a you problem. Pocket is not responsible in any way for your tax returns.',
+        "Oui, la formule Basique est gratuite et permet de gérer jusqu'à 50 EPI sans limite de durée. Vous pouvez ensuite passer à une formule payante à tout moment si vous avez besoin de plus de fonctionnalités ou d'EPI.",
     },
     {
-      question: 'How do I become an insider?',
+      question: 'Puis-je gérer plusieurs parcs EPI avec un seul compte ?',
       answer:
-        'Contact us with some details about your industry and the type of access you have to apply for an insider account. Once approved, we’ll send you a guide on collecting insider information without being detected at work.',
+        'Oui, selon votre formule vous pouvez créer plusieurs parcs EPI (par structure, activité ou site) et inviter d’autres utilisateurs à les gérer avec vous.',
+    },
+  ],
+  [
+    {
+      question: "Est-ce que je peux être accompagné·e pour l'import de mon registre ?",
+      answer:
+        "Notre équipe est disponible par e-mail pour vous accompagner, notamment sur l'import d'un registre existant. Les formules Premium et Entreprise bénéficient en plus d'un support prioritaire.",
+    },
+    {
+      question: 'Puis-je accéder à mon registre hors-ligne ?',
+      answer:
+        "Oui ! Vous pouvez télécharger votre registre EPI en PDF depuis le web, et l'application mobile intègre un mode hors connexion : vos EPI et vos contrôles restent consultables sans réseau, avec une synchronisation automatique dès que la connexion revient.",
+    },
+    {
+      question: 'Où sont stockées mes données ?',
+      answer:
+        'Vos données sont stockées de manière sécurisée en Europe chez un hébergeur français. Vous pouvez les récupérer à tout moment.',
     },
   ],
 ]
@@ -67,15 +67,15 @@ export function Faqs() {
             id="faqs-title"
             className="text-3xl font-medium tracking-tight text-gray-900"
           >
-            Frequently asked questions
+            Questions fréquentes
           </h2>
           <p className="mt-2 text-lg text-gray-600">
-            If you have anything else you want to ask,{' '}
+            Trouvez rapidement la réponse à vos questions et sinon n'hésitez pas à {' '}
             <a
-              href="mailto:info@example.com"
+              href="mailto:contact@epitranquille.com"
               className="text-gray-900 underline"
             >
-              reach out to us
+              nous contacter
             </a>
             .
           </p>

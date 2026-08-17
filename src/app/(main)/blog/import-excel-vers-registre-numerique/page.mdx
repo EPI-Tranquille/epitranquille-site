@@ -1,0 +1,50 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+
+export const article = {
+  title: "Passer d'un fichier Excel à un registre numérique en 5 minutes",
+  description:
+    "Vous gérez déjà votre registre EPI sur un fichier Excel ? Voici comment le retrouver dans EPI Tranquille en quelques minutes, sans ressaisir vos données à la main.",
+  author: 'EPI Tranquille',
+  date: '2026-09-08',
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default (props) => <ArticleLayout article={article} {...props} />
+
+L'une des craintes les plus fréquentes quand on change d'outil, c'est de
+devoir tout ressaisir à la main. Avec un registre qui compte parfois des
+dizaines, voire des centaines d'EPI, cela peut suffire à repousser le
+changement indéfiniment — même quand le tableur Excel montre ses limites.
+
+C'est pour ça que l'import d'un registre existant fait partie des
+fonctionnalités disponibles dès la formule Indépendant.
+
+## Ce qu'il faut préparer
+
+Pour que l'import se passe sans accroc, votre fichier doit respecter
+quelques règles de format simples : une ligne par EPI, des colonnes
+identifiables (modèle, fabricant, numéro de série, date de mise en
+service...). Si votre registre actuel est déjà structuré de cette façon,
+l'import se fait en quelques minutes.
+
+## Et si mon fichier n'est pas au bon format ?
+
+Pas de panique. Notre équipe est disponible par e-mail pour vous accompagner
+sur l'import, et les formules Premium et Entreprise incluent une aide
+dédiée à la mise en forme de votre fichier avant import.
+
+## Après l'import
+
+Une fois votre registre importé, vous retrouvez l'ensemble de vos EPI dans
+l'application, avec la possibilité de compléter les informations
+manquantes, de paramétrer vos alertes de contrôle et d'inviter d'autres
+utilisateurs à gérer le parc avec vous.
+
+Envie de tester avec votre propre fichier ?
+[Créez un compte gratuitement](https://app.epitranquille.com/signup/) et
+contactez-nous à [contact@epitranquille.com](mailto:contact@epitranquille.com)
+pour être accompagné·e sur votre import.

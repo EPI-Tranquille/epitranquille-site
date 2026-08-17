@@ -111,11 +111,17 @@ export function Header() {
                             <MobileNavLink href="/#features">
                               Fonctionnalités
                             </MobileNavLink>
-                            {/* <MobileNavLink href="/#reviews">Avis</MobileNavLink> */}
                             <MobileNavLink href="/#pricing">
                               Tarifs
                             </MobileNavLink>
-                            {/* <MobileNavLink href="/#faqs">FAQs</MobileNavLink> */}
+                            <MobileNavLink href="/pour-qui">
+                              Pour qui ?
+                            </MobileNavLink>
+                            <MobileNavLink href="/#faqs">FAQ</MobileNavLink>
+                            <MobileNavLink href="/blog">Blog</MobileNavLink>
+                            <MobileNavLink href="/partenaires">
+                              Partenaires
+                            </MobileNavLink>
                           </div>
                           <div className="mt-8 flex flex-col gap-4">
                             <Button href="https://app.epitranquille.com" variant="outline">

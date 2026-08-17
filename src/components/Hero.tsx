@@ -2,10 +2,11 @@ import { useId } from 'react'
 
 import { Container } from '@/components/Container'
 import { PhoneFrame } from '@/components/PhoneFrame'
-import Link from 'next/link'
-import { AppScreen } from './AppScreen'
-import { LaunchForm } from './LaunchForm'
+import Image from 'next/image'
 import { Button } from './Button'
+import { AppStoreLink } from './AppStoreLink'
+import { GooglePlayLink } from './GooglePlayLink'
+import screenshotHero from '@/images/mobile/hero.jpg'
 
 function BackgroundIllustration(props: React.ComponentPropsWithoutRef<'div'>) {
   let id = useId()
@@ -89,25 +90,6 @@ function PlayIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
-function RocketLaunch(props: React.ComponentPropsWithoutRef<'svg'>) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke-width="1.5"
-      stroke="currentColor"
-      {...props}
-    >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        d="M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.631 8.41m5.96 5.96a14.926 14.926 0 0 1-5.841 2.58m-.119-8.54a6 6 0 0 0-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 0 0-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 0 1-2.448-2.448 14.9 14.9 0 0 1 .06-.312m-2.24 2.39a4.493 4.493 0 0 0-1.757 4.306 4.493 4.493 0 0 0 4.306-1.758M16.5 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"
-      />
-    </svg>
-  )
-}
-
 export function Hero() {
   return (
     <div className="sm:py-26 overflow-hidden py-20 lg:pb-20 xl:pb-20">
@@ -118,8 +100,6 @@ export function Hero() {
               Gérez vos EPI simplement.
             </h1>
             <p className="mt-6 text-lg text-gray-600">
-              {/* Enfin une solution simple et rapide pour gérer son parc EPI que */}
-              {/* vous soyez moniteur·rice d'escalade, de canyoning, de spéléo, de via ferrata ou de grimpe d'arbres, guide de haute montagne ou enco */}
               Enfin une solution simple et rapide pour gérer ses parcs EPI.
               <br />
               Conçu spécifiquement pour les moniteur·rices d'escalade, de
@@ -130,68 +110,36 @@ export function Hero() {
             <p className="mt-4 text-lg text-gray-600">
               Disponible sur le web et bientôt disponible sur iOS et Android.
             </p>
-            {/* <p className="mt-2 text-lg text-gray-600">
-              Particuliers, Indépendants, Associations ou Entreprises vous allez
-              trouvez la formule qui vous convient.
-            </p> */}
             <div className="mt-6 flex flex-wrap gap-x-6 gap-y-4">
-              {/* <AppStoreLink /> */}
-              <Button href="https://app.epitranquille.com" variant="solid">
+              <Button
+                href="https://app.epitranquille.com/signup/"
+                variant="solid"
+              >
                 <PlayIcon className="h-6 w-6 flex-none" />
-                <span className="ml-2.5">Essayer l'application</span>
+                <span className="ml-2.5">Essayer gratuitement</span>
               </Button>
-
-              {/* <Button href="#" variant="outline">
-                <span className="ml-2.5">
-                  Bientôt disponible en version web et mobile
-                </span>
-              </Button> */}
-              {/* <LaunchForm className="item mt-6 sm:flex" />
-            <p className="mt-1 text-xs leading-5 text-gray-400">
-              Promis on ne vous enverra pas plus de deux e-mails. Lire notre{' '}
-              <Link href="/politique-confidentialite" className="underline">
-                politique de confidentialité
-              </Link>
-              .
-            </p> */}
+              <Button href="#pricing" variant="outline">
+                <span>Voir les tarifs</span>
+              </Button>
+            </div>
+            <div className="mt-6 flex flex-wrap items-center gap-4">
+              <AppStoreLink />
+              <GooglePlayLink />
             </div>
           </div>
           <div className="relative mt-10 sm:mt-20 lg:col-span-5 lg:row-span-2 lg:mt-0 xl:col-span-6">
             <BackgroundIllustration className="absolute left-1/2 top-4 h-[1026px] w-[1026px] -translate-x-1/3 stroke-gray-300/70 [mask-image:linear-gradient(to_bottom,white_20%,transparent_75%)] sm:top-16 sm:-translate-x-1/2 lg:-top-16 lg:ml-12 xl:-top-14 xl:ml-0" />
             <div className="-mx-4 h-[448px] px-9 [mask-image:linear-gradient(to_bottom,white_60%,transparent)] sm:mx-0 lg:absolute lg:-inset-x-10 lg:-bottom-20 lg:-top-10 lg:h-auto lg:px-0 lg:pt-10 xl:-bottom-32">
               <PhoneFrame className="mx-auto max-w-[366px]" priority>
-                {/* <AppDemo /> */}
-                <AppScreen className="text-center">
-                  {/* <AppScreen.Title>App mobile</AppScreen.Title> */}
-                  <AppScreen.Subtitle>Visuel à venir...</AppScreen.Subtitle>
-                </AppScreen>
+                <Image
+                  src={screenshotHero}
+                  alt="Tableau de bord de l'application mobile EPI Tranquille"
+                  className="h-full w-full object-cover"
+                  priority
+                />
               </PhoneFrame>
             </div>
           </div>
-          {/* <div className="relative -mt-4 lg:col-span-7 lg:mt-0 xl:col-span-6">
-            <p className="text-center text-sm font-semibold text-gray-900 lg:text-left">
-              As featured in
-            </p>
-            <ul
-              role="list"
-              className="mx-auto mt-8 flex max-w-xl flex-wrap justify-center gap-x-10 gap-y-8 lg:mx-0 lg:justify-start"
-            >
-              {[
-                ['Forbes', logoForbes],
-                ['TechCrunch', logoTechcrunch],
-                ['Wired', logoWired],
-                ['CNN', logoCnn, 'hidden xl:block'],
-                ['BBC', logoBbc],
-                ['CBS', logoCbs],
-                ['Fast Company', logoFastCompany],
-                ['HuffPost', logoHuffpost, 'hidden xl:block'],
-              ].map(([name, logo, className]) => (
-                <li key={name} className={clsx('flex', className)}>
-                  <Image src={logo} alt={name} className="h-8" unoptimized />
-                </li>
-              ))}
-            </ul>
-          </div> */}
         </div>
       </Container>
     </div>
