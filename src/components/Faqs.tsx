@@ -1,58 +1,82 @@
+import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
+
 import { Container } from '@/components/Container'
 
 const faqs = [
-  [
-    {
-      question: "Suis-je obligé d'avoir un registre EPI ?",
-      answer:
-        "Dans votre pratique professionnelle d'encadrement d'activités utilisant des EPI, vous devez vous assurer d'avoir le registre EPI du matériel que vous utilisez (que vous soyez indépendant ou salarié). Les EPI doivent être valides et un contrôle annuel doit être effectué. Idem pour l'utilisation d'EPI dans une pratique associative en club.",
-    },
-    {
-      question: 'Puis-je importer mon fichier Excel/Google Sheet/CSV ?',
-      answer:
-        "Oui pour gagner du temps vous pouvez importer votre registre EPI depuis un fichier Excel sur l'application web. Ce fichier doit respecter quelques règles de format mais c'est rapide si toutes les informations sont là !",
-    },
-    {
-      question: 'Est-ce que je gagne du temps avec cet outil ?',
-      answer:
-        "Oui : l'ajout d'un EPI depuis notre base de données, les contrôles par lot et les alertes automatiques de péremption remplacent en quelques clics ce qui prenait auparavant des heures sur un tableur.",
-    },
-  ],
-  [
-    {
-      question: "L'application est-elle disponible sur mobile et sur le web ?",
-      answer:
-        "EPI Tranquille est disponible dès maintenant sur le web, accessible depuis n'importe quel navigateur. Notre application mobile iOS et Android arrive très prochainement pour retrouver votre registre directement sur le terrain.",
-    },
-    {
-      question: 'Puis-je essayer EPI Tranquille gratuitement ?',
-      answer:
-        "Oui, la formule Basique est gratuite et permet de gérer jusqu'à 50 EPI sans limite de durée. Vous pouvez ensuite passer à une formule payante à tout moment si vous avez besoin de plus de fonctionnalités ou d'EPI.",
-    },
-    {
-      question: 'Puis-je gérer plusieurs parcs EPI avec un seul compte ?',
-      answer:
-        'Oui, selon votre formule vous pouvez créer plusieurs parcs EPI (par structure, activité ou site) et inviter d’autres utilisateurs à les gérer avec vous.',
-    },
-  ],
-  [
-    {
-      question: "Est-ce que je peux être accompagné·e pour l'import de mon registre ?",
-      answer:
-        "Notre équipe est disponible par e-mail pour vous accompagner, notamment sur l'import d'un registre existant. Les formules Premium et Entreprise bénéficient en plus d'un support prioritaire.",
-    },
-    {
-      question: 'Puis-je accéder à mon registre hors-ligne ?',
-      answer:
-        "Oui ! Vous pouvez télécharger votre registre EPI en PDF depuis le web, et l'application mobile intègre un mode hors connexion : vos EPI et vos contrôles restent consultables sans réseau, avec une synchronisation automatique dès que la connexion revient.",
-    },
-    {
-      question: 'Où sont stockées mes données ?',
-      answer:
-        'Vos données sont stockées de manière sécurisée en Europe chez un hébergeur français. Vous pouvez les récupérer à tout moment.',
-    },
-  ],
+  {
+    question: "Suis-je obligé d'avoir un registre EPI ?",
+    answer:
+      "Dans votre pratique professionnelle d'encadrement d'activités utilisant des EPI, vous devez vous assurer d'avoir le registre EPI du matériel que vous utilisez (que vous soyez indépendant ou salarié). Les EPI doivent être valides et un contrôle annuel doit être effectué. Idem pour l'utilisation d'EPI dans une pratique associative en club.",
+  },
+  {
+    question: 'Puis-je importer mon fichier Excel/Google Sheet/CSV ?',
+    answer:
+      "Oui pour gagner du temps vous pouvez importer votre registre EPI depuis un fichier Excel sur l'application web. Ce fichier doit respecter quelques règles de format mais c'est rapide si toutes les informations sont là !",
+  },
+  {
+    question: 'Est-ce que je gagne du temps avec cet outil ?',
+    answer:
+      "Oui : l'ajout d'un EPI depuis notre base de données, les contrôles par lot et les alertes automatiques de péremption remplacent en quelques clics ce qui prenait auparavant des heures sur un tableur.",
+  },
+  {
+    question: "L'application est-elle disponible sur mobile et sur le web ?",
+    answer:
+      "EPI Tranquille est disponible dès maintenant sur le web, accessible depuis n'importe quel navigateur. Notre application mobile iOS et Android arrive très prochainement pour retrouver votre registre directement sur le terrain.",
+  },
+  {
+    question: 'Puis-je essayer EPI Tranquille gratuitement ?',
+    answer:
+      "Oui, la formule Basique est gratuite et permet de gérer jusqu'à 50 EPI sans limite de durée. Vous pouvez ensuite passer à une formule payante à tout moment si vous avez besoin de plus de fonctionnalités ou d'EPI.",
+  },
+  {
+    question: 'Puis-je gérer plusieurs parcs EPI avec un seul compte ?',
+    answer:
+      'Oui, selon votre formule vous pouvez créer plusieurs parcs EPI (par structure, activité ou site) et inviter d’autres utilisateurs à les gérer avec vous.',
+  },
+  {
+    question: "Est-ce que je peux être accompagné·e pour l'import de mon registre ?",
+    answer:
+      "Notre équipe est disponible par e-mail pour vous accompagner, notamment sur l'import d'un registre existant. Les formules Premium et Entreprise bénéficient en plus d'un support prioritaire.",
+  },
+  {
+    question: 'Puis-je accéder à mon registre hors-ligne ?',
+    answer:
+      "Oui ! Vous pouvez télécharger votre registre EPI en PDF depuis le web, et l'application mobile intègre un mode hors connexion : vos EPI et vos contrôles restent consultables sans réseau, avec une synchronisation automatique dès que la connexion revient.",
+  },
+  {
+    question: 'Où sont stockées mes données ?',
+    answer:
+      'Vos données sont stockées de manière sécurisée en Europe chez un hébergeur français. Vous pouvez les récupérer à tout moment.',
+  },
 ]
+
+function PlusSmallIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
+      <path
+        d="M12 6.75v10.5M6.75 12h10.5"
+        stroke="currentColor"
+        strokeWidth={1.5}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
+function MinusSmallIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
+      <path
+        d="M6.75 12h10.5"
+        stroke="currentColor"
+        strokeWidth={1.5}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
 
 export function Faqs() {
   return (
@@ -63,14 +87,12 @@ export function Faqs() {
     >
       <Container>
         <div className="mx-auto max-w-2xl lg:mx-0">
-          <h2
-            id="faqs-title"
-            className="text-3xl font-medium tracking-tight text-gray-900"
-          >
+          <h2 id="faqs-title" className="section-title">
             Questions fréquentes
           </h2>
-          <p className="mt-2 text-lg text-gray-600">
-            Trouvez rapidement la réponse à vos questions et sinon n'hésitez pas à {' '}
+          <p className="section-subtitle">
+            Trouvez rapidement la réponse à vos questions et sinon n'hésitez
+            pas à{' '}
             <a
               href="mailto:contact@epitranquille.com"
               className="text-gray-900 underline"
@@ -80,25 +102,26 @@ export function Faqs() {
             .
           </p>
         </div>
-        <ul
-          role="list"
-          className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:max-w-none lg:grid-cols-3"
-        >
-          {faqs.map((column, columnIndex) => (
-            <li key={columnIndex}>
-              <ul role="list" className="space-y-10">
-                {column.map((faq, faqIndex) => (
-                  <li key={faqIndex}>
-                    <h3 className="text-lg font-semibold leading-6 text-gray-900">
-                      {faq.question}
-                    </h3>
-                    <p className="mt-4 text-sm text-gray-700">{faq.answer}</p>
-                  </li>
-                ))}
-              </ul>
-            </li>
+        <dl className="mx-auto mt-16 max-w-3xl divide-y divide-gray-900/10 sm:mt-20">
+          {faqs.map((faq) => (
+            <Disclosure key={faq.question} as="div" className="py-6 first:pt-0 last:pb-0">
+              <dt>
+                <DisclosureButton className="group flex w-full items-start justify-between text-left text-gray-900">
+                  <span className="text-base/7 font-semibold">
+                    {faq.question}
+                  </span>
+                  <span className="ml-6 flex h-7 items-center">
+                    <PlusSmallIcon className="size-6 group-data-open:hidden" />
+                    <MinusSmallIcon className="size-6 group-not-data-open:hidden" />
+                  </span>
+                </DisclosureButton>
+              </dt>
+              <DisclosurePanel as="dd" className="mt-2 pr-12">
+                <p className="text-base/7 text-gray-600">{faq.answer}</p>
+              </DisclosurePanel>
+            </Disclosure>
           ))}
-        </ul>
+        </dl>
       </Container>
     </section>
   )
