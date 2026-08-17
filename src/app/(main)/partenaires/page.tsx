@@ -110,14 +110,7 @@ export default function PartnersPage() {
           </ul>
         </div>
 
-        <div className="mx-auto mt-16 max-w-2xl space-y-2 text-center">
-          <p className="text-base text-gray-600">
-            Membre du SNAPEC ?{' '}
-            <Link href="/snapec" className="font-semibold text-primary underline">
-              Créez votre compte EPI Tranquille gratuitement
-            </Link>
-            .
-          </p>
+        <div className="mx-auto mt-16 max-w-2xl text-center">
           <p className="text-base text-gray-600">
             Vous représentez un syndicat, un regroupement, un club ou un
             centre de formation ?{' '}
