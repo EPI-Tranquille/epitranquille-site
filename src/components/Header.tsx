@@ -127,7 +127,7 @@ export function Header() {
                             <Button href="https://app.epitranquille.com" variant="outline">
                               Connexion
                             </Button>
-                            <Button href="https://app.epitranquille.com/signup/">Inscription</Button>
+                            <Button href="https://app.epitranquille.com/signup/">Commencer</Button>
                           </div>
                         </PopoverPanel>
                       </>
@@ -140,7 +140,7 @@ export function Header() {
               Connexion
             </Button>
             <Button href="https://app.epitranquille.com/signup/" className="hidden lg:block">
-              Inscription
+              Commencer
             </Button>
           </div>
         </Container>
