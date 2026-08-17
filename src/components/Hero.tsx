@@ -3,6 +3,7 @@ import { useId } from 'react'
 import { Container } from '@/components/Container'
 import { PhoneFrame } from '@/components/PhoneFrame'
 import Image from 'next/image'
+import Link from 'next/link'
 import { Button } from './Button'
 import { AppStoreLink } from './AppStoreLink'
 import { GooglePlayLink } from './GooglePlayLink'
@@ -77,6 +78,20 @@ function BackgroundIllustration(props: React.ComponentPropsWithoutRef<'div'>) {
   )
 }
 
+function ArrowRightIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
+      <path
+        d="M4.5 12h15m0 0-6-6m6 6-6 6"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
 function DesktopIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
@@ -125,14 +140,20 @@ export function Hero() {
                 <DesktopIcon className="h-6 w-6 flex-none" />
                 <span className="ml-2.5">Commencer gratuitement</span>
               </Button>
-              <Button href="#pricing" variant="outline">
-                <span>Voir les tarifs</span>
-              </Button>
             </div>
             <div className="mt-6 flex flex-wrap items-center gap-4">
               <AppStoreLink />
               <GooglePlayLink />
             </div>
+            <Link
+              href="/snapec"
+              className="group mt-10 flex items-center justify-between gap-4 rounded-2xl bg-linear-to-r from-primary to-green-400 px-6 py-4 text-white shadow-lg shadow-primary/20 transition-transform hover:scale-[1.02]"
+            >
+              <span className="text-sm font-semibold sm:text-base">
+                Vous êtes au SNAPEC ? Bénéficiez d'un compte gratuitement !
+              </span>
+              <ArrowRightIcon className="h-5 w-5 flex-none transition-transform group-hover:translate-x-1" />
+            </Link>
           </div>
           <div className="relative mt-10 sm:mt-20 lg:col-span-5 lg:row-span-2 lg:mt-0 xl:col-span-6">
             <BackgroundIllustration className="absolute left-1/2 top-4 h-[1026px] w-[1026px] -translate-x-1/3 stroke-gray-300/70 mask-[linear-gradient(to_bottom,white_20%,transparent_75%)] sm:top-16 sm:-translate-x-1/2 lg:-top-16 lg:ml-12 xl:-top-14 xl:ml-0" />
