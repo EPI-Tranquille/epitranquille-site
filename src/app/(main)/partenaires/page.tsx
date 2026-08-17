@@ -86,7 +86,7 @@ export default function PartnersPage() {
     //   </Container>
     // </section>
 
-    <section className="py-20 sm:py-32">
+    <section className="pt-12 pb-20 sm:pt-16 sm:pb-32">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="section-title">Partenaires</h2>

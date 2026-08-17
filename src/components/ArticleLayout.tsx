@@ -33,7 +33,7 @@ export function ArticleLayout({
   children: React.ReactNode
 }) {
   return (
-    <Container className="py-20 sm:py-32">
+    <Container className="pt-12 pb-20 sm:pt-16 sm:pb-32">
       <div className="mx-auto max-w-2xl">
         <Link
           href="/blog"

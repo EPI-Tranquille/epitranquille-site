@@ -49,7 +49,7 @@ const audiences = [
 export default function PourQuiPage() {
   return (
     <>
-      <section className="relative overflow-hidden py-20 sm:py-32">
+      <section className="relative overflow-hidden pt-12 pb-20 sm:pt-16 sm:pb-32">
         <Container className="relative">
           <div className="mx-auto max-w-2xl text-center">
             <h1 className="section-title">

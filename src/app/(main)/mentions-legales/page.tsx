@@ -11,7 +11,7 @@ export default function MentionsLegales() {
     <section
       // id="secondary-features"
       // aria-label="Features for building a portfolio"
-      className="py-20 sm:py-32"
+      className="pt-12 pb-20 sm:pt-16 sm:pb-32"
     >
       <Container>
         <h1 className="text-center text-3xl font-medium tracking-tight text-gray-900">
