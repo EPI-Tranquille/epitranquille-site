@@ -77,14 +77,24 @@ function BackgroundIllustration(props: React.ComponentPropsWithoutRef<'div'>) {
   )
 }
 
-function PlayIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
+function DesktopIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
-      <circle cx="12" cy="12" r="11.5" stroke="#D4D4D4" />
+      <rect
+        x="3"
+        y="4"
+        width="18"
+        height="12"
+        rx="1.5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
       <path
-        d="M9.5 14.382V9.618a.5.5 0 0 1 .724-.447l4.764 2.382a.5.5 0 0 1 0 .894l-4.764 2.382a.5.5 0 0 1-.724-.447Z"
-        fill="#A3A3A3"
-        stroke="#A3A3A3"
+        d="M8 20h8M12 16v4"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   )
@@ -107,16 +117,13 @@ export function Hero() {
               guides de haute montagne, les clubs et salles d'escalade ou encore
               les PAH (Parcours Accrobatiques en Hauteur).
             </p>
-            <p className="mt-4 text-lg text-gray-600">
-              Disponible sur le web et bientôt disponible sur iOS et Android.
-            </p>
             <div className="mt-6 flex flex-wrap gap-x-6 gap-y-4">
               <Button
                 href="https://app.epitranquille.com/signup/"
                 variant="solid"
               >
-                <PlayIcon className="h-6 w-6 flex-none" />
-                <span className="ml-2.5">Essayer gratuitement</span>
+                <DesktopIcon className="h-6 w-6 flex-none" />
+                <span className="ml-2.5">Commencer gratuitement</span>
               </Button>
               <Button href="#pricing" variant="outline">
                 <span>Voir les tarifs</span>
