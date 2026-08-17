@@ -1,30 +1,12 @@
 import { Container } from '@/components/Container'
+import { partners } from '@/lib/partners'
 import { type Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import logo_snapec from '@/images/logos/logo_snapec.png'
-import logo_snpsc from '@/images/logos/logo_snpsc.jpeg'
 
 export const metadata: Metadata = {
   title: 'Partenaires',
 }
-
-const partners = [
-  {
-    name: 'SNAPEC',
-    role: "Syndicat NAtional des Professionnels de l'Escalade et du Canyoning",
-    logo: logo_snapec,
-    href: '/snapec',
-    external: false,
-  },
-  {
-    name: 'SNPSC',
-    role: 'Syndicat National des Professionnels de la Spéléologie et du Canyonisme',
-    logo: logo_snpsc,
-    href: 'https://www.syndicat-speleo-canyon.org',
-    external: true,
-  },
-]
 
 export default function PartnersPage() {
   return (

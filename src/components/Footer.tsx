@@ -2,6 +2,7 @@ import logo from '@/images/logos/logo_nobg_primary.svg'
 import Image from 'next/image'
 
 import { Container } from '@/components/Container'
+import { partners } from '@/lib/partners'
 import Link from 'next/link'
 import { AppStoreLink } from './AppStoreLink'
 import { GooglePlayLink } from './GooglePlayLink'
@@ -165,6 +166,33 @@ export default function Footer() {
               <AppStoreLink />
               <GooglePlayLink />
             </div>
+          </div>
+          <div className="mt-10 border-t border-gray-200 pt-8">
+            <p className="text-xs font-semibold uppercase tracking-wide text-gray-400">
+              En partenariat avec
+            </p>
+            <ul role="list" className="mt-4 flex flex-wrap items-center gap-x-8 gap-y-4">
+              {partners.map((partner) => (
+                <li key={partner.name}>
+                  <Link
+                    href={partner.href}
+                    {...(partner.external
+                      ? { target: '_blank', rel: 'noopener noreferrer' }
+                      : {})}
+                    className="flex items-center gap-2 grayscale opacity-70 transition hover:opacity-100 hover:grayscale-0"
+                  >
+                    <Image
+                      src={partner.logo}
+                      alt=""
+                      className="h-7 w-auto rounded"
+                    />
+                    <span className="text-sm text-gray-500">
+                      {partner.name}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
           <div className="mt-8 border-t border-white/10 pt-8 md:flex md:items-center md:justify-between">
             <div className="flex space-x-6 md:order-2">
