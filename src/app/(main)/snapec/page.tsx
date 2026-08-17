@@ -3,6 +3,7 @@ import { Container } from '@/components/Container'
 import { Faqs } from '@/components/Faqs'
 import { type Metadata } from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
 import logo_snapec from '@/images/logos/logo_snapec.png'
 
 export const metadata: Metadata = {
@@ -81,9 +82,9 @@ export default function SnapecPage() {
             <p className="mt-4 text-sm text-gray-600">
               Vous avez déjà plus de 50 EPI ou besoin de gérer plusieurs
               parcs ? Découvrez nos{' '}
-              <a href="/#pricing" className="underline">
+              <Link href="/#pricing" className="underline">
                 autres formules
-              </a>
+              </Link>
               .
             </p>
           </div>

@@ -1,9 +1,106 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+@theme {
+  --text-*: initial;
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1rem;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.5rem;
+  --text-base: 1rem;
+  --text-base--line-height: 1.5rem;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 2rem;
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 1.75rem;
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 2rem;
+  --text-3xl: 2rem;
+  --text-3xl--line-height: 3rem;
+  --text-4xl: 2.5rem;
+  --text-4xl--line-height: 3rem;
+  --text-5xl: 3rem;
+  --text-5xl--line-height: 1;
+  --text-6xl: 3.75rem;
+  --text-6xl--line-height: 1;
+  --text-7xl: 4.5rem;
+  --text-7xl--line-height: 1;
+  --text-8xl: 6rem;
+  --text-8xl--line-height: 1;
+  --text-9xl: 8rem;
+  --text-9xl--line-height: 1;
+
+  --animate-fade-in: fade-in 0.5s linear forwards;
+  --animate-marquee: marquee var(--marquee-duration) linear infinite;
+  --animate-spin-slow: spin 4s linear infinite;
+  --animate-spin-slower: spin 6s linear infinite;
+  --animate-spin-reverse: spin-reverse 1s linear infinite;
+  --animate-spin-reverse-slow: spin-reverse 4s linear infinite;
+  --animate-spin-reverse-slower: spin-reverse 6s linear infinite;
+
+  --radius-4xl: 2rem;
+  --radius-5xl: 2.5rem;
+
+  --color-gray-50: oklch(98.5% 0 none);
+  --color-gray-100: oklch(97% 0 none);
+  --color-gray-200: oklch(92.2% 0 none);
+  --color-gray-300: oklch(87% 0 none);
+  --color-gray-400: oklch(70.8% 0 none);
+  --color-gray-500: oklch(55.6% 0 none);
+  --color-gray-600: oklch(43.9% 0 none);
+  --color-gray-700: oklch(37.1% 0 none);
+  --color-gray-800: oklch(26.9% 0 none);
+  --color-gray-900: oklch(20.5% 0 none);
+  --color-gray-950: oklch(14.5% 0 none);
+
+  --color-primary: #08c770;
+
+  --font-sans: var(--font-inter);
+
+  --container-2xl: 40rem;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes marquee {
+    100% {
+      transform: translateY(-50%);
+    }
+  }
+  @keyframes spin-reverse {
+    to {
+      transform: rotate(-360deg);
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
 
 .custom-typography {
-  @apply prose prose-sm prose-neutral max-w-none prose-a:text-blue-600 hover:prose-a:text-blue-500 prose-ul:list-['-_'] prose-li:marker:text-[--prose-body] prose-table:table-fixed prose-table:border-collapse prose-table:border prose-th:border prose-th:p-2 prose-th:font-medium prose-td:border prose-td:p-2;
+  @apply prose prose-sm prose-neutral max-w-none prose-a:text-blue-600 prose-a:hover:text-blue-500 prose-ul:list-['-_'] prose-li:marker:text-(--prose-body) prose-table:table-fixed prose-table:border-collapse prose-table:border prose-th:border prose-th:p-2 prose-th:font-medium prose-td:border prose-td:p-2;
 }
 
 .alert-warning {

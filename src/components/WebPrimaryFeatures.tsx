@@ -151,12 +151,12 @@ export function WebFeatures() {
                 {features.map((feature) => (
                   <TabPanel key={feature.title} unmount={false}>
                     <div className="relative sm:px-6 lg:hidden">
-                      <div className="absolute -inset-x-4 bottom-[-4.25rem] top-[-6.5rem] bg-gray-100 ring-1 ring-inset ring-gray-900/5 sm:inset-x-0 sm:rounded-t-xl" />
+                      <div className="absolute -inset-x-4 -bottom-17 -top-26 bg-gray-100 ring-1 ring-inset ring-gray-900/5 sm:inset-x-0 sm:rounded-t-xl" />
                       <p className="relative mx-auto max-w-2xl text-base text-gray-700 sm:text-center">
                         {feature.description}
                       </p>
                     </div>
-                    <div className="mt-10 w-[45rem] overflow-hidden rounded-xl bg-slate-50 shadow-xl shadow-gray-900/10 ring-1 ring-gray-900/5 sm:w-auto lg:mt-0 lg:w-[67.8125rem]">
+                    <div className="mt-10 w-180 overflow-hidden rounded-xl bg-slate-50 shadow-xl shadow-gray-900/10 ring-1 ring-gray-900/5 sm:w-auto lg:mt-0 lg:w-271.25">
                       <Image
                         className="w-full"
                         src={feature.image}
