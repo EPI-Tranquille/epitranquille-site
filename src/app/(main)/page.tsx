@@ -2,6 +2,7 @@ import { CallToAction } from '@/components/CallToAction'
 import { Faqs } from '@/components/Faqs'
 import { Hero } from '@/components/Hero'
 import { PrimaryFeatures } from '@/components/PrimaryFeatures'
+import { Reviews } from '@/components/Reviews'
 import { WebFeatures } from '@/components/WebPrimaryFeatures'
 import dynamic from 'next/dynamic'
 import {
@@ -68,6 +69,7 @@ export default function Home() {
       <Hero />
       <PrimaryFeatures />
       <WebFeatures />
+      <Reviews />
       <Pricing />
       <CallToAction />
       <Faqs />

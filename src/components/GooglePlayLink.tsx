@@ -11,22 +11,24 @@ export function GooglePlayLink({
 }) {
   let badge = (
     <svg viewBox="0 0 135 40" aria-hidden="true" className="h-10">
-      <path
-        d="M13.316 19.02 1.15 31.92a2.87 2.87 0 0 0 4.223 1.73l.034-.02L18.99 26l-5.674-6.98Z"
-        fill="#00D2FF"
-      />
-      <path
-        d="M24.24 17.05l-5.263-3.045-5.913 6.955.036.033 5.877 5.802 5.25-3.005a2.867 2.867 0 0 0 0-4.995l.013-.006v.261Z"
-        fill="#FFCA28"
-      />
-      <path
-        d="M1.15 8.08c-.076.276-.117.564-.117.86v22.12c0 .296.04.584.117.86l12.593-12.65L1.15 8.08Z"
-        fill="#5FDBFF"
-      />
-      <path
-        d="M13.408 20 24.24 17.05a2.867 2.867 0 0 0 0-.1L5.407.35 5.373.33A2.87 2.87 0 0 0 1.15 8.08L13.408 20Z"
-        fill="#66DE86"
-      />
+      <svg x="3" y="6" width="28" height="28" viewBox="0 0 40 40">
+        <path
+          d="M19.7,19.2L4.3,35.3c0,0,0,0,0,0c0.5,1.7,2.1,3,4,3c0.8,0,1.5-0.2,2.1-0.6l0,0l17.4-9.9L19.7,19.2z"
+          fill="#EA4335"
+        />
+        <path
+          d="M35.3,16.4L35.3,16.4l-7.5-4.3l-8.4,7.4l8.5,8.3l7.5-4.2c1.3-0.7,2.2-2.1,2.2-3.6C37.5,18.5,36.6,17.1,35.3,16.4z"
+          fill="#FBBC04"
+        />
+        <path
+          d="M4.3,4.7C4.2,5,4.2,5.4,4.2,5.8v28.5c0,0.4,0,0.7,0.1,1.1l16-15.7L4.3,4.7z"
+          fill="#4285F4"
+        />
+        <path
+          d="M19.8,20l8-7.9L10.5,2.3C9.9,1.9,9.1,1.7,8.3,1.7c-1.9,0-3.6,1.3-4,3c0,0,0,0,0,0L19.8,20z"
+          fill="#34A853"
+        />
+      </svg>
       <text
         x="34"
         y="17"
@@ -55,7 +57,7 @@ export function GooglePlayLink({
         aria-disabled="true"
         title="Bientôt disponible sur Google Play"
         className={clsx(
-          'inline-flex cursor-not-allowed items-center gap-2 rounded-lg px-3 py-1.5 opacity-50',
+          'inline-flex cursor-not-allowed items-center rounded-lg opacity-50',
           color === 'black'
             ? 'bg-gray-800 text-white'
             : 'bg-white text-gray-900',

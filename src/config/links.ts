@@ -10,8 +10,8 @@
  * automatically, no other file needs to change.
  */
 export const appStoreReady = false
-export const appStoreUrl = 'https://apps.apple.com/app/epi-tranquille/idXXXXXXXXXX'
+export const appStoreUrl = 'https://apps.apple.com/app/epi-tranquille/6478505798'
 
-export const playStoreReady = false
+export const playStoreReady = true
 export const playStoreUrl =
   'https://play.google.com/store/apps/details?id=com.epitranquille.app'

@@ -24,7 +24,7 @@ export function AppStoreLink({
         aria-disabled="true"
         title="Bientôt disponible sur l'App Store"
         className={clsx(
-          'inline-flex cursor-not-allowed items-center gap-2 rounded-lg px-3 py-1.5 opacity-50',
+          'inline-flex cursor-not-allowed items-center rounded-lg opacity-50',
           color === 'black'
             ? 'bg-gray-800 text-white'
             : 'bg-white text-gray-900',
