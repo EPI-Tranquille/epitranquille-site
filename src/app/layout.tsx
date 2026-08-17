@@ -5,6 +5,8 @@ import { Inter } from 'next/font/google'
 
 import '@/styles/tailwind.css'
 import { CSPostHogProvider } from './providers'
+import { CookieConsent } from '@/components/CookieConsent'
+import { PostHogPageView } from '@/components/PostHogPageView'
 import CrispChat from '@/components/CrispChat'
 
 const inter = Inter({
@@ -32,8 +34,10 @@ export default function RootLayout({
     <html lang="fr" className={clsx('bg-gray-50 antialiased', inter.variable)}>
       <CSPostHogProvider>
         <body className="flex h-full flex-col">
-            <CrispChat />
+          <PostHogPageView />
+          <CrispChat />
           {children}
+          <CookieConsent />
           <SpeedInsights />
         </body>
       </CSPostHogProvider>
