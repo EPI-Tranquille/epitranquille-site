@@ -123,14 +123,14 @@ export default function SnapecPage() {
       <section className="pt-12 pb-20 sm:pt-16 sm:pb-32">
         <Container>
           <div className="mx-auto max-w-4xl">
-            <div className="relative overflow-hidden rounded-3xl bg-linear-to-br from-primary to-green-600 p-8 shadow-xl shadow-primary/20 sm:p-10">
+            <div className="relative overflow-hidden rounded-3xl bg-linear-to-br from-primary/20 via-green-50 to-white p-8 shadow-xl shadow-primary/10 ring-1 ring-primary/15 sm:p-10">
               <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
                 <a
                   href="https://snapec.org"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Voir le site du SNAPEC"
-                  className="flex-none self-start rounded-2xl bg-white p-3 shadow-lg transition-transform hover:scale-105"
+                  className="flex-none self-start rounded-2xl bg-white p-3 shadow-md ring-1 ring-gray-900/5 transition-transform hover:scale-105"
                 >
                   <Image
                     src={logo_snapec}
@@ -139,11 +139,11 @@ export default function SnapecPage() {
                   />
                 </a>
                 <div className="text-left">
-                  <h1 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+                  <h1 className="text-2xl font-semibold tracking-tight text-gray-900 sm:text-3xl">
                     Membre du SNAPEC ? Gérez votre registre EPI facilement et
                     gratuitement.
                   </h1>
-                  <p className="mt-3 text-base text-green-50">
+                  <p className="mt-3 text-base text-gray-600">
                     EPI Tranquille est partenaire du SNAPEC pour simplifier la
                     gestion de vos EPI : un forfait développé spécialement
                     pour vous est mis à disposition gratuitement afin que
