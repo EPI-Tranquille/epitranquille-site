@@ -36,7 +36,7 @@ export function GooglePlayLink({
         fontFamily="Arial, Helvetica, sans-serif"
         fontSize="9"
       >
-        Disponible sur
+        Télécharger sur
       </text>
       <text
         x="34"
