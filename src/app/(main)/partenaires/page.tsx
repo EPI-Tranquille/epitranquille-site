@@ -96,7 +96,7 @@ export default function PartnersPage() {
                   <Image
                     src={partner.logo}
                     alt={`Logo ${partner.name}`}
-                    className="aspect-4/5 w-52 flex-none rounded-2xl object-cover"
+                    className="aspect-square w-40 flex-none rounded-2xl bg-gray-50 object-contain p-4"
                   />
                   <div className="flex-auto">
                     <h3 className="text-lg/8 font-semibold tracking-tight text-gray-900">
