@@ -1,3 +1,4 @@
+import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { partners } from '@/lib/partners'
 import { type Metadata } from 'next'
@@ -6,6 +7,27 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Partenaires',
+}
+
+function HandshakeIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
+      <path
+        d="M3 12h3l2.5-2.5L11 12l1-1 1 1 2.5-2.5L18 12h3"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M6 12v3a2 2 0 0 0 2 2h1M18 12v3a2 2 0 0 1-2 2h-1"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
 }
 
 export default function PartnersPage() {
@@ -112,16 +134,15 @@ export default function PartnersPage() {
 
         <div className="mx-auto mt-16 max-w-2xl text-center">
           <p className="text-base text-gray-600">
-            Vous représentez un syndicat, un regroupement, un club ou un
-            centre de formation ?{' '}
-            <Link
-              href="/devenir-partenaire"
-              className="font-semibold text-primary underline"
-            >
-              Devenez partenaire
-            </Link>
-            .
+            Vous représentez un syndicat, regroupement de professionnels, un
+            club ou un centre de formation ?
           </p>
+          <div className="mt-6 flex justify-center">
+            <Button href="/devenir-partenaire" variant="outline" color="gray">
+              <HandshakeIcon className="h-5 w-5 flex-none" />
+              <span className="ml-2.5">Devenez partenaire</span>
+            </Button>
+          </div>
         </div>
       </Container>
     </section>
