@@ -122,30 +122,37 @@ export default function SnapecPage() {
     <>
       <section className="pt-12 pb-20 sm:pt-16 sm:pb-32">
         <Container>
-          <div className="mx-auto max-w-2xl text-center">
-            <div className="mb-10 flex items-center justify-center">
-              <a
-                href="https://snapec.org"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Voir le site du SNAPEC"
-                className="transition-opacity hover:opacity-80"
-              >
-                <Image
-                  src={logo_snapec}
-                  alt="Logo SNAPEC"
-                  className="h-32 w-auto rounded-2xl sm:h-40"
-                />
-              </a>
+          <div className="mx-auto max-w-4xl">
+            <div className="relative overflow-hidden rounded-3xl bg-linear-to-br from-primary to-green-600 p-8 shadow-xl shadow-primary/20 sm:p-10">
+              <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
+                <a
+                  href="https://snapec.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Voir le site du SNAPEC"
+                  className="flex-none self-start rounded-2xl bg-white p-3 shadow-lg transition-transform hover:scale-105"
+                >
+                  <Image
+                    src={logo_snapec}
+                    alt="Logo SNAPEC"
+                    className="h-16 w-auto sm:h-20"
+                  />
+                </a>
+                <div className="text-left">
+                  <h1 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+                    Membre du SNAPEC ? Gérez votre registre EPI facilement et
+                    gratuitement.
+                  </h1>
+                  <p className="mt-3 text-base text-green-50">
+                    EPI Tranquille est partenaire du SNAPEC pour simplifier la
+                    gestion de vos EPI : un forfait développé spécialement
+                    pour vous est mis à disposition gratuitement afin que
+                    vous puissiez gérer votre parc et éventuellement ceux des
+                    clubs/structures dans lesquels vous travaillez.
+                  </p>
+                </div>
+              </div>
             </div>
-            <h1 className="section-title">
-              Membre du SNAPEC ? Gérez votre registre EPI facilement et gratuitement.
-            </h1>
-            <p className="section-subtitle">
-              EPI Tranquille est partenaire du SNAPEC pour
-              simplifier la gestion de vos EPI : un forfait développé spécialement pour vous
-              est mis à disposition gratuitement afin que vous puissiez gérer votre parc et éventuellement ceux des clubs/structures dans lesquels vous travailler.
-            </p>
           </div>
 
           <div className="mx-auto mt-20 max-w-2xl text-center">
