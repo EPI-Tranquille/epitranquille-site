@@ -15,6 +15,29 @@ const CONTACT_MAIL = 'contact@epitranquille.com'
 const CONTACT_SUBJECT = encodeURIComponent('Devenir partenaire EPI Tranquille')
 const CONTACT_HREF = `mailto:${CONTACT_MAIL}?subject=${CONTACT_SUBJECT}`
 
+function MailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
+      <rect
+        x="3"
+        y="5"
+        width="18"
+        height="14"
+        rx="2"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
+      <path
+        d="m4 7 8 6 8-6"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
 function BoltIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
@@ -157,12 +180,13 @@ export default function DevenirPartenairePage() {
             </h1>
             <p className="section-subtitle">
               Syndicats, regroupements de professionnels, clubs, centres de
-              formation : donnez à vos membres un accès privilégié à EPI
-              Tranquille, et facilitez-leur une obligation du métier.
+              formation : offrez à vos membres un accès à EPI
+              Tranquille à tarif préférentiel
             </p>
             <div className="mt-8 flex justify-center">
               <Button href={CONTACT_HREF} variant="solid">
-                Discuter d'un partenariat
+                <MailIcon className="h-5 w-5 flex-none" />
+                <span className="ml-2.5">Discuter d'un partenariat</span>
               </Button>
             </div>
           </div>
@@ -221,10 +245,6 @@ export default function DevenirPartenairePage() {
 
           <div className="mx-auto mt-24 max-w-2xl text-center">
             <h2 className="section-title">Pour quel type d'organisation ?</h2>
-            <p className="section-subtitle">
-              Si vous représentez ou fédérez des professionnel·les qui gèrent
-              des EPI, ce partenariat est fait pour vous.
-            </p>
           </div>
           <div className="mx-auto mt-12 grid max-w-2xl grid-cols-1 gap-8 sm:grid-cols-2 lg:max-w-none">
             {audiences.map((audience) => (
