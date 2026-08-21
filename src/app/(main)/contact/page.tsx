@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: 'Nous contacter',
   description:
     'Une question sur EPI Tranquille, votre compte ou un partenariat ? Contactez notre équipe par e-mail, nous vous répondons rapidement.',
+  alternates: {
+    canonical: '/contact',
+  },
 }
 
 export default function ContactPage() {

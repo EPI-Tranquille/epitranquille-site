@@ -1,6 +1,6 @@
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import clsx from 'clsx'
-import { type Metadata } from 'next'
+import { type Metadata, type Viewport } from 'next'
 import { Inter } from 'next/font/google'
 
 import '@/styles/tailwind.css'
@@ -23,6 +23,19 @@ export const metadata: Metadata = {
   },
   description:
     'EPI Tranquille est une application permettant de gérer vos équipements de protection individuelle (EPI) simplement.',
+  openGraph: {
+    type: 'website',
+    locale: 'fr_FR',
+    siteName: 'EPI Tranquille',
+    url: 'https://epitranquille.com',
+  },
+  twitter: {
+    card: 'summary_large_image',
+  },
+}
+
+export const viewport: Viewport = {
+  themeColor: '#08c770',
 }
 
 export default function RootLayout({

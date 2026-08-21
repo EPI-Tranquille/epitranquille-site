@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: 'Blog',
   description:
     "Conseils, actualités et bonnes pratiques pour gérer votre registre EPI : obligations réglementaires, contrôles, escalade, canyoning, spéléologie et via ferrata.",
+  alternates: {
+    canonical: '/blog',
+  },
 }
 
 function formatDate(dateString: string) {

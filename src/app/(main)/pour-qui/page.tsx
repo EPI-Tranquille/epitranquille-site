@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: 'Pour qui est fait EPI Tranquille ?',
   description:
     "EPI Tranquille s'adresse aux moniteur·rices d'escalade, canyoning, spéléologie, via ferrata, grimpe d'arbres, aux guides de haute montagne, aux clubs, salles d'escalade et PAH qui doivent gérer un registre EPI.",
+  alternates: {
+    canonical: '/pour-qui',
+  },
 }
 
 const audiences = [

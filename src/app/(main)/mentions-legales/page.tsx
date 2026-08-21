@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: 'Mentions légales',
   description:
     'Mentions légales du site EPI Tranquille : éditeur, hébergeur et informations juridiques.',
+  alternates: {
+    canonical: '/mentions-legales',
+  },
 }
 
 export default function MentionsLegales() {

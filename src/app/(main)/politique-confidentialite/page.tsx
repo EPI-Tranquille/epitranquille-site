@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: 'Politique de confidentialité',
   description:
     'Politique de confidentialité d’EPI Tranquille : données collectées, finalités, durée de conservation et vos droits (RGPD).',
+  alternates: {
+    canonical: '/politique-confidentialite',
+  },
 }
 
 export default function PolitiqueConfidentialite() {

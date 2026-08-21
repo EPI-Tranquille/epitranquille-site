@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   title: 'Devenir partenaire',
   description:
     "Syndicats, regroupements de professionnels, clubs et centres de formation : proposez à vos adhérent·es un accès privilégié à EPI Tranquille.",
+  alternates: {
+    canonical: '/devenir-partenaire',
+  },
 }
 
 const CONTACT_MAIL = 'contact@epitranquille.com'

@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: 'Politique de gestion des cookies',
   description:
     "Politique de gestion des cookies d'EPI Tranquille : cookies utilisés, finalités et comment gérer vos préférences.",
+  alternates: {
+    canonical: '/politique-cookies',
+  },
 }
 
 export default function PolitiqueCookies() {

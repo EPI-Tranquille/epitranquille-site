@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: 'À propos',
   description:
     "L'auteur derrière l'application qui simplifie la gestion du registre EPI pour les professionnels de l'escalade, du canyoning, de la spéléologie et des sports de montagne.",
+  alternates: {
+    canonical: '/about',
+  },
 }
 
 export default function AboutPage() {

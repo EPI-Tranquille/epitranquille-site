@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   },
   description:
     "Gérez votre registre EPI simplement, sur le web et mobile. Ajout rapide, alertes automatiques, contrôles par lot. Essai gratuit, pensé pour les moniteur·rices d'escalade, canyoning, spéléologie et via ferrata.",
+  alternates: {
+    canonical: '/',
+  },
 }
 
 const WebSiteSchema: WithContext<WebSite> = {

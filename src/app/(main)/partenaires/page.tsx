@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   title: 'Partenaires',
   description:
     "SNAPEC et autres partenaires d'EPI Tranquille : découvrez les organisations qui font bénéficier leurs adhérent·es d'un accès privilégié à l'application.",
+  alternates: {
+    canonical: '/partenaires',
+  },
 }
 
 function HandshakeIcon(props: React.ComponentPropsWithoutRef<'svg'>) {

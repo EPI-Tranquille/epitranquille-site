@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Conditions d'utilisation",
   description:
     "Conditions générales d'utilisation d'EPI Tranquille : accès au service, compte utilisateur, engagements et responsabilités des parties.",
+  alternates: {
+    canonical: '/cgu',
+  },
 }
 
 export default function ConditionsUtilisation() {

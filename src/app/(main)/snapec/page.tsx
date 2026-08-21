@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   title: 'EPI Tranquille x SNAPEC',
   description:
     "En tant que membre du SNAPEC, gérez votre registre EPI simplement et créez gratuitement votre compte EPI Tranquille.",
+  alternates: {
+    canonical: '/snapec',
+  },
 }
 
 const SIGNUP_URL =
