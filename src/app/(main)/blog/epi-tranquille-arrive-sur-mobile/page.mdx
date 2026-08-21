@@ -1,11 +1,13 @@
 import { ArticleLayout } from '@/components/ArticleLayout'
+import { AppStoreLink } from '@/components/AppStoreLink'
+import { GooglePlayLink } from '@/components/GooglePlayLink'
 
 export const article = {
   title: 'EPI Tranquille arrive sur mobile : ce qui change pour vous',
   description:
-    "Après la version web, EPI Tranquille se prépare à arriver sur iOS et Android. Voici ce que l'application mobile va changer dans votre pratique quotidienne.",
+    "L'application mobile EPI Tranquille est disponible dès maintenant sur l'App Store et le Google Play Store. Voici ce qu'elle change dans votre pratique quotidienne.",
   author: 'EPI Tranquille',
-  date: '2026-09-01',
+  date: '2026-08-21',
 }
 
 export const metadata = {
@@ -27,27 +29,40 @@ un ordinateur. Mais un registre EPI, ça se consulte aussi — voire surtout —
 sur le terrain, entre deux encadrements, au moment de sortir le matériel du
 sac.
 
-## Pourquoi une application mobile
+**C'est chose faite : l'application mobile EPI Tranquille est maintenant
+disponible sur iOS et Android.**
 
-L'objectif de l'application mobile n'est pas de dupliquer la version web,
-mais de répondre à un besoin différent : avoir votre registre EPI à portée
-de main, là où vous en avez réellement besoin.
+<div className="not-prose my-8 flex flex-wrap items-center gap-4">
+  <AppStoreLink />
+  <GooglePlayLink />
+</div>
 
-Concrètement, cela permettra par exemple de :
+## Ce que ça change concrètement
 
-- consulter la fiche d'un EPI (validité, dernier contrôle, historique)
-  directement avant une sortie ;
-- effectuer un contrôle sur le terrain et le renseigner dans la foulée ;
-- retrouver rapidement un EPI grâce à la recherche, sans redémarrer un
-  ordinateur.
+L'application mobile ne se contente pas de dupliquer la version web : elle
+répond à un besoin différent, celui d'avoir votre registre EPI à portée de
+main, là où vous en avez réellement besoin.
 
-## Où en est-on ?
+- **Identifier un EPI par photo** : photographiez votre matériel pour
+  identifier automatiquement le produit pendant que vous scannez son
+  numéro de série, QR code ou datamatrix.
+- **Ajouter un EPI en quelques secondes**, directement depuis le terrain,
+  grâce aux informations pré-remplies.
+- **Consulter votre registre complet**, le statut et l'emplacement de
+  chaque EPI, toujours à jour dans votre poche.
+- **Effectuer un contrôle rapide ou détaillé** et retrouver tout
+  l'historique de vos contrôles passés.
+- **Recevoir des alertes personnalisables** avant l'expiration d'un EPI ou
+  un contrôle à venir.
+- **Continuer à consulter votre registre hors connexion**, avec une
+  synchronisation automatique dès que le réseau revient.
 
-L'application mobile est développée et actuellement en cours de soumission
-sur l'App Store et le Google Play Store. Les boutons de téléchargement sont
-déjà présents sur le site : ils s'activeront dès la mise en ligne officielle.
-En attendant, la version web reste accessible normalement, avec l'ensemble
-de ses fonctionnalités.
+## Un seul compte, sur le web et sur mobile
 
-Nous communiquerons dès que l'application sera disponible au téléchargement
-— restez à l'écoute sur cette page et sur nos réseaux.
+Pas besoin de créer un nouveau compte : connectez-vous avec les mêmes
+identifiants que sur [app.epitranquille.com](https://app.epitranquille.com)
+et retrouvez votre parc EPI tel que vous l'avez laissé. La version web
+reste disponible et continue de recevoir toutes ses fonctionnalités.
+
+Une question, un bug à signaler ? Écrivez-nous à
+[contact@epitranquille.com](mailto:contact@epitranquille.com).

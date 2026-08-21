@@ -1,16 +1,15 @@
 /**
  * Central place for the mobile app store links.
  *
- * The iOS/Android apps are currently in submission. As long as the
- * corresponding `*Ready` flag is `false`, download buttons render in a
- * disabled "Bientôt disponible" state instead of linking out.
- *
- * Once an app is live, just set its URL below and flip its flag to `true`
- * — every button using `AppStoreLink`/`GooglePlayLink` picks it up
- * automatically, no other file needs to change.
+ * Both apps are live as of 2026-08-21. As long as the corresponding
+ * `*Ready` flag is `false`, download buttons render in a disabled
+ * "Bientôt disponible" state instead of linking out — flip a flag back
+ * to `false` (e.g. during a takedown) and every button using
+ * `AppStoreLink`/`GooglePlayLink` picks it up automatically, no other
+ * file needs to change.
  */
-export const appStoreReady = false
-export const appStoreUrl = 'https://apps.apple.com/app/epi-tranquille/6478505798'
+export const appStoreReady = true
+export const appStoreUrl = 'https://apps.apple.com/fr/app/epi-tranquille/id6478505798'
 
 export const playStoreReady = true
 export const playStoreUrl =
