@@ -1,4 +1,5 @@
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
+import { type FAQPage, type WithContext } from 'schema-dts'
 
 import { Container } from '@/components/Container'
 
@@ -11,17 +12,22 @@ const faqs = [
   {
     question: 'Puis-je importer mon fichier Excel/Google Sheet/CSV ?',
     answer:
-      "Oui pour gagner du temps vous pouvez importer votre registre EPI depuis un fichier Excel sur l'application web. Ce fichier doit respecter quelques règles de format mais c'est rapide si toutes les informations sont là !",
+      "Oui pour gagner du temps vous pouvez importer votre registre EPI depuis un fichier Excel sur l'application web. Ce fichier doit respecter quelques règles de format mais c'est rapide si toutes les informations sont là ! De plus si vous avez souscrit à un abonnement vous pouvez nous envoyer votre registre par e-mail nous vous aiderons à l'importer sur votre compte.",
+  },
+    {
+    question: "Est-ce que je peux être accompagné·e pour l'import de mon registre ?",
+    answer:
+      "Notre équipe est disponible par e-mail pour vous accompagner, notamment sur l'import d'un registre existant. Les formules Premium et Entreprise bénéficient en plus d'un support prioritaire.",
   },
   {
     question: 'Est-ce que je gagne du temps avec cet outil ?',
     answer:
-      "Oui : l'ajout d'un EPI depuis notre base de données, les contrôles par lot et les alertes automatiques de péremption remplacent en quelques clics ce qui prenait auparavant des heures sur un tableur.",
+      "Oui : l'ajout d'un EPI est très rapide grâce au scan performant et à une base de données adaptée au matériel que vous utilisez. De plus la gestion par lot et les contrôles rapides depuis l'app mobile vont feront gagner du temps !",
   },
   {
     question: "L'application est-elle disponible sur mobile et sur le web ?",
     answer:
-      "EPI Tranquille est disponible dès maintenant sur le web, accessible depuis n'importe quel navigateur. Notre application mobile iOS et Android arrive très prochainement pour retrouver votre registre directement sur le terrain.",
+      "EPI Tranquille est disponible sur le web et sur l'application mobile iOS et Android pour retrouver votre registre directement sur le terrain.",
   },
   {
     question: 'Puis-je essayer EPI Tranquille gratuitement ?',
@@ -31,12 +37,7 @@ const faqs = [
   {
     question: 'Puis-je gérer plusieurs parcs EPI avec un seul compte ?',
     answer:
-      'Oui, selon votre formule vous pouvez créer plusieurs parcs EPI (par structure, activité ou site) et inviter d’autres utilisateurs à les gérer avec vous.',
-  },
-  {
-    question: "Est-ce que je peux être accompagné·e pour l'import de mon registre ?",
-    answer:
-      "Notre équipe est disponible par e-mail pour vous accompagner, notamment sur l'import d'un registre existant. Les formules Premium et Entreprise bénéficient en plus d'un support prioritaire.",
+      'Oui, selon votre formule vous pouvez créer plusieurs parcs EPI (par structure, activité ou site) et inviter d’autres utilisateurs à les gérer/consulter avec vous.',
   },
   {
     question: 'Puis-je accéder à mon registre hors-ligne ?',
@@ -78,6 +79,19 @@ function MinusSmallIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
+const faqSchema: WithContext<FAQPage> = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+}
+
 export function Faqs() {
   return (
     <section
@@ -85,6 +99,10 @@ export function Faqs() {
       aria-labelledby="faqs-title"
       className="border-t border-gray-200 py-20 sm:py-32"
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <Container>
         <div className="mx-auto max-w-2xl lg:mx-0">
           <h2 id="faqs-title" className="section-title">

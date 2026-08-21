@@ -1,7 +1,10 @@
 import Link from 'next/link'
+import { type BlogPosting, type WithContext } from 'schema-dts'
 
 import { Container } from '@/components/Container'
 import { type Article } from '@/lib/articles'
+
+const SITE_URL = 'https://epitranquille.com'
 
 function ArrowLeftIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -27,13 +30,42 @@ function formatDate(dateString: string) {
 
 export function ArticleLayout({
   article,
+  slug,
   children,
 }: {
   article: Article
+  slug: string
   children: React.ReactNode
 }) {
+  let url = `${SITE_URL}/blog/${slug}`
+  let articleSchema: WithContext<BlogPosting> = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: article.title,
+    description: article.description,
+    datePublished: article.date,
+    url,
+    mainEntityOfPage: url,
+    author: {
+      '@type': 'Organization',
+      name: article.author,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'EPI Tranquille',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE_URL}/logo.svg`,
+      },
+    },
+  }
+
   return (
     <Container className="pt-12 pb-20 sm:pt-16 sm:pb-32">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
       <div className="mx-auto max-w-2xl">
         <Link
           href="/blog"

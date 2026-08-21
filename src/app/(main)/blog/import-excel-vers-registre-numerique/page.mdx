@@ -13,7 +13,13 @@ export const metadata = {
   description: article.description,
 }
 
-export default (props) => <ArticleLayout article={article} {...props} />
+export default (props) => (
+  <ArticleLayout
+    article={article}
+    slug="import-excel-vers-registre-numerique"
+    {...props}
+  />
+)
 
 L'une des craintes les plus fréquentes quand on change d'outil, c'est de
 devoir tout ressaisir à la main. Avec un registre qui compte parfois des

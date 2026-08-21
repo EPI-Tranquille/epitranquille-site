@@ -43,6 +43,11 @@ const OnlineBusinessSchema: WithContext<OnlineBusiness> = {
     contactType: 'Support clients',
     email: 'support@epitranquille.com',
   },
+  founder: {
+    '@type': 'Person',
+    name: 'Samuel Girardin',
+    jobTitle: "Moniteur d'escalade (DEJEPS)",
+  },
 }
 const WebApplicationSchema: WithContext<WebApplication> = {
   '@context': 'https://schema.org',
@@ -88,7 +93,7 @@ export default function Home() {
       <Hero />
       <PrimaryFeatures />
       <WebFeatures />
-      <Reviews />
+      {/* <Reviews /> */}
       <Pricing />
       <CallToAction />
       <Faqs />

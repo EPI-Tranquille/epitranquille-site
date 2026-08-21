@@ -14,7 +14,13 @@ export const metadata = {
   description: article.description,
 }
 
-export default (props) => <ArticleLayout article={article} {...props} />
+export default (props) => (
+  <ArticleLayout
+    article={article}
+    slug="pourquoi-registre-epi-obligatoire"
+    {...props}
+  />
+)
 
 Que vous soyez moniteur·rice indépendant·e, salarié·e d'un club ou responsable
 d'une structure d'escalade, de canyoning, de spéléologie ou de via ferrata,
@@ -43,9 +49,11 @@ Beaucoup de professionnel·les démarrent avec un fichier Excel, ce qui est
 tout à fait raisonnable au départ. Le problème apparaît quand le parc grandit
 ou que plusieurs personnes doivent y accéder :
 
-- les fichiers se dupliquent, la version « à jour » n'est plus évidente ;
-- personne n'est prévenu automatiquement qu'un contrôle arrive à échéance ;
-- retrouver l'historique complet d'un EPI précis prend du temps ;
+- la saisie de nouveaux EPI est fastidieuse
+- il est difficile d'avoir une vue d'ensemble
+- le fichier n'est pas très ergonomique
+- on peut facilement faire des erreurs
+- personne n'est prévenu automatiquement qu'un contrôle arrive à échéance ou un EPI a expiration ;
 - le fichier n'est pas accessible facilement sur le terrain.
 
 ## Ce qui change avec un outil dédié
@@ -54,12 +62,11 @@ L'idée derrière EPI Tranquille est simple : garder la rigueur d'un registre
 EPI complet, sans la charge de le maintenir à la main. Concrètement, cela
 veut dire ajouter un EPI en quelques clics depuis une base de données,
 recevoir une alerte automatique avant qu'un contrôle ou une expiration
-n'arrive, et pouvoir exporter votre registre en PDF à tout moment pour vos
-besoins de contrôle ou d'assurance.
+n'arrive, et pouvoir exporter votre registre en PDF à tout moment.
 
 Si vous avez déjà un registre sur Excel, vous n'avez pas besoin de repartir
-de zéro : il peut être importé directement dans l'application.
+de zéro : il peut être importé directement dans l'application !
 
 *Ce contenu est fourni à titre informatif et ne remplace pas les textes
 réglementaires en vigueur ni les recommandations de votre fédération ou
-syndicat professionnel (SNAPEC, SNPSC...).*
+syndicat professionnel.*

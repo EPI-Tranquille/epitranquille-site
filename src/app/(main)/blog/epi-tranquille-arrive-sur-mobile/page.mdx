@@ -13,7 +13,13 @@ export const metadata = {
   description: article.description,
 }
 
-export default (props) => <ArticleLayout article={article} {...props} />
+export default (props) => (
+  <ArticleLayout
+    article={article}
+    slug="epi-tranquille-arrive-sur-mobile"
+    {...props}
+  />
+)
 
 Jusqu'ici, EPI Tranquille était disponible sur le web : pratique pour
 préparer une saison, importer un registre ou paramétrer vos alertes depuis
