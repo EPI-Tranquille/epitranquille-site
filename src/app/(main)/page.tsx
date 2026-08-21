@@ -32,10 +32,10 @@ const OnlineBusinessSchema: WithContext<OnlineBusiness> = {
     "EPI, Canyoning, Escalade, Spéléo, Gestion, Contrôles, Mousquetons, Cordes, Baudriers, Casques, Moniteur, Via Ferrata, Grimpe d'arbres, Guide de haute montagne, Club, Salle d'escalade, PAH",
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'Marseille',
+    addressLocality: 'Champcella',
     addressCountry: 'FR',
-    addressRegion: 'Bouches-du-Rhône',
-    postalCode: '13004',
+    addressRegion: 'Hautes-Alpes',
+    postalCode: '03510',
   },
   slogan: 'Gérez vos EPI simplement',
   contactPoint: {
@@ -49,11 +49,32 @@ const WebApplicationSchema: WithContext<WebApplication> = {
   '@type': 'WebApplication',
   name: 'EPI Tranquille',
   applicationCategory: 'UtilitiesApplication',
-  offers: {
-    '@type': 'Offer',
-    price: 0.0,
-    priceCurrency: 'EUR',
-  },
+  offers: [
+    {
+      '@type': 'Offer',
+      name: 'Basique',
+      price: 0.0,
+      priceCurrency: 'EUR',
+    },
+    {
+      '@type': 'Offer',
+      name: 'Indépendant',
+      price: 5.0,
+      priceCurrency: 'EUR',
+    },
+    {
+      '@type': 'Offer',
+      name: 'Premium',
+      price: 13.0,
+      priceCurrency: 'EUR',
+    },
+    {
+      '@type': 'Offer',
+      name: 'Entreprise',
+      price: 50.0,
+      priceCurrency: 'EUR',
+    },
+  ],
   downloadUrl: 'https://epitranquille.com',
 }
 const PageSchema = [WebSiteSchema, OnlineBusinessSchema, WebApplicationSchema]
