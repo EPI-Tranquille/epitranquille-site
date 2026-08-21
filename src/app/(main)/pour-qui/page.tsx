@@ -15,34 +15,34 @@ const audiences = [
   {
     name: "Moniteur·rices indépendant·es",
     activities: 'Escalade, canyoning, spéléologie, via ferrata, grimpe d’arbres',
-    pain: "Vous tenez votre registre EPI sur un tableur, vous perdez du temps à recopier les dates de contrôle et vous craignez d'oublier un EPI arrivé en fin de vie.",
+    pain: "Vous tenez votre registre EPI sur un tableur, vous perdez du temps à recopier les numéros de série et date de fabrication ? Vous trouvez que gérer un registre EPI est une corvée ? À la fin de saison vous perdez du temps à tout contrôler ?",
     benefit:
-      "Ajoutez vos EPI en quelques clics depuis notre base de données, laissez les alertes automatiques vous prévenir des contrôles à venir, et exportez votre registre en PDF en cas de contrôle ou pour votre assurance.",
+      "Ajoutez vos EPI en quelques clics depuis notre base de données, scannez les numéros de série, accélerez le contrôle de vos EPI via l'application mobile et exportez votre registre en PDF en cas de contrôle sur le terrain.",
   },
   {
     name: 'Guides de haute montagne',
-    activities: 'Alpinisme, cascade de glace, ski de randonnée, terrain d’aventure',
-    pain: "Votre matériel est varié, engagé, et vous devez pouvoir justifier à tout moment de l'état et de l'historique de chaque EPI.",
+    activities: 'Alpinisme, cascade de glace, ski de randonnée',
+    pain: "Piolets, broches à glaces et crampons sont aussi des EPI !",
     benefit:
-      "Chaque EPI dispose d'une fiche complète (fabrication, achat, mise en service, contrôles passés, documents) pour une traçabilité rigoureuse, accessible en un instant.",
+      "Nous avons pensé à tout, la base de données EPI Tranquille contient aussi le matos d'alpinisme. Vous pouvez même ajouter les DVA pour leur suivi.",
   },
   {
     name: 'Clubs et salles d’escalade',
-    activities: 'Structures associatives, salles commerciales, sections FFME/FFCAM',
-    pain: "Plusieurs bénévoles ou salarié·es interviennent sur le parc EPI, le volume de matériel est important, et centraliser les contrôles devient vite compliqué.",
+    activities: 'Structures associatives, salles commerciales',
+    pain: "Plusieurs bénévoles ou salarié·es interviennent sur le parc EPI, le volume de matériel est important, et centraliser les contrôles devient vite compliqué. Le suivi des EPI est difficile à effectuer entre chaque sortie club ?",
     benefit:
-      "Invitez plusieurs utilisateurs à gérer un même parc EPI, contrôlez par lot en quelques minutes, et démarrez rapidement grâce à l'import de votre registre Excel existant.",
+      "Invitez plusieurs utilisateurs à gérer un même parc EPI, contrôlez par lot en quelques minutes, et démarrez rapidement grâce à l'import de votre registre Excel existant. Consigner les prêts et retours des EPI de votre club après chaque sortie, vous avez ainsi un historique précis de l'utilisation de chaque EPI.",
   },
   {
-    name: 'PAH — Parcours Accrobatiques en Hauteur',
-    activities: 'Accrobranche, parcs aventure, structures artificielles',
-    pain: "Baudriers, longes, poulies... le nombre d'EPI à contrôler régulièrement est élevé, et les obligations réglementaires ne laissent pas de place à l'approximation.",
+    name: 'PAH — Parcours Accrobatiques en Hauteur et Via Ferrata',
+    activities: 'Accrobranche, parcs aventure, locations de kits de via ferrata',
+    pain: "Baudriers, longes, poulies... vous devez contrôler des EPI chaque jour. Le matériel est beaucoup sollicité.",
     benefit:
       "Le contrôle par lot et les alertes de contrôle périodique paramétrables vous permettent de garder une longueur d'avance sur vos échéances, sans y passer vos journées.",
   },
   {
-    name: 'Collectivités et grosses structures',
-    activities: 'Bases de loisirs, collectivités territoriales, gros clubs multi-sites',
+    name: 'Collectivités et fédérations',
+    activities: 'Bases de loisirs, collectivités territoriales, fédérations sportives',
     pain: "Plusieurs sites, plusieurs équipes, des audits réguliers à préparer : il vous faut une vision d'ensemble fiable sur l'intégralité de votre parc EPI.",
     benefit:
       "Gérez plusieurs parcs EPI illimités, un nombre d'utilisateurs élargi et bénéficiez d'un support prioritaire par e-mail et téléphone avec la formule Entreprise.",
