@@ -24,7 +24,7 @@ export function CallToAction() {
           </p>
           <div className="mt-8 flex justify-center">
             <Button color="white" href="https://app.epitranquille.com/signup/">
-              Créer mon compte
+              Commencer gratuitement
             </Button>
           </div>
           <div className="mt-6 flex flex-wrap justify-center gap-4">

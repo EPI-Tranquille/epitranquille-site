@@ -51,7 +51,7 @@ const features = [
   {
     name: 'Alertes personnalisables',
     description:
-      "Choisissez comment et quand être alerté·e avant l'expiration ou le contrôle de votre parc.",
+      "Choisissez comment et quand être alerté·e avant l'expiration d'EPI ou le contrôle de votre parc.",
     image: screenshotAlertes,
   },
   {

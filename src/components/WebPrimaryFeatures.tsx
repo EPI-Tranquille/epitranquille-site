@@ -7,25 +7,19 @@ import { useEffect, useState } from 'react'
 
 import { Container } from '@/components/Container'
 import screenshotRegistre from '@/images/screenshots/registre.jpeg'
-import screenshotPpeAdd from '@/images/screenshots/ajouter.jpeg'
 import screenshotBdd from '@/images/screenshots/bdd.jpeg'
 import screenshotDetail from '@/images/screenshots/detail.jpeg'
 import screenshotBatchControl from '@/images/screenshots/controle_rapide.jpeg'
 import screenshotControleDetaille from '@/images/screenshots/controle_detaille.jpeg'
-import screenshotAlertes from '@/images/screenshots/alertes.jpeg'
+import screenshotLoans from '@/images/screenshots/loans.png'
 import screenshotMultiUsers from '@/images/screenshots/utilisateurs.jpeg'
 
 const features = [
   {
-    title: 'Registre complet',
+    title: 'Tableau de bord',
     description:
-      "Retrouvez tous vos EPI dans un registre clair et filtrable : modèle, fabricant, catégorie, emplacement, état et dates de contrôle en un coup d'œil.",
+      "Visualisez en un coup d'œil l'état de votre parc EPI et la date de votre prochaine inspection.",
     image: screenshotRegistre,
-  },
-  {
-    title: 'Ajouter un EPI',
-    description: 'Ajouter un EPI au registre est très simple et rapide.',
-    image: screenshotPpeAdd,
   },
   {
     title: 'Base de données',
@@ -52,16 +46,16 @@ const features = [
     image: screenshotControleDetaille,
   },
   {
-    title: 'Alertes automatiques',
-    description:
-      "Recevez un e-mail avant qu'un EPI n'arrive à expiration ou qu'un contrôle périodique soit dû. Chaque alerte et son délai sont personnalisables.",
-    image: screenshotAlertes,
-  },
-  {
     title: 'Utilisateurs',
     description:
       "Vous êtes plusieurs gestionnaires d'EPI dans un club ou une collectivité ? Vous effectuez les contrôles EPI d'un club en tant que moniteur·rice ? Invitez des personnes à rejoindre un parc EPI pour une gestion collaborative.",
     image: screenshotMultiUsers,
+  },
+  {
+    title: 'Gestion des prêts/sorties',
+    description:
+      "Vous louez du matériel pour des particuliers ? Vous organisez des sorties au sein de votre club ? Faites un suivi détaillé du matériel qui rentre et sort de votre parc EPI.",
+    image: screenshotLoans,
   },
 ]
 
@@ -94,11 +88,11 @@ export function WebFeatures() {
       <Container className="relative">
         <div className="max-w-2xl md:mx-auto md:text-center lg:mx-0 lg:max-w-3xl xl:max-w-none">
           <h2 className="section-title">
-            Et depuis votre ordinateur, tout aussi complet
+            Mais aussi sur le web
           </h2>
           <p className="section-subtitle">
-            La version web reprend tout ce qui compte pour piloter votre parc
-            EPI au quotidien, avec quelques fonctionnalités en plus.
+            La version web permet la gestion de votre registre EPI, installé confortablement au bureau, au local de votre club ou
+            dans votre salle d'escalade. Elle offre des fonctionnalités supplémentaires.
           </p>
         </div>
 
@@ -170,34 +164,6 @@ export function WebFeatures() {
             </>
           )}
         </TabGroup>
-
-        <ul
-          role="list"
-          className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-4 text-sm text-gray-700 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-4"
-        >
-          {[
-            'Export du registre en PDF',
-            "Import d'un registre Excel existant",
-            "Gestion des prêts d'EPI",
-            'Plusieurs parcs EPI par compte',
-          ].map((item) => (
-            <li key={item} className="flex gap-x-2">
-              <svg
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                aria-hidden="true"
-                className="h-5 w-5 flex-none text-primary"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              {item}
-            </li>
-          ))}
-        </ul>
       </Container>
     </section>
   )

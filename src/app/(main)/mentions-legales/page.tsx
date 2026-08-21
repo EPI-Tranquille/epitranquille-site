@@ -4,6 +4,8 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Mentions légales',
+  description:
+    'Mentions légales du site EPI Tranquille : éditeur, hébergeur et informations juridiques.',
 }
 
 export default function MentionsLegales() {

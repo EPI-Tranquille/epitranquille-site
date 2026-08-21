@@ -157,10 +157,6 @@ export default function SnapecPage() {
 
           <div className="mx-auto mt-20 max-w-2xl text-center">
             <h2 className="section-title">Comment activer votre compte ?</h2>
-            <p className="section-subtitle">
-              Deux façons d'y arriver, au choix — le résultat est le même : un
-              compte EPI Tranquille gratuit, réservé aux adhérent·es SNAPEC.
-            </p>
           </div>
           <div className="mx-auto mt-12 grid max-w-2xl grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-2">
             <StepCard

@@ -57,7 +57,7 @@ export default function PourQuiPage() {
             </h1>
             <p className="section-subtitle">
               Toute personne ou structure qui encadre des activités avec des
-              équipements de protection individuelle a besoin d'un registre EPI
+              équipements de protection individuelle (EPI) a besoin d'un registre EPI
               à jour. EPI Tranquille a été pensé pour s'adapter à votre
               pratique, seul·e ou en équipe.
             </p>

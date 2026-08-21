@@ -3,7 +3,9 @@ import { type Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: "Conditions d'utilisations de nos services",
+  title: "Conditions d'utilisation",
+  description:
+    "Conditions générales d'utilisation d'EPI Tranquille : accès au service, compte utilisateur, engagements et responsabilités des parties.",
 }
 
 export default function ConditionsUtilisation() {

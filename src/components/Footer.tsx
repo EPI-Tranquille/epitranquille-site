@@ -158,7 +158,7 @@ export default function Footer() {
                 Emportez votre registre EPI partout
               </h3>
               <p className="mt-2 text-sm leading-6 text-gray-600">
-                L'application mobile EPI Tranquille arrive bientôt sur iOS et
+                L'application mobile EPI Tranquille est maintenant disponible sur iOS et
                 Android.
               </p>
             </div>

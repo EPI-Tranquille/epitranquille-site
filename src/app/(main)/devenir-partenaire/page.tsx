@@ -123,13 +123,13 @@ const audiences = [
     icon: BuildingIcon,
     title: 'Syndicats professionnels',
     description:
-      "Offrez à vos adhérent·es un outil concret pour répondre à une obligation du métier, en valorisant votre cotisation syndicale.",
+      "Offrez à vos adhérent·es un outil adapté, développé au plus près du terrain, pour répondre à une obligation du métier",
   },
   {
     icon: NetworkIcon,
-    title: 'Regroupements & fédérations',
+    title: 'Fédérations sportives',
     description:
-      "Fédérations, réseaux de structures, collectifs professionnels : donnez à vos membres un accès simplifié, quel que soit leur taille.",
+      "Proposez à vos clubs un outil de gestion des EPI adaptés à des parcs importants avec des entrées/sorties de matériel fréquentes.",
   },
   {
     icon: MapPinIcon,
@@ -141,7 +141,7 @@ const audiences = [
     icon: AcademicCapIcon,
     title: 'Centres de formation',
     description:
-      "Habituez vos stagiaires aux bons réflexes de suivi EPI dès la formation, avec un outil qu'ils garderont ensuite dans leur pratique.",
+      "Proposez aux stagiaires un outil de de suivi EPI adapté pendant la formation, qu'ils garderont ensuite dans leur pratique professionnelle.",
   },
 ]
 

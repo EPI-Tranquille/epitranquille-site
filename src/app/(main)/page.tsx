@@ -5,12 +5,22 @@ import { PricingDynamic as Pricing } from '@/components/PricingDynamic'
 import { PrimaryFeatures } from '@/components/PrimaryFeatures'
 import { Reviews } from '@/components/Reviews'
 import { WebFeatures } from '@/components/WebPrimaryFeatures'
+import { type Metadata } from 'next'
 import {
   OnlineBusiness,
   WebApplication,
   WebSite,
   WithContext,
 } from 'schema-dts'
+
+export const metadata: Metadata = {
+  title: {
+    absolute:
+      "EPI Tranquille — Gestion de registre EPI pour l'escalade, le canyoning et la spéléo",
+  },
+  description:
+    "Gérez votre registre EPI simplement, sur le web et mobile. Ajout rapide, alertes automatiques, contrôles par lot. Essai gratuit, pensé pour les moniteur·rices d'escalade, canyoning, spéléologie et via ferrata.",
+}
 
 const WebSiteSchema: WithContext<WebSite> = {
   '@context': 'https://schema.org',

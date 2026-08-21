@@ -4,6 +4,8 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Politique de confidentialité',
+  description:
+    'Politique de confidentialité d’EPI Tranquille : données collectées, finalités, durée de conservation et vos droits (RGPD).',
 }
 
 export default function PolitiqueConfidentialite() {

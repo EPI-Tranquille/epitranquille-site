@@ -6,7 +6,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'À propos',
   description:
-    "L'histoire et la mission d'EPI Tranquille, l'application qui simplifie la gestion du registre EPI pour les professionnels de l'escalade, du canyoning, de la spéléologie et des sports de montagne.",
+    "L'auteur derrière l'application qui simplifie la gestion du registre EPI pour les professionnels de l'escalade, du canyoning, de la spéléologie et des sports de montagne.",
 }
 
 export default function AboutPage() {

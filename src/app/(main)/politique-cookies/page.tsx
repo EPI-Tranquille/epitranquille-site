@@ -3,7 +3,9 @@ import { type Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Politique de confidentialité',
+  title: 'Politique de gestion des cookies',
+  description:
+    "Politique de gestion des cookies d'EPI Tranquille : cookies utilisés, finalités et comment gérer vos préférences.",
 }
 
 export default function PolitiqueCookies() {
