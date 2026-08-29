@@ -13,18 +13,18 @@
     "@headlessui/react": "^2.2.10",
     "@mdx-js/loader": "^3.1.1",
     "@mdx-js/react": "^3.1.1",
-    "@next/bundle-analyzer": "16.3.1",
-    "@next/mdx": "16.3.1",
+    "@next/bundle-analyzer": "16.3.3",
+    "@next/mdx": "16.3.3",
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/postcss": "^4.3.3",
     "@types/mdx": "^2.0.14",
     "@types/react": "19.2.18",
-    "@types/react-dom": "19.2.4",
+    "@types/react-dom": "19.2.5",
     "@vercel/speed-insights": "^1.0.12",
     "clsx": "^2.1.0",
     "crisp-sdk-web": "^1.1.2",
     "framer-motion": "^13.1.0",
-    "next": "16.3.1",
+    "next": "16.3.3",
     "posthog-js": "^1.157.2",
     "react": "19.2.8",
     "react-dom": "19.2.8",
@@ -37,13 +37,13 @@
     "@tailwindcss/typography": "^0.5.14",
     "@types/node": "^26.2.0",
     "eslint": "^9.39.5",
-    "eslint-config-next": "16.3.1",
+    "eslint-config-next": "16.3.3",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.8.1",
     "sharp": "^0.35.3"
   },
   "overrides": {
     "@types/react": "19.2.18",
-    "@types/react-dom": "19.2.4"
+    "@types/react-dom": "19.2.5"
   }
 }
