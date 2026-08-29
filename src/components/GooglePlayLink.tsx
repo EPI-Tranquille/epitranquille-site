@@ -57,7 +57,7 @@ export function GooglePlayLink({
         aria-disabled="true"
         title="Bientôt disponible sur Google Play"
         className={clsx(
-          'inline-flex cursor-not-allowed items-center rounded-lg opacity-50',
+          'flex w-full cursor-not-allowed items-center justify-center rounded-lg opacity-50 sm:w-auto',
           color === 'black'
             ? 'bg-gray-800 text-white'
             : 'bg-white text-gray-900',
@@ -77,7 +77,7 @@ export function GooglePlayLink({
       rel="noopener noreferrer"
       aria-label="Télécharger sur Google Play"
       className={clsx(
-        'rounded-lg transition-colors',
+        'flex w-full items-center justify-center rounded-lg transition-colors sm:w-auto',
         color === 'black'
           ? 'bg-gray-800 text-white hover:bg-gray-900'
           : 'bg-white text-gray-900 hover:bg-gray-50',

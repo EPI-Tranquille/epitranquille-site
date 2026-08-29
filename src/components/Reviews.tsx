@@ -83,7 +83,7 @@ export function Reviews() {
     <section
       id="reviews"
       aria-labelledby="reviews-title"
-      className="border-t border-gray-200 bg-gray-50 py-20 sm:py-32"
+      className="border-t border-gray-200 bg-gray-50 pt-12 pb-20 sm:py-32"
     >
       <Container>
         <div className="mx-auto max-w-2xl text-center">

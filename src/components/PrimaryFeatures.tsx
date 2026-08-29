@@ -92,7 +92,7 @@ export function PrimaryFeatures() {
     <section
       id="features"
       aria-label="Fonctionnalités de l'application mobile EPI Tranquille"
-      className="relative overflow-hidden bg-gray-900 py-20 sm:py-32"
+      className="relative overflow-hidden bg-gray-900 pt-12 pb-20 sm:py-32"
     >
       <Container className="relative">
         <div className="max-w-2xl md:mx-auto md:text-center lg:mx-0 lg:max-w-3xl xl:max-w-none">
@@ -129,8 +129,8 @@ export function PrimaryFeatures() {
                           className={clsx(
                             'font-display data-selected:not-data-focus:outline-hidden text-lg',
                             selectedIndex === featureIndex
-                              ? 'text-blue-600 lg:text-white'
-                              : 'text-blue-100 hover:text-white lg:text-white',
+                              ? 'text-primary lg:text-white'
+                              : 'text-green-100 hover:text-white lg:text-white',
                           )}
                         >
                           <span className="absolute inset-0 rounded-full lg:rounded-l-xl lg:rounded-r-none" />
@@ -142,7 +142,7 @@ export function PrimaryFeatures() {
                           'mt-2 hidden text-sm lg:block',
                           selectedIndex === featureIndex
                             ? 'text-white'
-                            : 'text-blue-100 group-hover:text-white',
+                            : 'text-green-100 group-hover:text-white',
                         )}
                       >
                         {feature.description}

@@ -3,9 +3,26 @@ import Link from 'next/link'
 
 const baseStyles = {
   solid:
-    'inline-flex items-center justify-center rounded-lg py-2 px-3 text-sm font-semibold transition-colors',
+    'inline-flex items-center justify-center rounded-lg font-semibold transition-colors',
   outline:
-    'inline-flex items-center justify-center rounded-lg border py-[calc(--spacing(2)-1px)] px-[calc(--spacing(3)-1px)] text-sm transition-colors',
+    'inline-flex items-center justify-center rounded-lg border transition-colors',
+}
+
+// Les tailles vivent à part (plutôt que dans baseStyles) pour ne jamais
+// avoir deux classes non-responsives de même propriété en concurrence
+// dans le DOM : l'ordre de génération du CSS Tailwind ne suit pas
+// l'ordre des classes dans le HTML, donc une classe passée en `className`
+// pour "override" une classe de base peut perdre la cascade au hasard.
+const sizeStyles = {
+  base: {
+    solid: 'py-2 px-3 text-sm',
+    outline: 'py-[calc(--spacing(2)-1px)] px-[calc(--spacing(3)-1px)] text-sm',
+  },
+  lg: {
+    solid: 'py-3 px-5 text-base sm:py-2 sm:px-3 sm:text-sm',
+    outline:
+      'py-[calc(--spacing(3)-1px)] px-[calc(--spacing(5)-1px)] text-base sm:py-[calc(--spacing(2)-1px)] sm:px-[calc(--spacing(3)-1px)] sm:text-sm',
+  },
 }
 
 const variantStyles = {
@@ -31,20 +48,20 @@ type ButtonProps = (
       variant: 'outline'
       color?: keyof typeof variantStyles.outline
     }
-) &
-  (
+) & { size?: keyof typeof sizeStyles } & (
     | Omit<React.ComponentPropsWithoutRef<typeof Link>, 'color'>
     | (Omit<React.ComponentPropsWithoutRef<'button'>, 'color'> & {
         href?: undefined
       })
   )
 
-export function Button({ className, ...props }: ButtonProps) {
+export function Button({ className, size = 'base', ...props }: ButtonProps) {
   props.variant ??= 'solid'
   props.color ??= 'gray'
 
   className = clsx(
     baseStyles[props.variant],
+    sizeStyles[size][props.variant],
     props.variant === 'outline'
       ? variantStyles.outline[props.color]
       : props.variant === 'solid'

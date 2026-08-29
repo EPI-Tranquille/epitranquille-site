@@ -83,7 +83,7 @@ export function WebFeatures() {
     <section
       id="features-web"
       aria-label="Fonctionnalités de l'application web EPI Tranquille"
-      className="relative overflow-hidden border-t border-gray-200 bg-white py-20 sm:py-32"
+      className="relative overflow-hidden border-t border-gray-200 bg-white pt-12 pb-20 sm:py-32"
     >
       <Container className="relative">
         <div className="max-w-2xl md:mx-auto md:text-center lg:mx-0 lg:max-w-3xl xl:max-w-none">

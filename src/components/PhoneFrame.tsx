@@ -1,5 +1,4 @@
 import clsx from 'clsx'
-import Image from 'next/image'
 
 import frame from '@/images/phone-frame.svg'
 
@@ -30,12 +29,25 @@ export function PhoneFrame({
         {children}
       </div>
       <PlaceholderFrame className="pointer-events-none absolute inset-0 h-full w-full fill-gray-100" />
-      <Image
-        src={frame}
+      {/*
+        Plain <img>, not next/image: this decorative bezel is reused
+        identically across every PhoneFrame instance on the page (the
+        homepage mounts ~9 of them at once, most lazy). next/image's
+        dev-only LCP-detection heuristic keys its warning by resolved src,
+        so those duplicates clobber each other and misreport the priority
+        one (the Hero's) as lazily loaded even though it isn't. A native
+        <img> sidesteps that false positive while keeping the same
+        eager/lazy behavior via the `loading` attribute.
+      */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={frame.src}
+        width={frame.width}
+        height={frame.height}
         alt=""
         className="pointer-events-none absolute inset-0 h-full w-full"
-        unoptimized
-        priority={priority}
+        loading={priority ? 'eager' : 'lazy'}
+        fetchPriority={priority ? 'high' : undefined}
       />
     </div>
   )

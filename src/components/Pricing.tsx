@@ -1,6 +1,6 @@
 'use client'
 
-import { Radio, RadioGroup } from '@headlessui/react'
+import { Disclosure, DisclosureButton, Radio, RadioGroup } from '@headlessui/react'
 import clsx from 'clsx'
 import { useState } from 'react'
 
@@ -125,6 +125,20 @@ function CheckIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
+function ChevronDownIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
+      <path
+        d="M6 9l6 6 6-6"
+        stroke="currentColor"
+        strokeWidth={1.5}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
 function Plan({
   name,
   price,
@@ -153,13 +167,13 @@ function Plan({
   return (
     <section
       className={clsx(
-        'flex flex-col overflow-hidden rounded-3xl p-6 shadow-lg shadow-gray-900/5',
+        'flex flex-col overflow-hidden rounded-3xl p-4 shadow-lg shadow-gray-900/5 sm:p-6',
         featured ? 'order-first bg-gray-900 lg:order-0' : 'bg-white',
       )}
     >
       <h3
         className={clsx(
-          'text-md flex items-center font-semibold',
+          'flex items-center text-lg font-semibold sm:text-base',
           featured ? 'text-white' : 'text-gray-900',
         )}
       >
@@ -168,7 +182,7 @@ function Plan({
       </h3>
       <p
         className={clsx(
-          'relative mt-5 flex text-3xl tracking-tight',
+          'relative mt-3 flex text-3xl tracking-tight sm:mt-5',
           featured ? 'text-white' : 'text-gray-900',
         )}
       >
@@ -207,24 +221,46 @@ function Plan({
       >
         {description}
       </p>
-      <div className="order-last mt-6">
-        <ul
-          role="list"
-          className={clsx(
-            '-my-2 divide-y text-sm',
-            featured
-              ? 'divide-gray-800 text-gray-300'
-              : 'divide-gray-200 text-gray-700',
-          )}
-        >
-          {features.map((feature) => (
-            <li key={feature} className="flex py-2">
-              <CheckIcon className="h-6 w-6 flex-none text-primary" />
-              <span className="ml-4">{feature}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <Disclosure as="div" className="order-last mt-3 sm:mt-6" defaultOpen={false}>
+        {({ open }) => (
+          <>
+            <DisclosureButton
+              className={clsx(
+                'flex w-full items-center justify-between py-2 text-left text-sm font-semibold lg:hidden',
+                featured ? 'text-white' : 'text-gray-900',
+              )}
+            >
+              <span>
+                {open ? 'Masquer les fonctionnalités' : 'Voir les fonctionnalités'}
+              </span>
+              <ChevronDownIcon
+                className={clsx(
+                  'h-5 w-5 flex-none transition-transform',
+                  open && 'rotate-180',
+                )}
+              />
+            </DisclosureButton>
+            <ul
+              role="list"
+              className={clsx(
+                '-my-2 divide-y text-sm',
+                featured
+                  ? 'divide-gray-800 text-gray-300'
+                  : 'divide-gray-200 text-gray-700',
+                open ? 'block' : 'hidden',
+                'lg:block',
+              )}
+            >
+              {features.map((feature) => (
+                <li key={feature} className="flex py-2">
+                  <CheckIcon className="h-6 w-6 flex-none text-primary" />
+                  <span className="ml-4">{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+      </Disclosure>
       <Button
         href={button.href}
         color={featured ? 'primary' : 'gray'}
@@ -246,7 +282,7 @@ export default function Pricing() {
     <section
       id="pricing"
       aria-labelledby="pricing-title"
-      className="border-t border-gray-200 bg-gray-100 py-20 sm:py-32"
+      className="border-t border-gray-200 bg-gray-100 pt-12 pb-20 sm:py-32"
     >
       <Container>
         <div className="mx-auto max-w-2xl text-center">
@@ -327,6 +363,7 @@ export default function Pricing() {
           <Button
             href="mailto:contact@epitranquille.com"
             color="gray"
+            size="lg"
             className="mt-6"
             aria-label="Demander un devis"
           >

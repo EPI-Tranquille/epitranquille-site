@@ -136,12 +136,14 @@ export function Header() {
                 </>
               )}
             </Popover>
-            <Button href="https://app.epitranquille.com" variant="outline" className="hidden lg:block">
-              Connexion
-            </Button>
-            <Button href="https://app.epitranquille.com/signup/" className="hidden lg:block">
-              Commencer
-            </Button>
+            <div className="hidden lg:flex lg:items-center lg:gap-6">
+              <Button href="https://app.epitranquille.com" variant="outline">
+                Connexion
+              </Button>
+              <Button href="https://app.epitranquille.com/signup/">
+                Commencer
+              </Button>
+            </div>
           </div>
         </Container>
       </nav>

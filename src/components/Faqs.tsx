@@ -97,7 +97,7 @@ export function Faqs() {
     <section
       id="faqs"
       aria-labelledby="faqs-title"
-      className="border-t border-gray-200 py-20 sm:py-32"
+      className="border-t border-gray-200 pt-12 pb-20 sm:py-32"
     >
       <script
         type="application/ld+json"
