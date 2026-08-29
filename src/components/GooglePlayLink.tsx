@@ -34,7 +34,7 @@ export function GooglePlayLink({
         y="17"
         fill="currentColor"
         fontFamily="Arial, Helvetica, sans-serif"
-        fontSize="9"
+        fontSize="10"
       >
         Télécharger sur
       </text>
@@ -43,7 +43,7 @@ export function GooglePlayLink({
         y="30"
         fill="currentColor"
         fontFamily="Arial, Helvetica, sans-serif"
-        fontSize="15"
+        fontSize="16"
         fontWeight="600"
       >
         Google Play
@@ -57,7 +57,7 @@ export function GooglePlayLink({
         aria-disabled="true"
         title="Bientôt disponible sur Google Play"
         className={clsx(
-          'flex w-full cursor-not-allowed items-center justify-center rounded-lg opacity-50 sm:w-auto',
+          'flex w-full cursor-not-allowed items-center justify-center rounded-lg py-2.5 opacity-50 sm:w-auto',
           color === 'black'
             ? 'bg-gray-800 text-white'
             : 'bg-white text-gray-900',
@@ -77,7 +77,7 @@ export function GooglePlayLink({
       rel="noopener noreferrer"
       aria-label="Télécharger sur Google Play"
       className={clsx(
-        'flex w-full items-center justify-center rounded-lg transition-colors sm:w-auto',
+        'flex w-full items-center justify-center rounded-lg py-2.5 transition-colors sm:w-auto',
         color === 'black'
           ? 'bg-gray-800 text-white hover:bg-gray-900'
           : 'bg-white text-gray-900 hover:bg-gray-50',

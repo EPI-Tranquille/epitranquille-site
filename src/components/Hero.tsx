@@ -100,6 +100,20 @@ function ArrowRightIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
+function ChevronRightIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
+      <path
+        d="M9 6l6 6-6 6"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
 function DesktopIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
@@ -140,7 +154,7 @@ export function Hero() {
               guides de haute montagne, les clubs et salles d'escalade ou encore
               les PAH (Parcours Accrobatiques en Hauteur).
             </p>
-            <div className="mt-6 flex flex-wrap gap-x-6 gap-y-4">
+            <div className="mt-6 hidden flex-wrap gap-x-6 gap-y-4 sm:flex">
               <Button
                 href="https://app.epitranquille.com/signup/"
                 variant="solid"
@@ -154,6 +168,13 @@ export function Hero() {
               <AppStoreLink />
               <GooglePlayLink />
             </div>
+            <Link
+              href="https://app.epitranquille.com/signup/"
+              className="group mt-4 flex items-center justify-center gap-1 text-sm font-semibold text-gray-700 hover:text-gray-900 sm:hidden"
+            >
+              Commencer sur le web
+              <ChevronRightIcon className="h-4 w-4 flex-none transition-transform group-hover:translate-x-0.5" />
+            </Link>
             <Link
               href="/snapec"
               className="group mt-8 inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 py-2 pl-3 pr-4 text-sm text-green-900 transition-colors hover:bg-primary/15"
