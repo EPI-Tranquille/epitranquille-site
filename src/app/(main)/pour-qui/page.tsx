@@ -62,10 +62,8 @@ export default function PourQuiPage() {
             <p className="section-subtitle">
               EPI Tranquille est un outil sur mesure pour les professionnel·les
               et les structures de l'escalade, du canyoning, de l'alpinisme, de
-              la spéléologie et de la via ferrata. Pas un logiciel générique
-              pensé pour le BTP ou les travaux en hauteur : il est conçu par un
-              moniteur d'escalade et évolue avec vos pratiques, seul·e ou en
-              équipe.
+              la spéléologie et de la via ferrata. Il est conçu par un moniteur
+              d'escalade et évolue avec vos pratiques, seul·e ou en équipe.
             </p>
             <p className="mt-4 text-base font-medium text-green-900">
               Conçu selon la norme NF S72-701 (2008) sur la gestion des EPI

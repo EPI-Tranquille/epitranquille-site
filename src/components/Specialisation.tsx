@@ -76,16 +76,19 @@ export function Specialisation() {
             Un outil sur mesure pour les pros de l'escalade et de la montagne
           </h2>
           <p className="section-subtitle">
-            EPI Tranquille n'est pas un logiciel générique pensé pour le BTP ou
-            les travaux en hauteur. Il est conçu par un moniteur d'escalade,
-            pour les encadrant·es et les structures des sports de montagne et de
-            pleine nature, et il évolue avec vos pratiques.
+            EPI Tranquille est conçu par un moniteur d'escalade, pour les
+            encadrant·es et les structures des sports de montagne et de pleine
+            nature. Sa base de matériel, ses contrôles et ses évolutions suivent
+            vos pratiques.
           </p>
         </div>
 
         <div className="mx-auto mt-12 grid max-w-2xl grid-cols-1 gap-6 sm:mt-16 lg:max-w-none lg:grid-cols-3">
           {groups.map((group) => (
-            <div key={group.title} className="rounded-3xl bg-white p-8 ring-1 ring-gray-200">
+            <div
+              key={group.title}
+              className="rounded-3xl bg-white p-8 ring-1 ring-gray-200"
+            >
               <h3 className="text-lg font-semibold text-gray-900">
                 {group.title}
               </h3>
