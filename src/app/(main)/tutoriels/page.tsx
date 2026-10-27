@@ -6,10 +6,13 @@ import { Container } from '@/components/Container'
 import { TutorialsBrowser } from '@/components/TutorialsBrowser'
 import {
   type Platform,
+  type Tutorial,
   embedUrl,
+  getTutorialCatalog,
   platforms,
+  playlistUrl,
   thumbnailUrl,
-  tutorials,
+  watchUrl,
   youtubeChannelUrl,
 } from '@/lib/tutorials'
 
@@ -22,27 +25,26 @@ export const metadata: Metadata = {
   },
 }
 
-// Google n'accepte une vidéo dans ses résultats que si sa date est connue.
-const datedTutorials = tutorials.filter((tutorial) => tutorial.publishedAt)
-
-const videoListSchema: WithContext<ItemList> = {
-  '@context': 'https://schema.org',
-  '@type': 'ItemList',
-  name: 'Tutoriels vidéo EPI Tranquille',
-  itemListElement: datedTutorials.map((tutorial, index) => ({
-    '@type': 'ListItem',
-    position: index + 1,
-    item: {
-      '@type': 'VideoObject',
-      name: tutorial.title,
-      description: tutorial.description,
-      thumbnailUrl: thumbnailUrl(tutorial.url),
-      uploadDate: tutorial.publishedAt,
-      contentUrl: tutorial.url,
-      embedUrl: embedUrl(tutorial.url),
-      inLanguage: 'fr',
-    },
-  })),
+function videoListSchema(tutorials: Tutorial[]): WithContext<ItemList> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Tutoriels vidéo EPI Tranquille',
+    itemListElement: tutorials.map((tutorial, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'VideoObject',
+        name: tutorial.title,
+        description: tutorial.description,
+        thumbnailUrl: thumbnailUrl(tutorial),
+        uploadDate: tutorial.publishedAt,
+        contentUrl: watchUrl(tutorial),
+        embedUrl: embedUrl(tutorial),
+        inLanguage: 'fr',
+      },
+    })),
+  }
 }
 
 function YouTubeIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
@@ -92,13 +94,17 @@ function ArrowRightIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
-export default function TutorielsPage() {
+export default async function TutorielsPage() {
+  let { tutorials, playlists } = await getTutorialCatalog()
+
   return (
     <>
-      {datedTutorials.length > 0 && (
+      {tutorials.length > 0 && (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(videoListSchema) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(videoListSchema(tutorials)),
+          }}
         />
       )}
       <section className="pt-12 pb-20 sm:pt-16 sm:pb-32">
@@ -161,7 +167,7 @@ export default function TutorielsPage() {
                     {platforms[platform].description}
                   </p>
                   <a
-                    href={platforms[platform].playlistUrl ?? youtubeChannelUrl}
+                    href={playlistUrl(playlists[platform].id)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group mt-6 inline-flex items-center gap-2 text-sm font-semibold text-gray-900"
