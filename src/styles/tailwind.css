@@ -97,6 +97,12 @@
   ::file-selector-button {
     border-color: var(--color-gray-200, currentcolor);
   }
+
+  /* Le bandeau reste fixé en haut : les ancres (/#features…) s'arrêtent
+     sous lui plutôt que derrière. */
+  html {
+    scroll-padding-top: 5rem;
+  }
 }
 
 .custom-typography {

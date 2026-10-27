@@ -22,12 +22,11 @@ export const metadata: Metadata = {
     default: 'EPI Tranquille - Gérez vos EPI simplement.',
   },
   description:
-    'EPI Tranquille est une application permettant de gérer vos équipements de protection individuelle (EPI) simplement.',
+    "EPI Tranquille, le registre EPI sur mesure des pros de l'escalade, du canyoning, de l'alpinisme, de la spéléologie et de la via ferrata. Conçu selon la norme NF S72-701.",
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
     siteName: 'EPI Tranquille',
-    url: 'https://epitranquille.com',
   },
   twitter: {
     card: 'summary_large_image',

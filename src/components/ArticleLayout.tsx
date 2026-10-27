@@ -44,6 +44,8 @@ export function ArticleLayout({
     headline: article.title,
     description: article.description,
     datePublished: article.date,
+    image: `${SITE_URL}/opengraph-image`,
+    inLanguage: 'fr',
     url,
     mainEntityOfPage: url,
     author: {
@@ -55,7 +57,7 @@ export function ArticleLayout({
       name: 'EPI Tranquille',
       logo: {
         '@type': 'ImageObject',
-        url: `${SITE_URL}/logo.svg`,
+        url: `${SITE_URL}/web-app-manifest-512x512.png`,
       },
     },
   }

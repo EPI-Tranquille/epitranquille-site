@@ -12,6 +12,27 @@ export interface ArticleWithSlug extends Article {
   slug: string
 }
 
+// Open Graph d'un article : défini page par page, il remplace celui du layout
+// racine, d'où la reprise de siteName, locale et de l'image générée par
+// src/app/opengraph-image.tsx.
+export function articleOpenGraph(article: Article) {
+  return {
+    type: 'article' as const,
+    siteName: 'EPI Tranquille',
+    locale: 'fr_FR',
+    images: [
+      {
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'EPI Tranquille - Gérez vos EPI simplement.',
+      },
+    ],
+    publishedTime: article.date,
+    authors: [article.author],
+  }
+}
+
 const BLOG_DIR = path.join(process.cwd(), 'src/app/(main)/blog')
 
 async function importArticle(slug: string): Promise<ArticleWithSlug | null> {

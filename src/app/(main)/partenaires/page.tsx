@@ -98,7 +98,7 @@ export default function PartnersPage() {
     <section className="pt-12 pb-20 sm:pt-16 sm:pb-32">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="section-title">Partenaires</h2>
+          <h1 className="section-title">Partenaires</h1>
           <p className="section-subtitle">
             Nous sommes fiers de collaborer avec les partenaires suivants qui
             nous soutiennent et qui vous permettent de bénéficier d'un tarif

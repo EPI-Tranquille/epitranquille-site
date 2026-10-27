@@ -6,13 +6,15 @@ import {
   PopoverButton,
   PopoverPanel,
 } from '@headlessui/react'
+import clsx from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { Logo } from '@/components/Logo'
-import { NavLinks } from '@/components/NavLinks'
+import { NavLinks, navigation } from '@/components/NavLinks'
 
 function MenuIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -40,6 +42,20 @@ function ChevronUpIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
+function ArrowRightIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
+  return (
+    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" {...props}>
+      <path
+        d="M3.5 8h9M9 4.5 12.5 8 9 11.5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
 function MobileNavLink(
   props: Omit<
     React.ComponentPropsWithoutRef<typeof PopoverButton<typeof Link>>,
@@ -56,15 +72,38 @@ function MobileNavLink(
 }
 
 export function Header() {
+  let [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    function onScroll() {
+      setScrolled(window.scrollY > 8)
+    }
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
-    <header>
+    <header
+      className={clsx(
+        'sticky top-0 z-50 transition-[background-color,box-shadow] duration-300',
+        scrolled
+          ? 'bg-gray-50/90 shadow-sm shadow-gray-900/5 backdrop-blur-md'
+          : 'bg-transparent',
+      )}
+    >
       <nav>
-        <Container className="relative z-50 flex justify-between py-8">
-          <div className="relative z-10 flex items-center gap-16">
+        <Container
+          className={clsx(
+            'relative z-50 flex justify-between transition-[padding] duration-300',
+            scrolled ? 'py-4' : 'py-8',
+          )}
+        >
+          <div className="relative z-10 flex items-center gap-10 xl:gap-14">
             <Link href="/" aria-label="Home">
               <Logo />
             </Link>
-            <div className="hidden lg:flex lg:gap-10">
+            <div className="hidden lg:flex lg:items-center lg:gap-8">
               <NavLinks />
             </div>
           </div>
@@ -105,23 +144,35 @@ export function Header() {
                             y: -32,
                             transition: { duration: 0.2 },
                           }}
-                          className="absolute inset-x-0 top-0 z-0 origin-top rounded-b-2xl bg-gray-50 px-6 pb-6 pt-32 shadow-2xl shadow-gray-900/20"
+                          className={clsx(
+                            'absolute inset-x-0 top-0 z-0 origin-top rounded-b-2xl bg-gray-50 px-6 pb-6 shadow-2xl shadow-gray-900/20',
+                            scrolled ? 'pt-20' : 'pt-28',
+                          )}
                         >
-                          <div className="space-y-4">
-                            <MobileNavLink href="/#features">
-                              Fonctionnalités
-                            </MobileNavLink>
-                            <MobileNavLink href="/#pricing">
-                              Tarifs
-                            </MobileNavLink>
-                            <MobileNavLink href="/pour-qui">
-                              Pour qui ?
-                            </MobileNavLink>
-                            <MobileNavLink href="/#faqs">FAQ</MobileNavLink>
-                            <MobileNavLink href="/blog">Blog</MobileNavLink>
-                            <MobileNavLink href="/partenaires">
-                              Partenaires
-                            </MobileNavLink>
+                          <div className="space-y-6">
+                            {navigation.map((entry) =>
+                              'items' in entry ? (
+                                <div key={entry.label}>
+                                  <p className="text-xs font-semibold tracking-wide text-gray-500 uppercase">
+                                    {entry.label}
+                                  </p>
+                                  <div className="mt-2 space-y-2">
+                                    {entry.items.map((item) => (
+                                      <MobileNavLink
+                                        key={item.href}
+                                        href={item.href}
+                                      >
+                                        {item.label}
+                                      </MobileNavLink>
+                                    ))}
+                                  </div>
+                                </div>
+                              ) : (
+                                <MobileNavLink key={entry.label} href={entry.href}>
+                                  {entry.label}
+                                </MobileNavLink>
+                              ),
+                            )}
                           </div>
                           <div className="mt-8 flex flex-col gap-4">
                             <Button href="https://app.epitranquille.com" variant="outline">
@@ -137,11 +188,18 @@ export function Header() {
               )}
             </Popover>
             <div className="hidden lg:flex lg:items-center lg:gap-6">
-              <Button href="https://app.epitranquille.com" variant="outline">
+              <Link
+                href="https://app.epitranquille.com"
+                className="text-sm font-medium text-gray-700 transition-colors hover:text-gray-900"
+              >
                 Connexion
-              </Button>
-              <Button href="https://app.epitranquille.com/signup/">
+              </Link>
+              <Button
+                href="https://app.epitranquille.com/signup/"
+                className="group"
+              >
                 Commencer
+                <ArrowRightIcon className="ml-1.5 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Button>
             </div>
           </div>
