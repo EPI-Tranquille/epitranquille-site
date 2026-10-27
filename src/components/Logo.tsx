@@ -55,7 +55,9 @@ export function Logo(props: React.ComponentPropsWithoutRef<'svg'>) {
     // </svg>
     <div className="flex items-center space-x-4">
       <Image src={logo} alt="" className="h-10 w-auto" />
-      <span className="text-lg font-medium sm:text-base">EPI Tranquille</span>
+      <span className="text-lg font-medium whitespace-nowrap sm:text-base">
+        EPI Tranquille
+      </span>
     </div>
   )
 }

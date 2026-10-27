@@ -60,11 +60,11 @@ export function Header() {
     <header>
       <nav>
         <Container className="relative z-50 flex justify-between py-8">
-          <div className="relative z-10 flex items-center gap-16">
+          <div className="relative z-10 flex items-center gap-8 xl:gap-16">
             <Link href="/" aria-label="Home">
               <Logo />
             </Link>
-            <div className="hidden lg:flex lg:gap-10">
+            <div className="hidden lg:flex lg:gap-5 xl:gap-10">
               <NavLinks />
             </div>
           </div>
@@ -118,6 +118,9 @@ export function Header() {
                               Pour qui ?
                             </MobileNavLink>
                             <MobileNavLink href="/#faqs">FAQ</MobileNavLink>
+                            <MobileNavLink href="/tutoriels">
+                              Tutoriels
+                            </MobileNavLink>
                             <MobileNavLink href="/blog">Blog</MobileNavLink>
                             <MobileNavLink href="/partenaires">
                               Partenaires

@@ -17,7 +17,7 @@ const navigation = {
   support: [
     { name: 'Blog', href: '/blog' },
     { name: 'Documentation (bientôt)', href: '#' },
-    { name: 'Tutoriels (bientôt)', href: '#' },
+    { name: 'Tutoriels', href: '/tutoriels' },
   ],
   company: [
     { name: 'À propos', href: '/about' },
