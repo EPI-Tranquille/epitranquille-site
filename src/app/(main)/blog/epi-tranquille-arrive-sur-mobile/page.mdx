@@ -1,4 +1,5 @@
 import { ArticleLayout } from '@/components/ArticleLayout'
+import { articleOpenGraph } from '@/lib/articles'
 import { AppStoreLink } from '@/components/AppStoreLink'
 import { GooglePlayLink } from '@/components/GooglePlayLink'
 
@@ -16,6 +17,7 @@ export const metadata = {
   alternates: {
     canonical: '/blog/epi-tranquille-arrive-sur-mobile',
   },
+  openGraph: articleOpenGraph(article),
 }
 
 export default (props) => (

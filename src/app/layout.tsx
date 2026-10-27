@@ -27,7 +27,6 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'fr_FR',
     siteName: 'EPI Tranquille',
-    url: 'https://epitranquille.com',
   },
   twitter: {
     card: 'summary_large_image',

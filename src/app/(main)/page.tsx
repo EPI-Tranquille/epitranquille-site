@@ -34,9 +34,9 @@ const WebSiteSchema: WithContext<WebSite> = {
 const OnlineBusinessSchema: WithContext<OnlineBusiness> = {
   '@context': 'https://schema.org',
   '@type': 'OnlineBusiness',
-  image: 'https://epitranquille.com/logo.svg',
+  image: 'https://epitranquille.com/web-app-manifest-512x512.png',
   url: 'https://epitranquille.com',
-  logo: 'https://epitranquille.com/logo.svg',
+  logo: 'https://epitranquille.com/web-app-manifest-512x512.png',
   name: 'EPI Tranquille',
   description:
     'EPI Tranquille est une application permettant de gérer vos équipements de protection individuelle (EPI) simplement.',
@@ -48,7 +48,7 @@ const OnlineBusinessSchema: WithContext<OnlineBusiness> = {
     addressLocality: 'Champcella',
     addressCountry: 'FR',
     addressRegion: 'Hautes-Alpes',
-    postalCode: '03510',
+    postalCode: '05310',
   },
   slogan: 'Gérez vos EPI simplement',
   contactPoint: {
@@ -66,7 +66,10 @@ const WebApplicationSchema: WithContext<WebApplication> = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
   name: 'EPI Tranquille',
-  applicationCategory: 'UtilitiesApplication',
+  url: 'https://epitranquille.com',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web, iOS, Android',
+  inLanguage: 'fr',
   offers: [
     {
       '@type': 'Offer',
@@ -93,7 +96,6 @@ const WebApplicationSchema: WithContext<WebApplication> = {
       priceCurrency: 'EUR',
     },
   ],
-  downloadUrl: 'https://epitranquille.com',
 }
 const PageSchema = [WebSiteSchema, OnlineBusinessSchema, WebApplicationSchema]
 export default function Home() {

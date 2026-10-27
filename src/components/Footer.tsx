@@ -64,7 +64,7 @@ export default function Footer() {
         <div className="mx-auto px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-24">
           <div className="xl:grid xl:grid-cols-3 xl:gap-8">
             <div className="flex items-center text-gray-900">
-              <Image src={logo} alt="Logo" className="h-10 w-auto" />
+              <Image src={logo} alt="" className="h-10 w-auto" />
 
               <div className="ml-4">
                 <p className="text-base font-semibold">EPI Tranquille</p>
