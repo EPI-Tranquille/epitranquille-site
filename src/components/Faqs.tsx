@@ -10,6 +10,16 @@ const faqs = [
       "Dans votre pratique professionnelle d'encadrement d'activités utilisant des EPI, vous devez vous assurer d'avoir le registre EPI du matériel que vous utilisez (que vous soyez indépendant ou salarié). Les EPI doivent être valides et un contrôle annuel doit être effectué. Idem pour l'utilisation d'EPI dans une pratique associative en club.",
   },
   {
+    question: 'EPI Tranquille respecte-t-il la norme NF S72-701 ?',
+    answer:
+      "Oui, EPI Tranquille est conçu selon la norme NF S72-701 (2008), qui décrit la gestion des EPI d'escalade, d'alpinisme, de spéléologie et des activités utilisant les mêmes techniques : identification de chaque EPI, fiche de vie, contrôles périodiques et suivi des prêts.",
+  },
+  {
+    question: 'EPI Tranquille est-il adapté au BTP et aux travaux en hauteur ?',
+    answer:
+      "EPI Tranquille est pensé avant tout pour les sports de montagne et de pleine nature : escalade, canyoning, alpinisme, spéléologie et via ferrata. Sa base de données de matériel, ses contrôles et ses évolutions suivent les besoins des moniteur·rices (BE, DEJEPS, DESJEPS, CQP, guides), des clubs, des salles d'escalade et des collectivités, plutôt que ceux du BTP.",
+  },
+  {
     question: 'Puis-je importer mon fichier Excel/Google Sheet/CSV ?',
     answer:
       "Oui pour gagner du temps vous pouvez importer votre registre EPI depuis un fichier Excel sur l'application web. Ce fichier doit respecter quelques règles de format mais c'est rapide si toutes les informations sont là ! De plus si vous avez souscrit à un abonnement vous pouvez nous envoyer votre registre par e-mail nous vous aiderons à l'importer sur votre compte.",

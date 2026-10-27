@@ -64,7 +64,7 @@ export default async function Image() {
             color: 'rgba(255,255,255,0.72)',
           }}
         >
-          Escalade · Canyoning · Spéléologie · Via ferrata · PAH
+          Escalade · Canyoning · Alpinisme · Spéléologie · Via ferrata
         </div>
       </div>
     ),

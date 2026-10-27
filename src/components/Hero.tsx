@@ -144,15 +144,16 @@ export function Hero() {
         <div className="lg:grid lg:grid-cols-12 lg:gap-x-8 lg:gap-y-20">
           <div className="relative z-10 mx-auto max-w-2xl lg:col-span-7 lg:max-w-none lg:pt-6 xl:col-span-6">
             <h1 className="text-4xl font-medium tracking-tight text-gray-900">
-              Gérez vos EPI simplement.
+              Le registre EPI des pros de l'escalade et de la montagne.
             </h1>
             <p className="mt-6 text-lg text-gray-600">
-              Enfin une solution simple et rapide pour gérer ses parcs EPI.
-              <br />
-              Conçu spécifiquement pour les moniteur·rices d'escalade, de
-              canyoning, de spéléo, de via ferrata ou de grimpe d'arbres, les
-              guides de haute montagne, les clubs et salles d'escalade ou encore
-              les PAH (Parcours Accrobatiques en Hauteur).
+              Gérez vos EPI simplement, sur le web et sur mobile. Un outil sur
+              mesure pour les encadrant·es d'escalade, de canyoning,
+              d'alpinisme, de spéléologie et de via ferrata (BE, DEJEPS, CQP,
+              guides…), les clubs, les salles d'escalade et les collectivités.
+            </p>
+            <p className="mt-3 text-sm font-medium text-green-900">
+              Conçu selon la norme NF S72-701 (2008) sur la gestion des EPI.
             </p>
             <div className="mt-6 hidden flex-wrap gap-x-6 gap-y-4 sm:flex">
               <Button

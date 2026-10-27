@@ -5,7 +5,7 @@ import { type Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Pour qui est fait EPI Tranquille ?',
   description:
-    "EPI Tranquille s'adresse aux moniteur·rices d'escalade, canyoning, spéléologie, via ferrata, grimpe d'arbres, aux guides de haute montagne, aux clubs, salles d'escalade et PAH qui doivent gérer un registre EPI.",
+    "Registre EPI sur mesure pour les encadrant·es d'escalade, canyoning, alpinisme, spéléologie et via ferrata (BE, DEJEPS, DESJEPS, CQP, guides), les clubs, salles d'escalade et collectivités. Conçu selon la norme NF S72-701.",
   alternates: {
     canonical: '/pour-qui',
   },
@@ -13,8 +13,9 @@ export const metadata: Metadata = {
 
 const audiences = [
   {
-    name: "Moniteur·rices indépendant·es",
-    activities: 'Escalade, canyoning, spéléologie, via ferrata, grimpe d’arbres',
+    name: "Moniteur·rices et encadrant·es diplômé·es",
+    activities:
+      'BE, DEJEPS, DESJEPS, CQP · Escalade, canyoning, spéléologie, via ferrata',
     pain: "Vous tenez votre registre EPI sur un tableur, vous perdez du temps à recopier les numéros de série et date de fabrication ? Vous trouvez que gérer un registre EPI est une corvée ? À la fin de saison vous perdez du temps à tout contrôler ?",
     benefit:
       "Ajoutez vos EPI en quelques clics depuis notre base de données, scannez les numéros de série, accélerez le contrôle de vos EPI via l'application mobile et exportez votre registre en PDF en cas de contrôle sur le terrain.",
@@ -59,10 +60,16 @@ export default function PourQuiPage() {
               Pour qui est conçu EPI Tranquille ?
             </h1>
             <p className="section-subtitle">
-              Toute personne ou structure qui encadre des activités avec des
-              équipements de protection individuelle (EPI) a besoin d'un registre EPI
-              à jour. EPI Tranquille a été pensé pour s'adapter à votre
-              pratique, seul·e ou en équipe.
+              EPI Tranquille est un outil sur mesure pour les professionnel·les
+              et les structures de l'escalade, du canyoning, de l'alpinisme, de
+              la spéléologie et de la via ferrata. Pas un logiciel générique
+              pensé pour le BTP ou les travaux en hauteur : il est conçu par un
+              moniteur d'escalade et évolue avec vos pratiques, seul·e ou en
+              équipe.
+            </p>
+            <p className="mt-4 text-base font-medium text-green-900">
+              Conçu selon la norme NF S72-701 (2008) sur la gestion des EPI
+              d'escalade, d'alpinisme et de spéléologie.
             </p>
           </div>
 
