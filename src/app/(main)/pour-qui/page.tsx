@@ -1,5 +1,6 @@
 import { CallToAction } from '@/components/CallToAction'
 import { Container } from '@/components/Container'
+import { normeNfS72701Url } from '@/config/links'
 import { type Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -67,8 +68,16 @@ export default function PourQuiPage() {
               d'escalade et évolue avec vos pratiques, seul·e ou en équipe.
             </p>
             <p className="mt-4 text-base font-medium text-green-900">
-              Conçu selon la norme NF S72-701 (2008) sur la gestion des EPI
-              d'escalade, d'alpinisme et de spéléologie.
+              Conçu selon la norme{' '}
+              <a
+                href={normeNfS72701Url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline"
+              >
+                NF S72-701 (2008)
+              </a>{' '}
+              sur la gestion des EPI d'escalade, d'alpinisme et de spéléologie.
             </p>
           </div>
 

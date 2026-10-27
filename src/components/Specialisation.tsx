@@ -1,6 +1,7 @@
 import Link from 'next/link'
 
 import { Container } from '@/components/Container'
+import { normeNfS72701Url } from '@/config/links'
 
 function ShieldIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -48,7 +49,16 @@ export function Specialisation() {
           <ShieldIcon className="text-primary h-10 w-10 flex-none" />
           <p className="text-gray-700">
             <span className="font-semibold text-gray-900">
-              Conçu selon la norme NF S72-701 (2008).
+              Conçu selon la norme{' '}
+              <a
+                href={normeNfS72701Url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline"
+              >
+                NF S72-701 (2008)
+              </a>
+              .
             </span>{' '}
             Identification de chaque EPI, fiche de vie, contrôles périodiques et
             historique des prêts : EPI Tranquille vous aide à tenir le suivi de

@@ -14,3 +14,7 @@ export const appStoreUrl = 'https://apps.apple.com/fr/app/epi-tranquille/id64785
 export const playStoreReady = true
 export const playStoreUrl =
   'https://play.google.com/store/apps/details?id=com.epitranquille.app'
+
+/** Fiche officielle (AFNOR Norm'Info) de la norme NF S72-701 de 2008. */
+export const normeNfS72701Url =
+  'https://norminfo.afnor.org/norme/nf-s72-701/mise-a-disposition-dequipements-de-protection-individuelle-pour-activites-physiques-sportives-educatives-et-de-loisirs/81180'
