@@ -76,10 +76,11 @@ export function Specialisation() {
             Un outil sur mesure pour les pros de l'escalade et de la montagne
           </h2>
           <p className="section-subtitle">
-            EPI Tranquille est conçu par un moniteur d'escalade, pour les
+            EPI Tranquille n'est pas un logiciel générique de gestion
+            d'équipements de protection individuelle (EPI), difficile à
+            utiliser. Il est conçu par un moniteur d'escalade, pour les
             encadrant·es et les structures des sports de montagne et de pleine
-            nature. Sa base de matériel, ses contrôles et ses évolutions suivent
-            vos pratiques.
+            nature, et il évolue avec vos pratiques.
           </p>
         </div>
 
