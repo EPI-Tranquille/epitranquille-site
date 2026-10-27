@@ -76,7 +76,7 @@ export const tutorials: Tutorial[] = [
     description:
       'Changez le nom du parc, la date du prochain contrôle ou la fréquence des contrôles, et supprimez un parc.',
     platform: 'mobile',
-    level: 'prise-en-main',
+    level: 'avance',
     publishedAt: '2026-10-26',
   },
 ]
