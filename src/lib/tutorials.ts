@@ -17,8 +17,11 @@ export interface Tutorial {
   description: string
   platform: Platform
   level: Level
-  /** Date de publication sur YouTube, au format AAAA-MM-JJ. */
-  publishedAt: string
+  /**
+   * Date de publication sur YouTube, au format AAAA-MM-JJ. Nécessaire pour
+   * que Google affiche la vidéo dans ses résultats vidéo.
+   */
+  publishedAt?: string
   /** Durée affichée sur la vignette, par exemple '4:32'. */
   duration?: string
 }
@@ -34,15 +37,13 @@ export const platforms: Record<
     label: 'Application web',
     description:
       'Gérez votre registre au bureau ou au local du club : import Excel, contrôles détaillés, utilisateurs, prêts et sorties.',
-    // Lien de la playlist YouTube des tutoriels web.
-    playlistUrl: null,
+    playlistUrl: 'https://www.youtube.com/playlist?list=PLGxZkLayIBhE',
   },
   mobile: {
     label: 'Application mobile',
     description:
       "Sur le terrain : ajout d'EPI par scan, contrôles rapides et consultation du registre, même hors connexion.",
-    // Lien de la playlist YouTube des tutoriels mobile.
-    playlistUrl: null,
+    playlistUrl: 'https://www.youtube.com/playlist?list=PLZxemK23hTqc',
   },
 }
 
@@ -60,15 +61,22 @@ export const levels: Record<Level, { title: string; description: string }> = {
 }
 
 export const tutorials: Tutorial[] = [
-  // {
-  //   url: 'https://www.youtube.com/watch?v=XXXXXXXXXXX',
-  //   title: 'Créer son compte et ajouter ses premiers EPI',
-  //   description: 'Création du compte, du premier parc et ajout d’EPI depuis la base de données.',
-  //   platform: 'web',
-  //   level: 'prise-en-main',
-  //   publishedAt: '2026-10-27',
-  //   duration: '4:32',
-  // },
+  {
+    url: 'https://youtu.be/TMn4gP75cZE',
+    title: 'Créer son compte',
+    description:
+      "Démarrez sur l'application web : création de votre compte EPI Tranquille.",
+    platform: 'web',
+    level: 'prise-en-main',
+  },
+  {
+    url: 'https://youtu.be/u0UfmQGF-lU',
+    title: 'Modifier ou supprimer un parc',
+    description:
+      'Changez le nom du parc, la date du prochain contrôle ou la fréquence des contrôles, et supprimez un parc.',
+    platform: 'mobile',
+    level: 'prise-en-main',
+  },
 ]
 
 /** Extrait l'identifiant d'une vidéo depuis son lien YouTube. */

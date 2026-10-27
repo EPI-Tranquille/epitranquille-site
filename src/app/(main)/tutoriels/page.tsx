@@ -22,11 +22,14 @@ export const metadata: Metadata = {
   },
 }
 
+// Google n'accepte une vidéo dans ses résultats que si sa date est connue.
+const datedTutorials = tutorials.filter((tutorial) => tutorial.publishedAt)
+
 const videoListSchema: WithContext<ItemList> = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
   name: 'Tutoriels vidéo EPI Tranquille',
-  itemListElement: tutorials.map((tutorial, index) => ({
+  itemListElement: datedTutorials.map((tutorial, index) => ({
     '@type': 'ListItem',
     position: index + 1,
     item: {
@@ -71,7 +74,7 @@ function ArrowRightIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 export default function TutorielsPage() {
   return (
     <>
-      {tutorials.length > 0 && (
+      {datedTutorials.length > 0 && (
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(videoListSchema) }}
