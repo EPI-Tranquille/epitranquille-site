@@ -57,6 +57,27 @@ function YouTubeIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
+function ClockIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
+      <circle
+        cx="12"
+        cy="12"
+        r="8.25"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
+      <path
+        d="M12 7.75V12l2.75 1.75"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
 function ArrowRightIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
@@ -97,7 +118,29 @@ export default function TutorielsPage() {
             </p>
           </div>
 
-          <div className="mx-auto mt-12 max-w-6xl sm:mt-16">
+          <div
+            role="note"
+            className="mx-auto mt-10 flex max-w-2xl items-start gap-3 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-left"
+          >
+            <ClockIcon className="mt-0.5 h-5 w-5 flex-none text-amber-600" />
+            <p className="text-sm text-amber-900">
+              <span className="font-semibold">
+                Les tutoriels sont en cours de tournage.
+              </span>{' '}
+              De nouvelles vidéos arriveront dans les prochaines semaines.{' '}
+              <a
+                href={`${youtubeChannelUrl}?sub_confirmation=1`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold underline"
+              >
+                Abonnez-vous à la chaîne
+              </a>{' '}
+              pour être averti·e de leur sortie.
+            </p>
+          </div>
+
+          <div className="mx-auto mt-10 max-w-6xl sm:mt-12">
             <TutorialsBrowser tutorials={tutorials} />
           </div>
 
