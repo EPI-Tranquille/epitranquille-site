@@ -68,6 +68,7 @@ export const tutorials: Tutorial[] = [
       "Démarrez sur l'application web : création de votre compte EPI Tranquille.",
     platform: 'web',
     level: 'prise-en-main',
+    publishedAt: '2026-10-26',
   },
   {
     url: 'https://youtu.be/u0UfmQGF-lU',
@@ -76,6 +77,7 @@ export const tutorials: Tutorial[] = [
       'Changez le nom du parc, la date du prochain contrôle ou la fréquence des contrôles, et supprimez un parc.',
     platform: 'mobile',
     level: 'prise-en-main',
+    publishedAt: '2026-10-26',
   },
 ]
 
