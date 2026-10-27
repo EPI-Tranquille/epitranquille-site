@@ -6,12 +6,12 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
 import { Container } from '@/components/Container'
-import screenshotRegistre from '@/images/screenshots/registre.jpeg'
+import screenshotTableauDeBord from '@/images/screenshots/tableau_de_bord.jpeg'
 import screenshotBdd from '@/images/screenshots/bdd.jpeg'
 import screenshotDetail from '@/images/screenshots/detail.jpeg'
 import screenshotBatchControl from '@/images/screenshots/controle_rapide.jpeg'
 import screenshotControleDetaille from '@/images/screenshots/controle_detaille.jpeg'
-import screenshotLoans from '@/images/screenshots/loans.png'
+import screenshotLoans from '@/images/screenshots/loans.jpeg'
 import screenshotMultiUsers from '@/images/screenshots/utilisateurs.jpeg'
 
 const features = [
@@ -19,43 +19,50 @@ const features = [
     title: 'Tableau de bord',
     description:
       "Visualisez en un coup d'œil l'état de votre parc EPI et la date de votre prochaine inspection.",
-    image: screenshotRegistre,
+    image: screenshotTableauDeBord,
+    alt: "Tableau de bord de l'application web EPI Tranquille : compteurs du parc par état (56 EPI au total, 53 valides, 2 réformés, 1 à surveiller) et prochain contrôle prévu dans 2 mois.",
   },
   {
     title: 'Base de données',
     description:
       "Une base de données d'EPI à portée de clic afin d'accélérer la saisie de vos EPI.",
     image: screenshotBdd,
+    alt: "Écran d'ajout d'un EPI : la recherche « grigri » dans la base de produits propose les modèles GRIGRI et GRIGRI+ de Petzl pour pré-remplir la fiche, ou l'ajout d'un EPI personnalisé.",
   },
   {
     title: 'Fiche détaillée',
     description:
       "Chaque EPI a sa propre fiche : historique complet (fabrication, achat, mise en service), caractéristiques, contrôles passés et documents associés.",
     image: screenshotDetail,
+    alt: "Fiche d'un EPI (descendeur Petzl GRIGRI) : cycle de vie avec dernier contrôle, prochain contrôle et mise au rebut théorique, caractéristiques, historique de fabrication, d'achat et de mise en service, contrôles passés et notice associée.",
   },
   {
     title: 'Contrôle par lot',
     description:
       "Besoin d'inspecter un lot de plusieurs EPI rapidement ? C'est possible avec le contrôle par lot.",
     image: screenshotBatchControl,
+    alt: "Registre EPI avec quatre harnais Béal AEROTEAM IV sélectionnés et la fenêtre d'inspection rapide ouverte : choix de l'état après contrôle (valide, à réparer, à surveiller, réformé, disparu) et commentaire commun.",
   },
   {
     title: 'Contrôle détaillé',
     description:
       "Pour un contrôle plus poussé, renseignez un commentaire par EPI et faites évoluer son statut (valide, réformé...) en toute traçabilité.",
     image: screenshotControleDetaille,
+    alt: "Écran de contrôle détaillé de quatre harnais : date du contrôle, commentaires généraux, puis pour chaque EPI un état, un commentaire individuel et l'ajout de photos.",
   },
   {
     title: 'Utilisateurs',
     description:
       "Vous êtes plusieurs gestionnaires d'EPI dans un club ou une collectivité ? Vous effectuez les contrôles EPI d'un club en tant que moniteur·rice ? Invitez des personnes à rejoindre un parc EPI pour une gestion collaborative.",
     image: screenshotMultiUsers,
+    alt: 'Paramètres du parc, onglet Utilisateurs : liste des personnes ayant accès au parc avec leur rôle, et formulaire pour inviter un·e utilisateur·rice par e-mail en choisissant son rôle.',
   },
   {
     title: 'Gestion des prêts/sorties',
     description:
       "Vous louez du matériel pour des particuliers ? Vous organisez des sorties au sein de votre club ? Faites un suivi détaillé du matériel qui rentre et sort de votre parc EPI.",
     image: screenshotLoans,
+    alt: "Détail d'une sortie « Sortie falaise — initiation adultes » : dates de sortie et de retour, responsable de la sortie et liste des 11 EPI emportés (corde, descendeurs, harnais…).",
   },
 ]
 
@@ -154,7 +161,7 @@ export function WebFeatures() {
                       <Image
                         className="w-full"
                         src={feature.image}
-                        alt=""
+                        alt={feature.alt}
                         sizes="(min-width: 1024px) 67.8125rem, (min-width: 640px) 100vw, 45rem"
                       />
                     </div>
