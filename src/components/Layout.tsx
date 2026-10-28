@@ -1,5 +1,5 @@
 import { Header } from '@/components/Header'
-import { FooterDynamic as Footer } from '@/components/FooterDynamic'
+import Footer from '@/components/Footer'
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (

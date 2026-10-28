@@ -2,13 +2,15 @@ import { Button } from '@/components/Button'
 import { CircleBackground } from '@/components/CircleBackground'
 import { Container } from '@/components/Container'
 import { partners } from '@/lib/partners'
+import { JsonLd } from '@/components/JsonLd'
+import { breadcrumbSchema } from '@/lib/seo'
 import { type Metadata } from 'next'
 import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: 'Devenir partenaire',
   description:
-    "Syndicats, regroupements de professionnels, clubs et centres de formation : proposez à vos adhérent·es un accès privilégié à EPI Tranquille.",
+    'Syndicats, regroupements de professionnels, clubs et centres de formation : proposez à vos adhérent·es un accès privilégié à EPI Tranquille.',
   alternates: {
     canonical: '/devenir-partenaire',
   },
@@ -82,7 +84,13 @@ function NetworkIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
       />
       <circle cx="6" cy="6" r="2.25" stroke="currentColor" strokeWidth="1.5" />
       <circle cx="18" cy="6" r="2.25" stroke="currentColor" strokeWidth="1.5" />
-      <circle cx="12" cy="18" r="2.25" stroke="currentColor" strokeWidth="1.5" />
+      <circle
+        cx="12"
+        cy="18"
+        r="2.25"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
     </svg>
   )
 }
@@ -96,7 +104,13 @@ function MapPinIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
         strokeWidth="1.5"
         strokeLinejoin="round"
       />
-      <circle cx="12" cy="9.5" r="2.25" stroke="currentColor" strokeWidth="1.5" />
+      <circle
+        cx="12"
+        cy="9.5"
+        r="2.25"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
     </svg>
   )
 }
@@ -126,19 +140,19 @@ const audiences = [
     icon: BuildingIcon,
     title: 'Syndicats professionnels',
     description:
-      "Offrez à vos adhérent·es un outil adapté, développé au plus près du terrain, pour répondre à une obligation du métier",
+      'Offrez à vos adhérent·es un outil adapté, développé au plus près du terrain, pour répondre à une obligation du métier',
   },
   {
     icon: NetworkIcon,
     title: 'Fédérations sportives',
     description:
-      "Proposez à vos clubs un outil de gestion des EPI adaptés à des parcs importants avec des entrées/sorties de matériel fréquentes.",
+      'Proposez à vos clubs un outil de gestion des EPI adaptés à des parcs importants avec des entrées/sorties de matériel fréquentes.',
   },
   {
     icon: MapPinIcon,
     title: 'Clubs et salles',
     description:
-      "Facilitez la gestion du parc EPI de vos bénévoles et salarié·es, avec une solution pensée pour la gestion collaborative.",
+      'Facilitez la gestion du parc EPI de vos bénévoles et salarié·es, avec une solution pensée pour la gestion collaborative.',
   },
   {
     icon: AcademicCapIcon,
@@ -162,18 +176,23 @@ const steps = [
   {
     title: 'Vos adhérent·es en profitent',
     description:
-      "Chacun·e crée gratuitement ou à tarif préférentiel son compte EPI Tranquille, avec un accompagnement dédié au démarrage.",
+      'Chacun·e crée gratuitement ou à tarif préférentiel son compte EPI Tranquille, avec un accompagnement dédié au démarrage.',
   },
 ]
 
 export default function DevenirPartenairePage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: 'Devenir partenaire', path: '/devenir-partenaire' },
+        ])}
+      />
       <section className="pt-12 pb-20 sm:pt-16 sm:pb-32">
         <Container>
           <div className="mx-auto max-w-2xl text-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-4 py-2 text-sm font-medium text-green-900">
-              <BoltIcon className="h-4 w-4 flex-none text-primary" />
+            <span className="border-primary/25 bg-primary/10 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium text-green-900">
+              <BoltIcon className="text-primary h-4 w-4 flex-none" />
               Partenariats
             </span>
             <h1 className="section-title mt-6">
@@ -183,8 +202,8 @@ export default function DevenirPartenairePage() {
             </h1>
             <p className="section-subtitle">
               Syndicats, regroupements de professionnels, clubs, centres de
-              formation : offrez à vos membres un accès à EPI
-              Tranquille à tarif préférentiel
+              formation : offrez à vos membres un accès à EPI Tranquille à tarif
+              préférentiel
             </p>
             <div className="mt-8 flex justify-center">
               <Button href={CONTACT_HREF} variant="solid">
@@ -195,7 +214,7 @@ export default function DevenirPartenairePage() {
           </div>
 
           <div className="mx-auto mt-20 max-w-2xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-wide text-gray-400">
+            <p className="text-sm font-semibold tracking-wide text-gray-400 uppercase">
               Ils nous font déjà confiance
             </p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
@@ -218,7 +237,9 @@ export default function DevenirPartenairePage() {
           </div>
 
           <div className="mx-auto mt-24 max-w-2xl text-center">
-            <h2 className="section-title">Comment fonctionne un partenariat ?</h2>
+            <h2 className="section-title">
+              Comment fonctionne un partenariat ?
+            </h2>
             <p className="section-subtitle">
               Le principe : une subvention de votre organisation finance un
               tarif préférentiel — souvent gratuit — pour vos adhérent·es.
@@ -229,10 +250,10 @@ export default function DevenirPartenairePage() {
               {steps.map((step, index) => (
                 <div
                   key={step.title}
-                  className="relative overflow-hidden rounded-3xl bg-white p-8 shadow-xl shadow-gray-900/5 ring-1 ring-gray-900/5"
+                  className="relative overflow-hidden rounded-3xl bg-white p-8 shadow-xl ring-1 shadow-gray-900/5 ring-gray-900/5"
                 >
-                  <div className="absolute inset-x-0 top-0 h-1.5 bg-linear-to-r from-primary to-green-400" />
-                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-lg font-bold text-white">
+                  <div className="from-primary absolute inset-x-0 top-0 h-1.5 bg-linear-to-r to-green-400" />
+                  <span className="bg-primary flex h-10 w-10 items-center justify-center rounded-full text-lg font-bold text-white">
                     {index + 1}
                   </span>
                   <h3 className="mt-5 text-lg font-semibold text-gray-900">
@@ -255,7 +276,7 @@ export default function DevenirPartenairePage() {
                 key={audience.title}
                 className="flex gap-4 rounded-3xl bg-gray-50 p-8"
               >
-                <div className="flex h-12 w-12 flex-none items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                <div className="bg-primary/10 text-primary flex h-12 w-12 flex-none items-center justify-center rounded-2xl">
                   <audience.icon className="h-6 w-6" />
                 </div>
                 <div>
@@ -276,16 +297,16 @@ export default function DevenirPartenairePage() {
             </h2>
             <p className="mt-3 text-sm text-gray-700">
               Le modèle « subvention contre tarif préférentiel » n'est qu'une
-              option parmi d'autres. Contenu pédagogique, événements,
-              retours terrain pour faire évoluer l'application, mise en
-              avant croisée... on est ouverts à en discuter, quelle que soit
-              la forme que ça prend.
+              option parmi d'autres. Contenu pédagogique, événements, retours
+              terrain pour faire évoluer l'application, mise en avant croisée...
+              on est ouverts à en discuter, quelle que soit la forme que ça
+              prend.
             </p>
           </div>
         </Container>
       </section>
       <section className="relative overflow-hidden bg-gray-900 py-20 sm:py-28">
-        <div className="absolute left-20 top-1/2 -translate-y-1/2 sm:left-1/2 sm:-translate-x-1/2">
+        <div className="absolute top-1/2 left-20 -translate-y-1/2 sm:left-1/2 sm:-translate-x-1/2">
           <CircleBackground color="#08c770" className="animate-spin-slower" />
         </div>
         <Container className="relative">
