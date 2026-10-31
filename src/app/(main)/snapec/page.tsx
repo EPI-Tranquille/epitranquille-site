@@ -53,24 +53,6 @@ const snapecFaqs: Faq[] = [
   ),
 ]
 
-const benefits = [
-  {
-    title: 'Un registre EPI conforme, sans effort',
-    description:
-      'Ajoutez vos EPI depuis notre base de données, laissez les alertes automatiques vous prévenir des contrôles à venir et exportez votre registre en PDF à tout moment.',
-  },
-  {
-    title: 'Pensé avec les professionnels du secteur',
-    description:
-      'EPI Tranquille est développée en lien avec le SNAPEC et le SNPSC pour coller aux réalités du terrain et aux obligations réglementaires du métier.',
-  },
-  {
-    title: 'Gratuit pour démarrer',
-    description:
-      "La formule Basique est gratuite et permet de gérer jusqu'à 50 EPI, sans limite de durée. Vous pourrez évoluer vers une formule payante si votre parc grandit.",
-  },
-]
-
 function ExternalLinkIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
