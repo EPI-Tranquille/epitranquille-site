@@ -50,11 +50,17 @@ export const metadata: Metadata = {
   itunes: {
     appId: appStoreId,
   },
-  // Validation de la propriété dans Google Search Console (balise HTML),
-  // inutile si le domaine est déjà validé par un enregistrement DNS.
-  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION && {
-    verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION },
-  }),
+  // Validation de la propriété du site. Google Search Console : balise
+  // facultative, inutile si le domaine est déjà validé par un enregistrement
+  // DNS. Bing Webmaster Tools : ne pas retirer la balise, Bing la revérifie.
+  verification: {
+    ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION && {
+      google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+    }),
+    other: {
+      'msvalidate.01': '2C03293268E614354DAD38576D69A7C1',
+    },
+  },
 }
 
 export const viewport: Viewport = {
