@@ -305,14 +305,6 @@ export default function SnapecPage() {
                 calculée, alertes avant les contrôles et export PDF du registre
                 sont inclus.
               </p>
-              <h2>Ce que comprend le forfait SNAPEC</h2>
-              <ul>
-                {benefits.map((benefit) => (
-                  <li key={benefit.title}>
-                    <strong>{benefit.title}.</strong> {benefit.description}
-                  </li>
-                ))}
-              </ul>
               <p>
                 Pour en savoir plus sur vos obligations, lisez notre article{' '}
                 <Link href="/blog/pourquoi-registre-epi-obligatoire">
