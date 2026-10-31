@@ -1,12 +1,14 @@
 import { Container } from '@/components/Container'
 import { getAllArticles } from '@/lib/articles'
+import { JsonLd } from '@/components/JsonLd'
+import { breadcrumbSchema } from '@/lib/seo'
 import { type Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Blog',
   description:
-    "Conseils, actualités et bonnes pratiques pour gérer votre registre EPI : obligations réglementaires, contrôles, escalade, canyoning, spéléologie et via ferrata.",
+    'Conseils, actualités et bonnes pratiques pour gérer votre registre EPI : obligations réglementaires, contrôles, escalade, canyoning, spéléologie et via ferrata.',
   alternates: {
     canonical: '/blog',
   },
@@ -27,11 +29,12 @@ export default async function BlogPage() {
   return (
     <section className="pt-12 pb-20 sm:pt-16 sm:pb-32">
       <Container>
+        <JsonLd data={breadcrumbSchema([{ name: 'Blog', path: '/blog' }])} />
         <div className="mx-auto max-w-2xl text-center">
           <h1 className="section-title">Le blog EPI Tranquille</h1>
           <p className="section-subtitle">
-            Conseils, réglementation et bonnes pratiques pour gérer
-            sereinement votre registre EPI.
+            Conseils, réglementation et bonnes pratiques pour gérer sereinement
+            votre registre EPI.
           </p>
         </div>
 
@@ -47,10 +50,7 @@ export default async function BlogPage() {
                 key={article.slug}
                 className="relative flex flex-col gap-2"
               >
-                <time
-                  dateTime={article.date}
-                  className="text-sm text-gray-500"
-                >
+                <time dateTime={article.date} className="text-sm text-gray-500">
                   {formatDate(article.date)}
                 </time>
                 <h2 className="text-xl font-semibold tracking-tight text-gray-900">
@@ -62,7 +62,7 @@ export default async function BlogPage() {
                 <p className="text-sm text-gray-700">{article.description}</p>
                 <span
                   aria-hidden="true"
-                  className="text-sm font-medium text-primary"
+                  className="text-primary text-sm font-medium"
                 >
                   Lire la suite &rarr;
                 </span>

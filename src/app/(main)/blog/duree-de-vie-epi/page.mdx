@@ -1,0 +1,126 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import { articleOpenGraph } from '@/lib/articles'
+
+export const article = {
+  title:
+    "Durée de vie des EPI d'escalade, de canyoning et de spéléo : comment la calculer et quand réformer",
+  description:
+    "Baudriers, cordes, longes, casques, mousquetons : quelle est la durée de vie d'un EPI, à partir de quand la compter, et quels événements imposent de le réformer avant l'échéance. Le guide pour les moniteur·rices, clubs et structures.",
+  author: 'EPI Tranquille',
+  date: '2026-10-28',
+}
+
+export const metadata = {
+  title: 'Durée de vie des EPI : calcul, textile, métal et réforme',
+  description:
+    "Quelle est la durée de vie d'un EPI d'escalade, de canyoning ou de spéléo ? Textile, plastique, métal, date de fabrication, stockage, chute : comment la calculer et quand réformer.",
+  alternates: {
+    canonical: '/blog/duree-de-vie-epi',
+  },
+  openGraph: articleOpenGraph(article),
+}
+
+export default (props) => (
+  <ArticleLayout article={article} slug="duree-de-vie-epi" {...props} />
+)
+
+**En bref :** la durée de vie d'un EPI est fixée par son fabricant, dans la
+notice. Pour les EPI textiles et plastiques (baudriers, cordes, longes,
+sangles, casques), elle est le plus souvent de **10 ans maximum à partir de
+la date de fabrication**. Pour les EPI métalliques (mousquetons, descendeurs,
+poulies, bloqueurs), elle est souvent **illimitée**. Dans tous les cas,
+l'usage, une chute ou de mauvaises conditions de stockage peuvent imposer de
+réformer un EPI bien avant cette échéance.
+
+## Durée de vie maximale et durée de vie réelle
+
+Il faut distinguer deux notions :
+
+- **la durée de vie maximale** (ou « potentielle ») : la limite donnée par
+  le fabricant, au-delà de laquelle l'EPI doit être réformé même s'il
+  semble en bon état ;
+- **la durée de vie réelle** : celle que l'EPI atteindra vraiment, compte
+  tenu de son utilisation. Un baudrier utilisé tous les jours en
+  initiation s'use beaucoup plus vite qu'un baudrier personnel sorti
+  quelques week-ends par an.
+
+C'est le contrôle de l'EPI, avant et après chaque utilisation puis lors du
+contrôle périodique, qui permet de juger de sa durée de vie réelle.
+
+## Les ordres de grandeur par type d'EPI
+
+La notice du fabricant fait toujours foi. À titre indicatif, voici ce que
+l'on rencontre le plus souvent :
+
+- **Textiles** (baudriers, cordes, longes, anneaux et sangles, dégaines) :
+  jusqu'à 10 ans à partir de la date de fabrication. Les fibres
+  (polyamide, polyester, Dyneema) vieillissent même sans servir, sous
+  l'effet des UV, de l'humidité ou de la chaleur.
+- **Plastiques** (casques notamment) : jusqu'à 10 ans également pour de
+  nombreux fabricants. Petzl indique par exemple une durée de vie
+  maximale de 10 ans à partir de la date de fabrication pour ses produits
+  plastiques et textiles.
+- **Métalliques** (mousquetons, descendeurs, poulies, bloqueurs,
+  émerillons) : durée de vie souvent illimitée, mais l'EPI est réformé dès
+  qu'il présente une usure (gorge creusée par la corde, arêtes
+  tranchantes), une fissure, une déformation ou un mauvais fonctionnement
+  du doigt ou du verrou.
+- **Matériel d'alpinisme** (crampons, piolets, broches à glace) : le plus
+  souvent métallique, avec les mêmes critères d'usure, auxquels s'ajoutent
+  les éventuelles pièces textiles ou plastiques.
+
+## À partir de quand compter la durée de vie ?
+
+La plupart des fabricants comptent la durée de vie **à partir de la date de
+fabrication**, et non de la date d'achat ou de mise en service. Elle
+figure dans le marquage de l'EPI ou se lit dans son numéro de série (année
+et souvent jour ou mois de fabrication). Certains fabricants précisent en
+plus une durée de stockage maximale avant la première utilisation : là
+encore, référez-vous à la notice.
+
+Conséquence pratique : un EPI acheté neuf peut déjà avoir un ou deux ans de
+stockage chez le distributeur. Notez toujours la date de fabrication dans
+votre registre, pas seulement la date d'achat.
+
+## Les événements qui imposent de réformer un EPI avant l'échéance
+
+Un EPI doit être réformé immédiatement, quel que soit son âge, dans
+plusieurs situations :
+
+- il a arrêté une chute importante ou subi un choc violent (casque) ;
+- il a été en contact avec un produit chimique (acide de batterie,
+  solvant…) ou exposé à une forte chaleur ;
+- le contrôle révèle une coupure, une abrasion importante, une brûlure, une
+  couture endommagée, une fissure ou une déformation ;
+- son fonctionnement est altéré (doigt de mousqueton qui ne se ferme plus,
+  came de descendeur grippée) ;
+- son historique est inconnu : un EPI dont on ne connaît pas l'utilisation
+  passée ne doit pas être utilisé.
+
+Un EPI réformé doit être retiré du parc et détruit pour éviter qu'il soit
+réutilisé par erreur. Le registre conserve la trace de la réforme et de son
+motif.
+
+## Ce que dit la norme NF S72-701
+
+La norme NF S72-701 (2008) décrit la gestion des EPI mis à disposition pour
+les activités physiques et sportives comme l'escalade, l'alpinisme ou la
+spéléologie. Elle prévoit notamment l'identification de chaque EPI, une
+fiche de vie qui retrace son historique et des contrôles périodiques.
+Suivre la durée de vie de chaque EPI fait partie de cette fiche de vie.
+
+## Suivre la durée de vie de ses EPI sans tableur
+
+Calculer à la main la date de mise au rebut de chaque EPI devient vite
+fastidieux dès que le parc dépasse quelques dizaines d'équipements. Dans
+[EPI Tranquille](/), la durée de vie conseillée est pré-remplie depuis la
+base de données de produits : l'application calcule la **date de mise au
+rebut théorique** de chaque EPI à partir de sa date de fabrication, et vous
+alerte avant l'échéance. Les contrôles, les réformes et leur motif sont
+consignés dans la fiche de vie de l'EPI.
+
+Pour aller plus loin, lisez notre guide sur la [gestion et le contrôle des EPI](/blog/gestion-controle-epi) et notre article [pourquoi le registre EPI est obligatoire](/blog/pourquoi-registre-epi-obligatoire).
+
+*Ce contenu est fourni à titre informatif et ne remplace ni la notice du
+fabricant, ni les textes réglementaires en vigueur, ni les recommandations
+de votre fédération ou syndicat professionnel.*

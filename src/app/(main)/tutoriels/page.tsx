@@ -3,12 +3,13 @@ import { type ItemList, type WithContext } from 'schema-dts'
 
 import { CallToAction } from '@/components/CallToAction'
 import { Container } from '@/components/Container'
+import { JsonLd } from '@/components/JsonLd'
 import { TutorialsBrowser } from '@/components/TutorialsBrowser'
+import { SITE_URL, breadcrumbSchema } from '@/lib/seo'
 import {
   type Platform,
-  embedUrl,
   platforms,
-  thumbnailUrl,
+  tutorialPath,
   tutorials,
   youtubeChannelUrl,
 } from '@/lib/tutorials'
@@ -22,26 +23,16 @@ export const metadata: Metadata = {
   },
 }
 
-// Google n'accepte une vidéo dans ses résultats que si sa date est connue.
-const datedTutorials = tutorials.filter((tutorial) => tutorial.publishedAt)
-
+// Liste des vidéos : chaque élément renvoie vers la page de la vidéo, qui
+// porte les données VideoObject complètes (src/app/(main)/tutoriels/[slug]).
 const videoListSchema: WithContext<ItemList> = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
   name: 'Tutoriels vidéo EPI Tranquille',
-  itemListElement: datedTutorials.map((tutorial, index) => ({
+  itemListElement: tutorials.map((tutorial, index) => ({
     '@type': 'ListItem',
     position: index + 1,
-    item: {
-      '@type': 'VideoObject',
-      name: tutorial.title,
-      description: tutorial.description,
-      thumbnailUrl: thumbnailUrl(tutorial.url),
-      uploadDate: tutorial.publishedAt,
-      contentUrl: tutorial.url,
-      embedUrl: embedUrl(tutorial.url),
-      inLanguage: 'fr',
-    },
+    url: `${SITE_URL}${tutorialPath(tutorial)}`,
   })),
 }
 
@@ -95,12 +86,12 @@ function ArrowRightIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 export default function TutorielsPage() {
   return (
     <>
-      {datedTutorials.length > 0 && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(videoListSchema) }}
-        />
-      )}
+      <JsonLd
+        data={[
+          videoListSchema,
+          breadcrumbSchema([{ name: 'Tutoriels vidéo', path: '/tutoriels' }]),
+        ]}
+      />
       <section className="pt-12 pb-20 sm:pt-16 sm:pb-32">
         <Container>
           <div className="mx-auto max-w-2xl text-center">
