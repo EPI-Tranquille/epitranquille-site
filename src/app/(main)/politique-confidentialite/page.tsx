@@ -306,7 +306,7 @@ export default function PolitiqueConfidentialite() {
                   suivi des erreurs et des performances de l’Application
                   (Sentry)
                 </td>
-                <td>90 jours</td>
+                <td>30 jours</td>
               </tr>
               <tr>
                 <td>mise en œuvre d'une assistance pour les Utilisateurs</td>
@@ -469,7 +469,7 @@ export default function PolitiqueConfidentialite() {
           </p>
           <p>
             Ces données sont hébergées dans l’Union européenne (région
-            européenne de Sentry, en Allemagne) et conservées 90 jours au plus.
+            européenne de Sentry, en Allemagne) et conservées 30 jours.
             Functional Software, Inc. étant une société américaine, un accès
             depuis les États-Unis reste possible pour les besoins du service ;
             il est encadré par un accord de traitement des données incluant les
