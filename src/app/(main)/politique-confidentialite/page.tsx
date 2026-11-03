@@ -23,7 +23,7 @@ export default function PolitiqueConfidentialite() {
           Politique de confidentialité
         </h1>
         <div className="custom-typography">
-          <p className="text-center text-sm">En vigueur au 15/09/2024</p>
+          <p className="text-center text-sm">En vigueur au 03/11/2026</p>
           <p>
             Chez EPI Tranquille nous sommes soucieux des droits des individus,
             notamment au regard des traitements automatisés et dans une volonté
@@ -302,6 +302,13 @@ export default function PolitiqueConfidentialite() {
                 <td></td>
               </tr>
               <tr>
+                <td>
+                  suivi des erreurs et des performances de l’Application
+                  (Sentry)
+                </td>
+                <td>90 jours</td>
+              </tr>
+              <tr>
                 <td>mise en œuvre d'une assistance pour les Utilisateurs</td>
                 <td></td>
               </tr>
@@ -395,12 +402,13 @@ export default function PolitiqueConfidentialite() {
             </li>
             <li>
               quand l’Application recourt aux services de prestataires pour
-              fournir l'assistance utilisateurs, les services de paiement et les
-              envois de mail. Ces prestataires disposent d'un accès limité aux
-              données de l'utilisateur, dans le cadre de l'exécution de ces
-              prestations, et ont l'obligation contractuelle de les utiliser en
-              conformité avec les dispositions de la réglementation applicable
-              en matière protection des données à caractère personnel ;
+              fournir l'assistance utilisateurs, les services de paiement, les
+              envois de mail et le suivi des erreurs (Sentry, voir ci-dessous).
+              Ces prestataires disposent d'un accès limité aux données de
+              l'utilisateur, dans le cadre de l'exécution de ces prestations, et
+              ont l'obligation contractuelle de les utiliser en conformité avec
+              les dispositions de la réglementation applicable en matière
+              protection des données à caractère personnel ;
             </li>
             <li>
               quand l'utilisateur invite un membre sur son parc EPI, les données
@@ -423,6 +431,52 @@ export default function PolitiqueConfidentialite() {
               partie.
             </li>
           </ul>
+          <h2>Suivi des erreurs et des performances (Sentry)</h2>
+          <p>
+            Pour détecter et corriger rapidement les erreurs et les lenteurs de
+            l’Application (web et mobile), nous utilisons le service Sentry,
+            édité par Functional Software, Inc. Ce traitement repose sur notre
+            intérêt légitime à fournir un service fiable et sécurisé (article
+            6.1.f du RGPD).
+          </p>
+          <p>Lorsqu’une erreur survient, Sentry reçoit :</p>
+          <ul>
+            <li>
+              une description technique de l’erreur (message, écran ou page
+              concernée, version de l’Application, navigateur ou modèle de
+              téléphone, système d’exploitation) ;
+            </li>
+            <li>
+              l’identifiant interne de votre compte, sans votre nom, votre
+              adresse e-mail ni votre adresse IP ;
+            </li>
+            <li>
+              une reconstitution des actions effectuées dans les secondes qui
+              précèdent l’erreur, dans laquelle tous les textes, saisies et
+              images sont masqués : elle montre le parcours, pas vos données.
+              Aucune session n’est enregistrée en dehors d’une erreur ;
+            </li>
+            <li>
+              des mesures de durée (temps de chargement des pages et des écrans,
+              temps de réponse du serveur), sur une partie des utilisations.
+            </li>
+          </ul>
+          <p>
+            Lorsque vous nous envoyez un retour depuis le formulaire « Effectuer
+            un retour » de l’application web, votre nom, votre adresse e-mail,
+            votre message et, si vous en ajoutez une, votre capture d’écran sont
+            transmis à Sentry afin que nous puissions vous répondre.
+          </p>
+          <p>
+            Ces données sont hébergées dans l’Union européenne (région
+            européenne de Sentry, en Allemagne) et conservées 90 jours au plus.
+            Functional Software, Inc. étant une société américaine, un accès
+            depuis les États-Unis reste possible pour les besoins du service ;
+            il est encadré par un accord de traitement des données incluant les
+            clauses contractuelles types de la Commission européenne, et par
+            l’adhésion de Functional Software, Inc. au Data Privacy Framework
+            UE–États-Unis.
+          </p>
           <h2>Protection des données</h2>
           <p>
             Le Responsable met en oeuvre des mesures organisationnelles,
