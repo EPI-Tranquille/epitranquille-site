@@ -11,20 +11,22 @@ import {
   levels,
   platforms,
   thumbnailUrl,
+  getTutorials,
   tutorialPath,
-  tutorials,
   videoObjectSchema,
 } from '@/lib/tutorials'
 
-// Seules les vidéos listées dans src/lib/tutorials.ts ont une page.
-export const dynamicParams = false
+// Pages générées au build pour les vidéos connues. Une vidéo ajoutée depuis
+// dans le fichier de l'app a sa page générée à la première visite ; un slug
+// absent du fichier renvoie une 404.
+export const dynamicParams = true
 
-export function generateStaticParams() {
-  return tutorials.map((tutorial) => ({ slug: tutorial.slug }))
+export async function generateStaticParams() {
+  return (await getTutorials()).map((tutorial) => ({ slug: tutorial.slug }))
 }
 
-function findTutorial(slug: string) {
-  return tutorials.find((tutorial) => tutorial.slug === slug)
+async function findTutorial(slug: string) {
+  return (await getTutorials()).find((tutorial) => tutorial.slug === slug)
 }
 
 export async function generateMetadata({
@@ -32,7 +34,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ slug: string }>
 }): Promise<Metadata> {
-  let tutorial = findTutorial((await params).slug)
+  let tutorial = await findTutorial((await params).slug)
   if (!tutorial) {
     return {}
   }
@@ -50,8 +52,8 @@ export async function generateMetadata({
       title: tutorial.title,
       description: tutorial.description,
       url: tutorialPath(tutorial),
-      images: [{ url: thumbnailUrl(tutorial.url), width: 480, height: 360 }],
-      videos: [{ url: embedUrl(tutorial.url) }],
+      images: [{ url: thumbnailUrl(tutorial), width: 480, height: 360 }],
+      videos: [{ url: embedUrl(tutorial) }],
     },
   }
 }
@@ -61,13 +63,13 @@ export default async function TutorielPage({
 }: {
   params: Promise<{ slug: string }>
 }) {
-  let tutorial = findTutorial((await params).slug)
+  let tutorial = await findTutorial((await params).slug)
   if (!tutorial) {
     notFound()
   }
 
   let platform = platforms[tutorial.platform]
-  let related = tutorials.filter(
+  let related = (await getTutorials()).filter(
     (other) =>
       other.slug !== tutorial.slug && other.platform === tutorial.platform,
   )
@@ -102,7 +104,7 @@ export default async function TutorielPage({
 
             <div className="relative mt-10 aspect-video overflow-hidden rounded-3xl bg-gray-900 ring-1 ring-gray-200">
               <iframe
-                src={`${embedUrl(tutorial.url)}?rel=0`}
+                src={`${embedUrl(tutorial)}?rel=0`}
                 title={tutorial.title}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen

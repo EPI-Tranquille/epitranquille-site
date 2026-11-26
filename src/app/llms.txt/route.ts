@@ -1,7 +1,7 @@
 import { appStoreUrl, playStoreUrl } from '@/config/links'
 import { getAllArticles } from '@/lib/articles'
 import { SITE_URL } from '@/lib/seo'
-import { tutorialPath, tutorials } from '@/lib/tutorials'
+import { getTutorials, tutorialPath } from '@/lib/tutorials'
 
 // Généré au build : résumé du site au format llms.txt (https://llmstxt.org),
 // lu par les assistants IA (ChatGPT, Claude, Perplexity…) pour décrire EPI
@@ -10,6 +10,7 @@ export const dynamic = 'force-static'
 
 export async function GET() {
   let articles = await getAllArticles()
+  let tutorials = await getTutorials()
 
   let body = `# EPI Tranquille
 

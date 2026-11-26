@@ -8,9 +8,11 @@ import { TutorialsBrowser } from '@/components/TutorialsBrowser'
 import { SITE_URL, breadcrumbSchema } from '@/lib/seo'
 import {
   type Platform,
+  type Tutorial,
+  getTutorialCatalog,
   platforms,
+  playlistUrl,
   tutorialPath,
-  tutorials,
   youtubeChannelUrl,
 } from '@/lib/tutorials'
 
@@ -25,15 +27,17 @@ export const metadata: Metadata = {
 
 // Liste des vidéos : chaque élément renvoie vers la page de la vidéo, qui
 // porte les données VideoObject complètes (src/app/(main)/tutoriels/[slug]).
-const videoListSchema: WithContext<ItemList> = {
-  '@context': 'https://schema.org',
-  '@type': 'ItemList',
-  name: 'Tutoriels vidéo EPI Tranquille',
-  itemListElement: tutorials.map((tutorial, index) => ({
-    '@type': 'ListItem',
-    position: index + 1,
-    url: `${SITE_URL}${tutorialPath(tutorial)}`,
-  })),
+function videoListSchema(tutorials: Tutorial[]): WithContext<ItemList> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Tutoriels vidéo EPI Tranquille',
+    itemListElement: tutorials.map((tutorial, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: `${SITE_URL}${tutorialPath(tutorial)}`,
+    })),
+  }
 }
 
 function YouTubeIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
@@ -83,12 +87,14 @@ function ArrowRightIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
-export default function TutorielsPage() {
+export default async function TutorielsPage() {
+  let { tutorials, playlists } = await getTutorialCatalog()
+
   return (
     <>
       <JsonLd
         data={[
-          videoListSchema,
+          videoListSchema(tutorials),
           breadcrumbSchema([{ name: 'Tutoriels vidéo', path: '/tutoriels' }]),
         ]}
       />
@@ -152,7 +158,7 @@ export default function TutorielsPage() {
                     {platforms[platform].description}
                   </p>
                   <a
-                    href={platforms[platform].playlistUrl ?? youtubeChannelUrl}
+                    href={playlistUrl(playlists[platform].id)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group mt-6 inline-flex items-center gap-2 text-sm font-semibold text-gray-900"

@@ -87,7 +87,7 @@ function VideoCard({ tutorial }: { tutorial: Tutorial }) {
       <div className="relative aspect-video bg-gray-900">
         {playing ? (
           <iframe
-            src={`${embedUrl(tutorial.url)}?autoplay=1&rel=0`}
+            src={`${embedUrl(tutorial)}?autoplay=1&rel=0`}
             title={tutorial.title}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
@@ -101,7 +101,7 @@ function VideoCard({ tutorial }: { tutorial: Tutorial }) {
             aria-label={`Lire la vidéo : ${tutorial.title}`}
           >
             <Image
-              src={thumbnailUrl(tutorial.url)}
+              src={thumbnailUrl(tutorial)}
               alt={`Miniature du tutoriel vidéo « ${tutorial.title} »`}
               fill
               unoptimized

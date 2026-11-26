@@ -1,10 +1,12 @@
 /**
  * Vidéos de la page /tutoriels.
  *
- * Pour ajouter une vidéo : ajoutez une entrée dans `tutorials` en collant le
- * lien YouTube de la vidéo (n'importe quel format : youtube.com/watch?v=…,
- * youtu.be/…, youtube.com/shorts/…). Dans chaque niveau, les vidéos
- * s'affichent dans l'ordre du tableau.
+ * La liste vient de l'app EPI Tranquille : shared/tutorials/tutorials.json,
+ * écrit par son outil `just tuto-ajouter` et publié en fichier statique à
+ * chaque déploiement de l'app. Rien à modifier ici pour ajouter une vidéo.
+ *
+ * src/data/tutorials.json en est une copie de secours, utilisée si le fichier
+ * publié est injoignable ; la recopier de temps en temps suffit.
  *
  * Chaque vidéo a sa propre page /tutoriels/<slug> : c'est elle que Google
  * indexe dans ses résultats vidéo, car la vidéo y est le contenu principal.
@@ -12,12 +14,12 @@
 
 import { type VideoObject, type WithContext } from 'schema-dts'
 
+import fallbackCatalog from '@/data/tutorials.json'
+
 export type Platform = 'web' | 'mobile'
 export type Level = 'prise-en-main' | 'avance'
 
 export interface Tutorial {
-  /** Lien YouTube de la vidéo. */
-  url: string
   /**
    * Fin de l'adresse de la page de la vidéo (/tutoriels/<slug>), en
    * minuscules et sans accents. Ne plus la modifier une fois la vidéo en
@@ -28,11 +30,9 @@ export interface Tutorial {
   description: string
   platform: Platform
   level: Level
-  /**
-   * Date de publication sur YouTube, au format AAAA-MM-JJ. Nécessaire pour
-   * que Google affiche la vidéo dans ses résultats vidéo.
-   */
-  publishedAt?: string
+  youtubeId: string
+  /** Date de publication sur YouTube, au format AAAA-MM-JJ. */
+  publishedAt: string
   /** Durée affichée sur la vignette, par exemple '4:32'. */
   duration?: string
   /**
@@ -42,24 +42,31 @@ export interface Tutorial {
   transcript?: string
 }
 
+export interface TutorialCatalog {
+  playlists: Record<Platform, { id: string; title: string }>
+  tutorials: Tutorial[]
+}
+
+const CATALOG_URL =
+  process.env.TUTORIALS_JSON_URL ??
+  'https://epitranquille-static.s3.eu-west-3.amazonaws.com/tutorials/tutorials.json'
+
 export const youtubeChannelUrl =
   'https://www.youtube.com/channel/UCVw1rgsmCZj2N8g6iJWCyUQ'
 
 export const platforms: Record<
   Platform,
-  { label: string; description: string; playlistUrl: string | null }
+  { label: string; description: string }
 > = {
   web: {
     label: 'Application web',
     description:
       'Gérez votre registre au bureau ou au local du club : import Excel, contrôles détaillés, utilisateurs, prêts et sorties.',
-    playlistUrl: 'https://www.youtube.com/playlist?list=PLGxZkLayIBhE',
   },
   mobile: {
     label: 'Application mobile',
     description:
       "Sur le terrain : ajout d'EPI par scan, contrôles rapides et consultation du registre, même hors connexion.",
-    playlistUrl: 'https://www.youtube.com/playlist?list=PLZxemK23hTqc',
   },
 }
 
@@ -76,45 +83,61 @@ export const levels: Record<Level, { title: string; description: string }> = {
   },
 }
 
-export const tutorials: Tutorial[] = [
-  {
-    url: 'https://youtu.be/TMn4gP75cZE',
-    slug: 'creer-son-compte',
-    title: 'Créer son compte',
-    description:
-      "Démarrez sur l'application web : création de votre compte EPI Tranquille.",
-    platform: 'web',
-    level: 'prise-en-main',
-    publishedAt: '2026-10-26',
-  },
-  {
-    url: 'https://youtu.be/u0UfmQGF-lU',
-    slug: 'modifier-supprimer-parc',
-    title: 'Modifier ou supprimer un parc',
-    description:
-      'Changez le nom du parc, la date du prochain contrôle ou la fréquence des contrôles, et supprimez un parc.',
-    platform: 'mobile',
-    level: 'avance',
-    publishedAt: '2026-10-26',
-  },
-]
+function isCatalog(data: unknown): data is TutorialCatalog {
+  let catalog = data as TutorialCatalog
+  return (
+    Array.isArray(catalog?.tutorials) &&
+    catalog.tutorials.every(
+      (tutorial) =>
+        typeof tutorial.slug === 'string' &&
+        typeof tutorial.youtubeId === 'string' &&
+        tutorial.platform in platforms &&
+        tutorial.level in levels,
+    ) &&
+    typeof catalog.playlists?.web?.id === 'string' &&
+    typeof catalog.playlists?.mobile?.id === 'string'
+  )
+}
 
-/** Extrait l'identifiant d'une vidéo depuis son lien YouTube. */
-export function youtubeId(url: string): string {
-  let { hostname, pathname, searchParams } = new URL(url)
-  if (hostname === 'youtu.be') {
-    return pathname.slice(1)
+/** Lu côté serveur et mis en cache une heure : aucune requête par visiteur. */
+export async function getTutorialCatalog(): Promise<TutorialCatalog> {
+  try {
+    let response = await fetch(CATALOG_URL, { next: { revalidate: 3600 } })
+    if (response.ok) {
+      let data: unknown = await response.json()
+      if (isCatalog(data)) {
+        return data
+      }
+    }
+    console.warn(
+      `Tutoriels : réponse inattendue de ${CATALOG_URL}, copie de secours utilisée.`,
+    )
+  } catch (error) {
+    console.warn(
+      `Tutoriels : ${CATALOG_URL} injoignable (${error instanceof Error ? error.message : error}), copie de secours utilisée.`,
+    )
   }
-  let match = pathname.match(/^\/(?:shorts|embed|live)\/([^/]+)/)
-  return match ? match[1] : (searchParams.get('v') ?? '')
+  return fallbackCatalog as TutorialCatalog
 }
 
-export function thumbnailUrl(url: string): string {
-  return `https://i.ytimg.com/vi/${youtubeId(url)}/hqdefault.jpg`
+export async function getTutorials(): Promise<Tutorial[]> {
+  return (await getTutorialCatalog()).tutorials
 }
 
-export function embedUrl(url: string): string {
-  return `https://www.youtube-nocookie.com/embed/${youtubeId(url)}`
+export function watchUrl(tutorial: Tutorial): string {
+  return `https://www.youtube.com/watch?v=${tutorial.youtubeId}`
+}
+
+export function thumbnailUrl(tutorial: Tutorial): string {
+  return `https://i.ytimg.com/vi/${tutorial.youtubeId}/hqdefault.jpg`
+}
+
+export function embedUrl(tutorial: Tutorial): string {
+  return `https://www.youtube-nocookie.com/embed/${tutorial.youtubeId}`
+}
+
+export function playlistUrl(playlistId: string): string {
+  return `https://www.youtube.com/playlist?list=${playlistId}`
 }
 
 export function tutorialPath(tutorial: Tutorial): string {
@@ -147,13 +170,13 @@ export function videoObjectSchema(
     '@type': 'VideoObject',
     name: `${tutorial.title} — Tutoriel EPI Tranquille (${platforms[tutorial.platform].label.toLowerCase()})`,
     description: tutorial.description,
-    thumbnailUrl: thumbnailUrl(tutorial.url),
+    thumbnailUrl: thumbnailUrl(tutorial),
     // Google ignore une vidéo sans date de publication.
-    ...(tutorial.publishedAt && { uploadDate: tutorial.publishedAt }),
+    uploadDate: tutorial.publishedAt,
     ...(tutorial.duration && { duration: isoDuration(tutorial.duration) }),
     ...(tutorial.transcript && { transcript: tutorial.transcript }),
-    contentUrl: tutorial.url,
-    embedUrl: embedUrl(tutorial.url),
+    contentUrl: watchUrl(tutorial),
+    embedUrl: embedUrl(tutorial),
     url: `${siteUrl}${tutorialPath(tutorial)}`,
     inLanguage: 'fr',
     isFamilyFriendly: true,

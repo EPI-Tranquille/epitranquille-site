@@ -21,8 +21,8 @@ import {
   durationInSeconds,
   embedUrl,
   thumbnailUrl,
+  getTutorials,
   tutorialPath,
-  tutorials,
 } from '@/lib/tutorials'
 
 // Captures d'écran de la page d'accueil, déclarées pour la recherche Images.
@@ -91,22 +91,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...(route.images && { images: route.images }),
   }))
 
+  let tutorials = await getTutorials()
   let tutorialEntries: MetadataRoute.Sitemap = tutorials.map((tutorial) => ({
     url: `${SITE_URL}${tutorialPath(tutorial)}`,
-    ...(tutorial.publishedAt && {
-      lastModified: new Date(tutorial.publishedAt),
-    }),
+    lastModified: new Date(tutorial.publishedAt),
     changeFrequency: 'monthly',
     priority: 0.5,
     videos: [
       {
         title: tutorial.title,
         description: tutorial.description,
-        thumbnail_loc: thumbnailUrl(tutorial.url),
-        player_loc: embedUrl(tutorial.url),
-        ...(tutorial.publishedAt && {
-          publication_date: tutorial.publishedAt,
-        }),
+        thumbnail_loc: thumbnailUrl(tutorial),
+        player_loc: embedUrl(tutorial),
+        publication_date: tutorial.publishedAt,
         ...(tutorial.duration && {
           duration: durationInSeconds(tutorial.duration),
         }),
