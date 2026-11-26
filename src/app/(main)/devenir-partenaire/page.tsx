@@ -172,7 +172,7 @@ const audiences = [
     icon: AcademicCapIcon,
     title: 'Centres de formation',
     description:
-      "Proposez aux stagiaires un outil de de suivi EPI adapté pendant la formation, qu'ils garderont ensuite dans leur pratique professionnelle.",
+      "Proposez aux stagiaires un outil de suivi EPI adapté pendant la formation, qu'ils garderont ensuite dans leur pratique professionnelle.",
   },
   {
     icon: LandmarkIcon,
@@ -290,7 +290,7 @@ export default function DevenirPartenairePage() {
           <div className="mx-auto mt-24 max-w-2xl text-center">
             <h2 className="section-title">Pour quel type d'organisation ?</h2>
           </div>
-          <div className="mx-auto mt-12 grid max-w-2xl grid-cols-1 gap-8 sm:grid-cols-2 lg:max-w-none">
+          <div className="mx-auto mt-12 grid max-w-2xl grid-cols-1 gap-8 sm:grid-cols-2 lg:max-w-none lg:grid-cols-3">
             {audiences.map((audience) => (
               <div
                 key={audience.title}
