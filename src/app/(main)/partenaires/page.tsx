@@ -144,31 +144,6 @@ export default function PartnersPage() {
           </ul>
         </div>
 
-        <div className="mx-auto mt-24 max-w-3xl rounded-3xl bg-white p-8 text-center shadow-sm ring-1 ring-gray-900/5 sm:p-10">
-          <h2 className="text-xl font-semibold text-gray-900">
-            Universités et collectivités
-          </h2>
-          <p className="mt-3 text-base text-gray-700">
-            EPI Tranquille s'adresse aussi aux établissements publics qui gèrent
-            du matériel d'escalade, de canyoning ou de spéléologie : parcs EPI
-            des éducateur·rices sportif·ves de l'Éducation nationale, SUAPS
-            (Services Universitaires des Activités Physiques et Sportives),
-            services des sports des collectivités. Plusieurs parcs, plusieurs
-            gestionnaires, contrôles par lot et export PDF du registre pour
-            présenter un suivi conforme lors des audits.
-          </p>
-          <p className="mt-3 text-base text-gray-700">
-            Vous gérez le matériel d'un établissement ou d'une collectivité ?{' '}
-            <Link
-              href="/contact"
-              className="text-primary font-semibold hover:underline"
-            >
-              Contactez-nous
-            </Link>{' '}
-            pour une offre adaptée à votre structure.
-          </p>
-        </div>
-
         <div className="mx-auto mt-16 max-w-2xl text-center">
           <p className="text-base text-gray-600">
             Vous représentez un syndicat, regroupement de professionnels, un
