@@ -17,13 +17,11 @@ export const partners: Partner[] = [
     href: '/snapec',
     external: false,
   },
-  // Partenariat SNPSC masqué temporairement : pas encore finalisé.
-  // Décommenter pour le réafficher (partout où `partners` est utilisé).
-  // {
-  //   name: 'SNPSC',
-  //   role: 'Syndicat National des Professionnels de la Spéléologie et du Canyonisme',
-  //   logo: logo_snpsc,
-  //   href: 'https://www.syndicat-speleo-canyon.org',
-  //   external: true,
-  // },
+  {
+    name: 'SNPSC',
+    role: 'Syndicat National des Professionnels de la Spéléologie et du Canyonisme',
+    logo: logo_snpsc,
+    href: 'https://www.syndicat-speleo-canyon.org',
+    external: true,
+  },
 ]
