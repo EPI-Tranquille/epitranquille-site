@@ -23,48 +23,56 @@ const features = [
     description:
       "Visualisez en un coup d'œil l'état de votre parc EPI et la date de votre prochaine inspection.",
     image: screenshotDashboard,
+    alt: "Tableau de bord de l'application mobile EPI Tranquille : état du parc EPI (valides, à surveiller, réformés) et date du prochain contrôle.",
   },
   {
     name: 'Identifier par photo',
     description:
-      "Photographiez votre EPI pour identifier automatiquement le produit pendant que vous scannez son numéro de série, QR Code ou datamatrix.",
+      'Photographiez votre EPI pour identifier automatiquement le produit pendant que vous scannez son numéro de série, QR Code ou datamatrix.',
     image: screenshotIdentifierPhoto,
+    alt: "Identification d'un EPI par photo dans l'application mobile, pendant le scan de son numéro de série, QR code ou datamatrix.",
   },
   {
     name: 'Ajouter un EPI rapidement',
     description:
       'Ajoutez un EPI à votre registre en quelques secondes, grâce aux informations pré-remplies.',
     image: screenshotAjouter,
+    alt: "Ajout d'un EPI au registre depuis l'application mobile avec les informations du produit pré-remplies.",
   },
   {
     name: 'Registre complet',
     description:
       'Retrouvez tous vos EPI, leur statut et leur emplacement, toujours à jour dans votre poche.',
     image: screenshotRegistre,
+    alt: 'Registre EPI sur mobile : liste des EPI avec leur statut et leur emplacement.',
   },
   {
     name: 'Export PDF',
     description:
       'Exportez votre registre EPI en PDF et consultez-le à tout moment, même hors-connexion.',
     image: screenshotExportPdf,
+    alt: "Export du registre EPI en PDF depuis l'application mobile, consultable hors connexion.",
   },
   {
     name: 'Alertes personnalisables',
     description:
       "Choisissez comment et quand être alerté·e avant l'expiration d'EPI ou le contrôle de votre parc.",
     image: screenshotAlertes,
+    alt: "Réglage des alertes avant l'expiration d'un EPI ou le contrôle périodique du parc dans l'application mobile.",
   },
   {
     name: 'Historique des contrôles',
     description:
       'Retrouvez tout l’historique de vos contrôles : dates, auteur·e et statut de chaque EPI contrôlé.',
     image: screenshotControles,
+    alt: 'Historique des contrôles EPI sur mobile : date, auteur·e et statut de chaque EPI contrôlé.',
   },
   {
     name: 'Mode hors-connexion',
     description:
       'Votre registre reste consultable même sans réseau : accéder aux registre PDF, aux fiches EPI et aux contrôles.',
     image: screenshotHorsConnexion,
+    alt: "Mode hors connexion de l'application mobile : registre PDF, fiches EPI et contrôles consultables sans réseau.",
   },
 ]
 
@@ -101,8 +109,8 @@ export function PrimaryFeatures() {
           </h2>
           <p className="mt-2 text-lg text-gray-400">
             L'application mobile vous accompagne sur le terrain : ajoutez,
-            identifiez et contrôlez vos EPI en quelques secondes. Consultez votre registre même hors
-            connexion.
+            identifiez et contrôlez vos EPI en quelques secondes. Consultez
+            votre registre même hors connexion.
           </p>
         </div>
 
@@ -113,21 +121,21 @@ export function PrimaryFeatures() {
           {({ selectedIndex }) => (
             <>
               <div className="-mx-4 flex overflow-x-auto pb-4 sm:mx-0 sm:overflow-visible sm:pb-0 lg:col-span-5">
-                <TabList className="relative z-10 flex gap-x-4 whitespace-nowrap px-4 sm:mx-auto sm:px-0 lg:mx-0 lg:block lg:gap-x-0 lg:gap-y-1 lg:whitespace-normal">
+                <TabList className="relative z-10 flex gap-x-4 px-4 whitespace-nowrap sm:mx-auto sm:px-0 lg:mx-0 lg:block lg:gap-x-0 lg:gap-y-1 lg:whitespace-normal">
                   {features.map((feature, featureIndex) => (
                     <div
                       key={feature.name}
                       className={clsx(
                         'group relative rounded-full px-4 py-1 lg:rounded-l-xl lg:rounded-r-none lg:p-6',
                         selectedIndex === featureIndex
-                          ? 'bg-white lg:bg-white/10 lg:ring-1 lg:ring-inset lg:ring-white/10'
+                          ? 'bg-white lg:bg-white/10 lg:ring-1 lg:ring-white/10 lg:ring-inset'
                           : 'hover:bg-white/10 lg:hover:bg-white/5',
                       )}
                     >
                       <h3>
                         <Tab
                           className={clsx(
-                            'font-display data-selected:not-data-focus:outline-hidden text-lg',
+                            'font-display text-lg data-selected:not-data-focus:outline-hidden',
                             selectedIndex === featureIndex
                               ? 'text-primary lg:text-white'
                               : 'text-green-100 hover:text-white lg:text-white',
@@ -152,7 +160,7 @@ export function PrimaryFeatures() {
                 </TabList>
               </div>
               <div className="relative col-span-7">
-                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                   <CircleBackground
                     color="#08c770"
                     className="animate-spin-slower"
@@ -173,7 +181,7 @@ export function PrimaryFeatures() {
                       <PhoneFrame className="relative z-10 mx-auto mt-6 w-full max-w-[366px] lg:mt-0">
                         <Image
                           src={feature.image}
-                          alt={feature.name}
+                          alt={feature.alt}
                           className="h-full w-full object-cover"
                           sizes="366px"
                         />

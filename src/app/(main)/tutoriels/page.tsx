@@ -3,16 +3,16 @@ import { type ItemList, type WithContext } from 'schema-dts'
 
 import { CallToAction } from '@/components/CallToAction'
 import { Container } from '@/components/Container'
+import { JsonLd } from '@/components/JsonLd'
 import { TutorialsBrowser } from '@/components/TutorialsBrowser'
+import { SITE_URL, breadcrumbSchema } from '@/lib/seo'
 import {
   type Platform,
   type Tutorial,
-  embedUrl,
   getTutorialCatalog,
   platforms,
   playlistUrl,
-  thumbnailUrl,
-  watchUrl,
+  tutorialPath,
   youtubeChannelUrl,
 } from '@/lib/tutorials'
 
@@ -25,6 +25,8 @@ export const metadata: Metadata = {
   },
 }
 
+// Liste des vidéos : chaque élément renvoie vers la page de la vidéo, qui
+// porte les données VideoObject complètes (src/app/(main)/tutoriels/[slug]).
 function videoListSchema(tutorials: Tutorial[]): WithContext<ItemList> {
   return {
     '@context': 'https://schema.org',
@@ -33,16 +35,7 @@ function videoListSchema(tutorials: Tutorial[]): WithContext<ItemList> {
     itemListElement: tutorials.map((tutorial, index) => ({
       '@type': 'ListItem',
       position: index + 1,
-      item: {
-        '@type': 'VideoObject',
-        name: tutorial.title,
-        description: tutorial.description,
-        thumbnailUrl: thumbnailUrl(tutorial),
-        uploadDate: tutorial.publishedAt,
-        contentUrl: watchUrl(tutorial),
-        embedUrl: embedUrl(tutorial),
-        inLanguage: 'fr',
-      },
+      url: `${SITE_URL}${tutorialPath(tutorial)}`,
     })),
   }
 }
@@ -99,14 +92,12 @@ export default async function TutorielsPage() {
 
   return (
     <>
-      {tutorials.length > 0 && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(videoListSchema(tutorials)),
-          }}
-        />
-      )}
+      <JsonLd
+        data={[
+          videoListSchema(tutorials),
+          breadcrumbSchema([{ name: 'Tutoriels vidéo', path: '/tutoriels' }]),
+        ]}
+      />
       <section className="pt-12 pb-20 sm:pt-16 sm:pb-32">
         <Container>
           <div className="mx-auto max-w-2xl text-center">

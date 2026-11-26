@@ -1,17 +1,32 @@
 import { CallToAction } from '@/components/CallToAction'
 import { Faqs } from '@/components/Faqs'
 import { Hero } from '@/components/Hero'
-import { PricingDynamic as Pricing } from '@/components/PricingDynamic'
+import Pricing from '@/components/Pricing'
 import { PrimaryFeatures } from '@/components/PrimaryFeatures'
 import { Reviews } from '@/components/Reviews'
 import { Specialisation } from '@/components/Specialisation'
 import { WebFeatures } from '@/components/WebPrimaryFeatures'
+import { JsonLd } from '@/components/JsonLd'
+import { appStoreUrl, playStoreUrl } from '@/config/links'
+import screenshotMobileDashboard from '@/images/mobile/dashboard.jpg'
+import screenshotMobileRegistre from '@/images/mobile/registre.jpg'
+import screenshotWebDetail from '@/images/screenshots/detail.jpeg'
+import screenshotWebTableauDeBord from '@/images/screenshots/tableau_de_bord.jpeg'
+import {
+  ORGANIZATION_ID,
+  SITE_URL,
+  WEBSITE_ID,
+  WEB_APP_ID,
+  appRating,
+  organizationSchema,
+} from '@/lib/seo'
 import { type Metadata } from 'next'
 import {
-  OnlineBusiness,
-  WebApplication,
-  WebSite,
-  WithContext,
+  type MobileApplication,
+  type Offer,
+  type WebApplication,
+  type WebSite,
+  type WithContext,
 } from 'schema-dts'
 
 export const metadata: Metadata = {
@@ -26,91 +41,164 @@ export const metadata: Metadata = {
   },
 }
 
+const description =
+  "Registre EPI numérique pour l'escalade, le canyoning, l'alpinisme, la spéléologie et la via ferrata : base de données de produits, durée de vie et date de mise au rebut calculées, contrôles périodiques (unitaires ou par lot), alertes, prêts et sorties, export PDF du registre. Conçu selon la norme NF S72-701."
+
+const featureList = [
+  "Base de données d'EPI pour pré-remplir les fiches",
+  'Scan du numéro de série, QR code ou datamatrix',
+  'Durée de vie et date de mise au rebut théorique de chaque EPI',
+  'Contrôles périodiques unitaires ou par lot',
+  'Alertes avant contrôle et avant expiration',
+  'Gestion des prêts et des sorties',
+  'Registre EPI exportable en PDF',
+  'Import du registre depuis Excel',
+  'Plusieurs parcs et plusieurs utilisateurs',
+  'Mode hors connexion sur mobile',
+]
+
+const audience = {
+  '@type': 'Audience',
+  audienceType:
+    "Professionnel·les et structures de l'escalade, du canyoning, de l'alpinisme, de la spéléologie et de la via ferrata",
+} as const
+
+const aggregateRating = appRating
+  ? {
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: appRating.ratingValue,
+        ratingCount: appRating.ratingCount,
+      } as const,
+    }
+  : {}
+
+function monthlyOffer(name: string, price: number, description: string): Offer {
+  return {
+    '@type': 'Offer',
+    name,
+    description,
+    price,
+    priceCurrency: 'EUR',
+    availability: 'https://schema.org/InStock',
+    url: `${SITE_URL}/#pricing`,
+    priceSpecification: {
+      '@type': 'UnitPriceSpecification',
+      price,
+      priceCurrency: 'EUR',
+      unitCode: 'MON',
+      referenceQuantity: {
+        '@type': 'QuantitativeValue',
+        value: 1,
+        unitCode: 'MON',
+      },
+    },
+  }
+}
+
 const WebSiteSchema: WithContext<WebSite> = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
+  '@id': WEBSITE_ID,
   name: 'EPI Tranquille',
-  url: 'https://epitranquille.com/',
+  alternateName: ['EPI Tranquille, registre EPI', 'epitranquille.com'],
+  url: `${SITE_URL}/`,
+  inLanguage: 'fr',
+  publisher: { '@id': ORGANIZATION_ID },
 }
-const OnlineBusinessSchema: WithContext<OnlineBusiness> = {
-  '@context': 'https://schema.org',
-  '@type': 'OnlineBusiness',
-  image: 'https://epitranquille.com/web-app-manifest-512x512.png',
-  url: 'https://epitranquille.com',
-  logo: 'https://epitranquille.com/web-app-manifest-512x512.png',
-  name: 'EPI Tranquille',
-  description:
-    "EPI Tranquille est le registre EPI sur mesure des professionnel·les de l'escalade, du canyoning, de l'alpinisme, de la spéléologie et de la via ferrata, conçu selon la norme NF S72-701.",
-  email: 'contact@epitranquille.com',
-  keywords:
-    "Registre EPI, NF S72-701, Escalade, Canyoning, Alpinisme, Spéléologie, Via ferrata, Moniteur, BE, DEJEPS, DESJEPS, CQP, Guide de haute montagne, Club, Salle d'escalade, Collectivité, Contrôles, Mousquetons, Cordes, Baudriers, Casques",
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Champcella',
-    addressCountry: 'FR',
-    addressRegion: 'Hautes-Alpes',
-    postalCode: '05310',
-  },
-  slogan: 'Gérez vos EPI simplement',
-  contactPoint: {
-    '@type': 'ContactPoint',
-    contactType: 'Support clients',
-    email: 'support@epitranquille.com',
-  },
-  founder: {
-    '@type': 'Person',
-    name: 'Samuel Girardin',
-    jobTitle: "Moniteur d'escalade (DEJEPS)",
-  },
-}
+
 const WebApplicationSchema: WithContext<WebApplication> = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
+  '@id': WEB_APP_ID,
   name: 'EPI Tranquille',
-  url: 'https://epitranquille.com',
+  url: 'https://app.epitranquille.com',
+  description,
   applicationCategory: 'BusinessApplication',
-  operatingSystem: 'Web, iOS, Android',
+  applicationSubCategory: 'Registre EPI',
+  operatingSystem: 'Web',
+  browserRequirements: 'Navigateur web récent',
   inLanguage: 'fr',
-  audience: {
-    '@type': 'Audience',
-    audienceType:
-      "Professionnel·les et structures de l'escalade, du canyoning, de l'alpinisme, de la spéléologie et de la via ferrata",
-  },
-  offers: [
-    {
-      '@type': 'Offer',
-      name: 'Basique',
-      price: 0.0,
-      priceCurrency: 'EUR',
-    },
-    {
-      '@type': 'Offer',
-      name: 'Indépendant',
-      price: 5.0,
-      priceCurrency: 'EUR',
-    },
-    {
-      '@type': 'Offer',
-      name: 'Premium',
-      price: 13.0,
-      priceCurrency: 'EUR',
-    },
-    {
-      '@type': 'Offer',
-      name: 'Entreprise',
-      price: 50.0,
-      priceCurrency: 'EUR',
-    },
+  isAccessibleForFree: true,
+  featureList,
+  screenshot: [
+    `${SITE_URL}${screenshotWebTableauDeBord.src}`,
+    `${SITE_URL}${screenshotWebDetail.src}`,
   ],
+  image: `${SITE_URL}/opengraph-image`,
+  audience,
+  publisher: { '@id': ORGANIZATION_ID },
+  offers: [
+    monthlyOffer(
+      'Basique',
+      0,
+      "Gratuit, sans limite de durée : jusqu'à 50 EPI et 1 parc.",
+    ),
+    monthlyOffer(
+      'Indépendant',
+      5,
+      "Jusqu'à 250 EPI et 2 parcs, alertes EPI et contrôles.",
+    ),
+    monthlyOffer(
+      'Premium',
+      13,
+      "Jusqu'à 500 EPI et 5 parcs, gestion des prêts d'EPI.",
+    ),
+    monthlyOffer(
+      'Entreprise',
+      50,
+      "Jusqu'à 2000 EPI, parcs illimités, support prioritaire.",
+    ),
+  ],
+  ...aggregateRating,
 }
-const PageSchema = [WebSiteSchema, OnlineBusinessSchema, WebApplicationSchema]
+
+function mobileApplicationSchema(
+  operatingSystem: 'iOS' | 'Android',
+  installUrl: string,
+): WithContext<MobileApplication> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'MobileApplication',
+    '@id': `${SITE_URL}/#app-${operatingSystem.toLowerCase()}`,
+    name: 'EPI Tranquille',
+    url: installUrl,
+    installUrl,
+    description,
+    applicationCategory: 'BusinessApplication',
+    applicationSubCategory: 'Registre EPI',
+    operatingSystem,
+    inLanguage: 'fr',
+    featureList,
+    screenshot: [
+      `${SITE_URL}${screenshotMobileDashboard.src}`,
+      `${SITE_URL}${screenshotMobileRegistre.src}`,
+    ],
+    audience,
+    publisher: { '@id': ORGANIZATION_ID },
+    // Le téléchargement est gratuit, les formules payantes sont décrites
+    // dans l'application web.
+    offers: {
+      '@type': 'Offer',
+      price: 0,
+      priceCurrency: 'EUR',
+    },
+    ...aggregateRating,
+  }
+}
+
+const PageSchema = [
+  WebSiteSchema,
+  organizationSchema,
+  WebApplicationSchema,
+  mobileApplicationSchema('iOS', appStoreUrl),
+  mobileApplicationSchema('Android', playStoreUrl),
+]
+
 export default function Home() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(PageSchema) }}
-      />
+      <JsonLd data={PageSchema} />
       <Hero />
       <Specialisation />
       <PrimaryFeatures />

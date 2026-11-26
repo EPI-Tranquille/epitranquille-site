@@ -1,6 +1,8 @@
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { partners } from '@/lib/partners'
+import { JsonLd } from '@/components/JsonLd'
+import { breadcrumbSchema } from '@/lib/seo'
 import { type Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -8,7 +10,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Partenaires',
   description:
-    "SNAPEC et autres partenaires d'EPI Tranquille : découvrez les organisations qui font bénéficier leurs adhérent·es d'un accès privilégié à l'application.",
+    "SNAPEC, SNPSC et autres partenaires d'EPI Tranquille : découvrez les organisations qui font bénéficier leurs adhérent·es d'un accès privilégié à l'application.",
   alternates: {
     canonical: '/partenaires',
   },
@@ -97,6 +99,11 @@ export default function PartnersPage() {
 
     <section className="pt-12 pb-20 sm:pt-16 sm:pb-32">
       <Container>
+        <JsonLd
+          data={breadcrumbSchema([
+            { name: 'Partenaires', path: '/partenaires' },
+          ])}
+        />
         <div className="mx-auto max-w-2xl text-center">
           <h1 className="section-title">Partenaires</h1>
           <p className="section-subtitle">

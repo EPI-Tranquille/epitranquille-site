@@ -6,6 +6,8 @@ export interface Article {
   description: string
   author: string
   date: string
+  /** Date de dernière mise à jour du contenu (AAAA-MM-JJ), si différente. */
+  updated?: string
 }
 
 export interface ArticleWithSlug extends Article {

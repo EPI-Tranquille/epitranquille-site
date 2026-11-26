@@ -1,15 +1,17 @@
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
-import { Faqs } from '@/components/Faqs'
+import { type Faq, Faqs, faqs } from '@/components/Faqs'
+import { JsonLd } from '@/components/JsonLd'
+import { breadcrumbSchema } from '@/lib/seo'
 import { type Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import logo_snapec from '@/images/logos/logo_snapec.png'
 
 export const metadata: Metadata = {
-  title: 'EPI Tranquille x SNAPEC',
+  title: 'SNAPEC : registre EPI gratuit pour les adhérent·es',
   description:
-    "En tant que membre du SNAPEC, gérez votre registre EPI simplement et créez gratuitement votre compte EPI Tranquille.",
+    "Partenaire du SNAPEC, EPI Tranquille offre aux adhérent·es un registre EPI gratuit, web et mobile : activation depuis l'extranet SNAPEC « Gestion de mes EPI » ou par inscription directe, contrôles et alertes inclus.",
   alternates: {
     canonical: '/snapec',
   },
@@ -21,22 +23,34 @@ const SNAPEC_EXTRANET_URL = 'https://snapec.org/espace.syndique.e-65.php'
 const SNAPEC_EPI_URL =
   'https://snapec.org/gestion.de.mes.epi-3630000-6-68-300.php'
 
-const benefits = [
+const snapecFaqs: Faq[] = [
   {
-    title: 'Un registre EPI conforme, sans effort',
-    description:
-      "Ajoutez vos EPI depuis notre base de données, laissez les alertes automatiques vous prévenir des contrôles à venir et exportez votre registre en PDF à tout moment.",
+    question: 'Le registre EPI est-il gratuit pour les adhérent·es du SNAPEC ?',
+    answer:
+      "Oui. Dans le cadre du partenariat entre le SNAPEC et EPI Tranquille, un forfait développé spécialement pour les adhérent·es est mis à disposition gratuitement, tant que l'adhésion au SNAPEC est active.",
   },
   {
-    title: 'Pensé avec les professionnels du secteur',
-    description:
-      "EPI Tranquille est développée en lien avec le SNAPEC et le SNPSC pour coller aux réalités du terrain et aux obligations réglementaires du métier.",
+    question: 'Comment activer mon compte EPI Tranquille avec le SNAPEC ?',
+    answer:
+      "Deux possibilités : depuis l'extranet du SNAPEC, page « Gestion de mes EPI », bouton « Connexion / Création de compte », qui crée votre compte automatiquement ; ou en vous inscrivant directement sur EPI Tranquille avec l'e-mail de votre adhésion, en choisissant le profil Professionnel puis SNAPEC. Dans les deux cas, votre adhésion est vérifiée automatiquement et vous validez votre compte par e-mail.",
   },
   {
-    title: 'Gratuit pour démarrer',
-    description:
-      "La formule Basique est gratuite et permet de gérer jusqu'à 50 EPI, sans limite de durée. Vous pourrez évoluer vers une formule payante si votre parc grandit.",
+    question: 'Puis-je gérer les EPI des clubs ou structures où je travaille ?',
+    answer:
+      "Oui, le forfait SNAPEC vous permet de gérer votre propre parc EPI et, le cas échéant, ceux des clubs ou structures dans lesquels vous intervenez, et d'y inviter d'autres utilisateurs.",
   },
+  {
+    question: 'Comment me reconnecter à EPI Tranquille depuis le SNAPEC ?',
+    answer:
+      "Utilisez le même bouton « Connexion / Création de compte » sur la page « Gestion de mes EPI » de l'extranet SNAPEC. Vous pouvez aussi définir un mot de passe depuis l'application pour vous connecter directement, sur le web ou sur l'application mobile iOS et Android.",
+  },
+  ...faqs.filter((faq) =>
+    [
+      "Suis-je obligé d'avoir un registre EPI ?",
+      'Quelle est la durée de vie d’un EPI ?',
+      'À quelle fréquence faut-il contrôler ses EPI ?',
+    ].includes(faq.question),
+  ),
 ]
 
 function ExternalLinkIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
@@ -84,10 +98,10 @@ function StepCard({
   cta: { label: string; href: string; external?: boolean }
 }) {
   return (
-    <div className="relative flex flex-col overflow-hidden rounded-3xl bg-white p-8 shadow-xl shadow-gray-900/5 ring-1 ring-gray-900/5">
-      <div className="absolute inset-x-0 top-0 h-1.5 bg-linear-to-r from-primary to-green-400" />
+    <div className="relative flex flex-col overflow-hidden rounded-3xl bg-white p-8 shadow-xl ring-1 shadow-gray-900/5 ring-gray-900/5">
+      <div className="from-primary absolute inset-x-0 top-0 h-1.5 bg-linear-to-r to-green-400" />
       <div className="flex items-center gap-4">
-        <div className="flex h-12 w-12 flex-none items-center justify-center rounded-2xl bg-primary/10 text-primary">
+        <div className="bg-primary/10 text-primary flex h-12 w-12 flex-none items-center justify-center rounded-2xl">
           {icon}
         </div>
         <h3 className="text-xl font-semibold text-gray-900">{title}</h3>
@@ -96,7 +110,7 @@ function StepCard({
       <ol className="mt-6 flex-auto space-y-5">
         {steps.map((step, index) => (
           <li key={index} className="flex gap-4">
-            <span className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-primary text-sm font-bold text-white">
+            <span className="bg-primary flex h-8 w-8 flex-none items-center justify-center rounded-full text-sm font-bold text-white">
               {index + 1}
             </span>
             <span className="pt-1 text-sm text-gray-700">{step}</span>
@@ -112,7 +126,9 @@ function StepCard({
         href={cta.href}
         color="primary"
         className="mt-8 justify-center"
-        {...(cta.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+        {...(cta.external
+          ? { target: '_blank', rel: 'noopener noreferrer' }
+          : {})}
       >
         {cta.label}
       </Button>
@@ -123,10 +139,16 @@ function StepCard({
 export default function SnapecPage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: 'Partenaires', path: '/partenaires' },
+          { name: 'SNAPEC', path: '/snapec' },
+        ])}
+      />
       <section className="pt-12 pb-20 sm:pt-16 sm:pb-32">
         <Container>
           <div className="mx-auto max-w-4xl">
-            <div className="relative overflow-hidden rounded-3xl bg-linear-to-br from-primary/20 via-green-50 to-white p-8 shadow-xl shadow-primary/10 ring-1 ring-primary/15 sm:p-10">
+            <div className="from-primary/20 shadow-primary/10 ring-primary/15 relative overflow-hidden rounded-3xl bg-linear-to-br via-green-50 to-white p-8 shadow-xl ring-1 sm:p-10">
               <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
                 <a
                   href="https://snapec.org"
@@ -148,9 +170,9 @@ export default function SnapecPage() {
                   </h1>
                   <p className="mt-3 text-base text-gray-600">
                     EPI Tranquille est partenaire du SNAPEC pour simplifier la
-                    gestion de vos EPI : un forfait développé spécialement
-                    pour vous est mis à disposition gratuitement afin que
-                    vous puissiez gérer votre parc et éventuellement ceux des
+                    gestion de vos EPI : un forfait développé spécialement pour
+                    vous est mis à disposition gratuitement afin que vous
+                    puissiez gérer votre parc et éventuellement ceux des
                     clubs/structures dans lesquels vous travaillez.
                   </p>
                 </div>
@@ -192,9 +214,11 @@ export default function SnapecPage() {
                   .
                 </>,
                 <>
-                  Cliquez sur <strong>« Connexion / Création de compte »</strong> :
-                  votre compte EPI Tranquille est créé automatiquement, sans
-                  aucune information à renseigner. Vous recevez un mail de confirmation vous invitant à valider votre compte.
+                  Cliquez sur{' '}
+                  <strong>« Connexion / Création de compte »</strong> : votre
+                  compte EPI Tranquille est créé automatiquement, sans aucune
+                  information à renseigner. Vous recevez un mail de confirmation
+                  vous invitant à valider votre compte.
                 </>,
                 <>
                   Cliquez sur le lien de vérification reçu par e-mail — c'est
@@ -203,9 +227,10 @@ export default function SnapecPage() {
               ]}
               note={
                 <>
-                  Pour vous reconnecter ensuite, utilisez ce même bouton
-                  depuis l'extranet si vous êtes déconnecté·e de
-                  l'application. Vous pourrez également définir votre mot de passe depuis l'application par la suite.
+                  Pour vous reconnecter ensuite, utilisez ce même bouton depuis
+                  l'extranet si vous êtes déconnecté·e de l'application. Vous
+                  pourrez également définir votre mot de passe depuis
+                  l'application par la suite.
                 </>
               }
               cta={{
@@ -229,9 +254,10 @@ export default function SnapecPage() {
                 </>,
                 <>Votre adhésion active est vérifiée automatiquement.</>,
                 <>
-                  Votre compte est créé gratuitement. Vous recevez un mail de confirmation vous invitant à valider votre compte.
+                  Votre compte est créé gratuitement. Vous recevez un mail de
+                  confirmation vous invitant à valider votre compte.
                 </>,
-                 <>
+                <>
                   Cliquez sur le lien de vérification reçu par e-mail — c'est
                   prêt.
                 </>,
@@ -240,9 +266,40 @@ export default function SnapecPage() {
             />
           </div>
 
+          <div className="mx-auto mt-24 max-w-2xl">
+            <div className="custom-typography">
+              <h2>Le SNAPEC et EPI Tranquille</h2>
+              <p>
+                Le SNAPEC, Syndicat National des Professionnels de l'Escalade et
+                du Canyoning, accompagne les moniteur·rices diplômé·es dans
+                l'exercice de leur métier. Parmi les obligations du quotidien
+                figure la tenue du registre de leurs équipements de protection
+                individuelle (EPI) : identification de chaque baudrier, corde,
+                longe, casque ou mousqueton, suivi de sa durée de vie et
+                traçabilité des contrôles périodiques.
+              </p>
+              <p>
+                Pour simplifier cette gestion, le SNAPEC et EPI Tranquille se
+                sont associés : chaque adhérent·e bénéficie gratuitement d'un
+                registre EPI numérique, accessible depuis l'extranet du
+                syndicat, sur le web et sur l'application mobile. Ajout des EPI
+                depuis une base de données de produits, date de mise au rebut
+                calculée, alertes avant les contrôles et export PDF du registre
+                sont inclus.
+              </p>
+              <p>
+                Pour en savoir plus sur vos obligations, lisez notre article{' '}
+                <Link href="/blog/pourquoi-registre-epi-obligatoire">
+                  pourquoi le registre EPI est obligatoire
+                </Link>{' '}
+                et notre guide sur la{' '}
+                <Link href="/blog/duree-de-vie-epi">durée de vie des EPI</Link>.
+              </p>
+            </div>
+          </div>
         </Container>
       </section>
-      <Faqs />
+      <Faqs items={snapecFaqs} />
     </>
   )
 }

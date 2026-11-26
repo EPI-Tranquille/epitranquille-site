@@ -8,6 +8,7 @@ import { CSPostHogProvider } from './providers'
 import { CookieConsent } from '@/components/CookieConsent'
 import { PostHogPageView } from '@/components/PostHogPageView'
 import CrispChat from '@/components/CrispChat'
+import { appStoreId } from '@/config/links'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -23,6 +24,7 @@ export const metadata: Metadata = {
   },
   description:
     "EPI Tranquille, le registre EPI sur mesure des pros de l'escalade, du canyoning, de l'alpinisme, de la spéléologie et de la via ferrata. Conçu selon la norme NF S72-701.",
+  applicationName: 'EPI Tranquille',
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
@@ -30,6 +32,34 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
+  },
+  // Autorise Google à afficher de grandes images, des aperçus vidéo et des
+  // extraits complets (recherche Images, Discover, aperçus IA).
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-video-preview': -1,
+      'max-snippet': -1,
+    },
+  },
+  // Bannière « Ouvrir dans l'App Store » de Safari sur iPhone.
+  itunes: {
+    appId: appStoreId,
+  },
+  // Validation de la propriété du site. Google Search Console : balise
+  // facultative, inutile si le domaine est déjà validé par un enregistrement
+  // DNS. Bing Webmaster Tools : ne pas retirer la balise, Bing la revérifie.
+  verification: {
+    ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION && {
+      google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+    }),
+    other: {
+      'msvalidate.01': '2C03293268E614354DAD38576D69A7C1',
+    },
   },
 }
 

@@ -7,7 +7,12 @@
  *
  * src/data/tutorials.json en est une copie de secours, utilisée si le fichier
  * publié est injoignable ; la recopier de temps en temps suffit.
+ *
+ * Chaque vidéo a sa propre page /tutoriels/<slug> : c'est elle que Google
+ * indexe dans ses résultats vidéo, car la vidéo y est le contenu principal.
  */
+
+import { type VideoObject, type WithContext } from 'schema-dts'
 
 import fallbackCatalog from '@/data/tutorials.json'
 
@@ -15,6 +20,11 @@ export type Platform = 'web' | 'mobile'
 export type Level = 'prise-en-main' | 'avance'
 
 export interface Tutorial {
+  /**
+   * Fin de l'adresse de la page de la vidéo (/tutoriels/<slug>), en
+   * minuscules et sans accents. Ne plus la modifier une fois la vidéo en
+   * ligne : l'adresse est indexée par Google.
+   */
   slug: string
   title: string
   description: string
@@ -25,6 +35,11 @@ export interface Tutorial {
   publishedAt: string
   /** Durée affichée sur la vignette, par exemple '4:32'. */
   duration?: string
+  /**
+   * Transcription ou texte de la vidéo, affiché sous le lecteur. Optionnel
+   * mais recommandé : Google et les moteurs IA lisent ce texte, pas la vidéo.
+   */
+  transcript?: string
 }
 
 export interface TutorialCatalog {
@@ -74,6 +89,7 @@ function isCatalog(data: unknown): data is TutorialCatalog {
     Array.isArray(catalog?.tutorials) &&
     catalog.tutorials.every(
       (tutorial) =>
+        typeof tutorial.slug === 'string' &&
         typeof tutorial.youtubeId === 'string' &&
         tutorial.platform in platforms &&
         tutorial.level in levels,
@@ -104,6 +120,10 @@ export async function getTutorialCatalog(): Promise<TutorialCatalog> {
   return fallbackCatalog as TutorialCatalog
 }
 
+export async function getTutorials(): Promise<Tutorial[]> {
+  return (await getTutorialCatalog()).tutorials
+}
+
 export function watchUrl(tutorial: Tutorial): string {
   return `https://www.youtube.com/watch?v=${tutorial.youtubeId}`
 }
@@ -118,4 +138,52 @@ export function embedUrl(tutorial: Tutorial): string {
 
 export function playlistUrl(playlistId: string): string {
   return `https://www.youtube.com/playlist?list=${playlistId}`
+}
+
+export function tutorialPath(tutorial: Tutorial): string {
+  return `/tutoriels/${tutorial.slug}`
+}
+
+/** Convertit une durée '4:32' ou '1:02:05' au format ISO 8601 (PT4M32S). */
+export function isoDuration(duration: string): string {
+  let [seconds = 0, minutes = 0, hours = 0] = duration
+    .split(':')
+    .map(Number)
+    .reverse()
+  return `PT${hours ? `${hours}H` : ''}${minutes ? `${minutes}M` : ''}${seconds}S`
+}
+
+/** Durée en secondes, pour le sitemap vidéo. */
+export function durationInSeconds(duration: string): number {
+  return duration
+    .split(':')
+    .map(Number)
+    .reduce((total, part) => total * 60 + part, 0)
+}
+
+export function videoObjectSchema(
+  tutorial: Tutorial,
+  siteUrl: string,
+): WithContext<VideoObject> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name: `${tutorial.title} — Tutoriel EPI Tranquille (${platforms[tutorial.platform].label.toLowerCase()})`,
+    description: tutorial.description,
+    thumbnailUrl: thumbnailUrl(tutorial),
+    // Google ignore une vidéo sans date de publication.
+    uploadDate: tutorial.publishedAt,
+    ...(tutorial.duration && { duration: isoDuration(tutorial.duration) }),
+    ...(tutorial.transcript && { transcript: tutorial.transcript }),
+    contentUrl: watchUrl(tutorial),
+    embedUrl: embedUrl(tutorial),
+    url: `${siteUrl}${tutorialPath(tutorial)}`,
+    inLanguage: 'fr',
+    isFamilyFriendly: true,
+    publisher: {
+      '@type': 'Organization',
+      '@id': `${siteUrl}/#organization`,
+      name: 'EPI Tranquille',
+    },
+  }
 }

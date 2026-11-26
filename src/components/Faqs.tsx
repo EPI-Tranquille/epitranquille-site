@@ -1,9 +1,18 @@
-import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+} from '@headlessui/react'
 import { type FAQPage, type WithContext } from 'schema-dts'
 
 import { Container } from '@/components/Container'
 
-const faqs = [
+export interface Faq {
+  question: string
+  answer: string
+}
+
+export const faqs: Faq[] = [
   {
     question: "Suis-je obligé d'avoir un registre EPI ?",
     answer:
@@ -19,10 +28,21 @@ const faqs = [
     answer:
       "Oui pour gagner du temps vous pouvez importer votre registre EPI depuis un fichier Excel sur l'application web. Ce fichier doit respecter quelques règles de format mais c'est rapide si toutes les informations sont là ! De plus si vous avez souscrit à un abonnement vous pouvez nous envoyer votre registre par e-mail nous vous aiderons à l'importer sur votre compte.",
   },
-    {
-    question: "Est-ce que je peux être accompagné·e pour l'import de mon registre ?",
+  {
+    question:
+      "Est-ce que je peux être accompagné·e pour l'import de mon registre ?",
     answer:
       "Notre équipe est disponible par e-mail pour vous accompagner, notamment sur l'import d'un registre existant. Les formules Premium et Entreprise bénéficient en plus d'un support prioritaire.",
+  },
+  {
+    question: 'Quelle est la durée de vie d’un EPI ?',
+    answer:
+      "Elle est fixée par le fabricant dans la notice. Pour les EPI textiles et plastiques (baudriers, cordes, longes, sangles, casques), elle est le plus souvent de 10 ans maximum à partir de la date de fabrication ; pour les EPI métalliques (mousquetons, descendeurs, poulies), elle est souvent illimitée. Mais l'usage, une chute ou une mauvaise condition de stockage peuvent imposer de réformer un EPI bien avant. EPI Tranquille calcule la date de mise au rebut théorique de chaque EPI et vous alerte avant l'échéance.",
+  },
+  {
+    question: 'À quelle fréquence faut-il contrôler ses EPI ?',
+    answer:
+      "Un EPI se vérifie avant et après chaque utilisation, et fait l'objet d'un contrôle périodique approfondi, au moins une fois par an en général, ou plus souvent selon l'intensité d'usage et la notice du fabricant. Chaque contrôle est consigné dans le registre EPI. EPI Tranquille vous rappelle les échéances et permet de contrôler un lot d'EPI en quelques minutes.",
   },
   {
     question: 'Est-ce que je gagne du temps avec cet outil ?',
@@ -84,20 +104,22 @@ function MinusSmallIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
-const faqSchema: WithContext<FAQPage> = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqs.map((faq) => ({
-    '@type': 'Question',
-    name: faq.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: faq.answer,
-    },
-  })),
+function faqSchema(items: Faq[]): WithContext<FAQPage> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  }
 }
 
-export function Faqs() {
+export function Faqs({ items = faqs }: { items?: Faq[] }) {
   return (
     <section
       id="faqs"
@@ -106,7 +128,7 @@ export function Faqs() {
     >
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(items)) }}
       />
       <Container>
         <div className="mx-auto max-w-2xl lg:mx-0">
@@ -114,8 +136,8 @@ export function Faqs() {
             Questions fréquentes
           </h2>
           <p className="section-subtitle">
-            Trouvez rapidement la réponse à vos questions et sinon n'hésitez
-            pas à{' '}
+            Trouvez rapidement la réponse à vos questions et sinon n'hésitez pas
+            à{' '}
             <a
               href="mailto:contact@epitranquille.com"
               className="text-gray-900 underline"
@@ -126,8 +148,12 @@ export function Faqs() {
           </p>
         </div>
         <dl className="mx-auto mt-16 max-w-3xl divide-y divide-gray-900/10 sm:mt-20">
-          {faqs.map((faq) => (
-            <Disclosure key={faq.question} as="div" className="py-6 first:pt-0 last:pb-0">
+          {items.map((faq) => (
+            <Disclosure
+              key={faq.question}
+              as="div"
+              className="py-6 first:pt-0 last:pb-0"
+            >
               <dt>
                 <DisclosureButton className="group flex w-full items-start justify-between text-left text-gray-900">
                   <span className="text-base/7 font-semibold">
@@ -139,7 +165,9 @@ export function Faqs() {
                   </span>
                 </DisclosureButton>
               </dt>
-              <DisclosurePanel as="dd" className="mt-2 pr-12">
+              {/* Panneau gardé dans le HTML même fermé : les réponses restent lisibles
+                  par Google et les moteurs IA. */}
+              <DisclosurePanel as="dd" unmount={false} className="mt-2 pr-12">
                 <p className="text-base/7 text-gray-600">{faq.answer}</p>
               </DisclosurePanel>
             </Disclosure>

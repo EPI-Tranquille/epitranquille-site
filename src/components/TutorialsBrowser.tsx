@@ -2,6 +2,7 @@
 
 import clsx from 'clsx'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useState } from 'react'
 
 import {
@@ -12,6 +13,7 @@ import {
   levels,
   platforms,
   thumbnailUrl,
+  tutorialPath,
 } from '@/lib/tutorials'
 
 type Filter = Platform | 'all'
@@ -100,7 +102,7 @@ function VideoCard({ tutorial }: { tutorial: Tutorial }) {
           >
             <Image
               src={thumbnailUrl(tutorial)}
-              alt=""
+              alt={`Miniature du tutoriel vidéo « ${tutorial.title} »`}
               fill
               unoptimized
               className="object-cover transition duration-300 group-hover:scale-105"
@@ -123,7 +125,9 @@ function VideoCard({ tutorial }: { tutorial: Tutorial }) {
           {platforms[tutorial.platform].label}
         </p>
         <h3 className="mt-2 text-lg font-semibold text-gray-900">
-          {tutorial.title}
+          <Link href={tutorialPath(tutorial)} className="hover:underline">
+            {tutorial.title}
+          </Link>
         </h3>
         <p className="mt-2 text-sm text-gray-600">{tutorial.description}</p>
       </div>

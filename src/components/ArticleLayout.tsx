@@ -2,9 +2,14 @@ import Link from 'next/link'
 import { type BlogPosting, type WithContext } from 'schema-dts'
 
 import { Container } from '@/components/Container'
+import { JsonLd } from '@/components/JsonLd'
 import { type Article } from '@/lib/articles'
-
-const SITE_URL = 'https://epitranquille.com'
+import {
+  LOGO_URL,
+  ORGANIZATION_ID,
+  SITE_URL,
+  breadcrumbSchema,
+} from '@/lib/seo'
 
 function ArrowLeftIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -44,6 +49,7 @@ export function ArticleLayout({
     headline: article.title,
     description: article.description,
     datePublished: article.date,
+    dateModified: article.updated ?? article.date,
     image: `${SITE_URL}/opengraph-image`,
     inLanguage: 'fr',
     url,
@@ -54,19 +60,25 @@ export function ArticleLayout({
     },
     publisher: {
       '@type': 'Organization',
+      '@id': ORGANIZATION_ID,
       name: 'EPI Tranquille',
       logo: {
         '@type': 'ImageObject',
-        url: `${SITE_URL}/web-app-manifest-512x512.png`,
+        url: LOGO_URL,
       },
     },
   }
 
   return (
     <Container className="pt-12 pb-20 sm:pt-16 sm:pb-32">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      <JsonLd
+        data={[
+          articleSchema,
+          breadcrumbSchema([
+            { name: 'Blog', path: '/blog' },
+            { name: article.title, path: `/blog/${slug}` },
+          ]),
+        ]}
       />
       <div className="mx-auto max-w-2xl">
         <Link
@@ -87,7 +99,18 @@ export function ArticleLayout({
             >
               {formatDate(article.date)}
             </time>
-            <p className="mt-2 text-sm text-gray-500">Par {article.author}</p>
+            <p className="mt-2 text-sm text-gray-500">
+              Par {article.author}
+              {article.updated && (
+                <>
+                  {' '}
+                  · Mis à jour le{' '}
+                  <time dateTime={article.updated}>
+                    {formatDate(article.updated)}
+                  </time>
+                </>
+              )}
+            </p>
           </header>
           <div className="custom-typography mt-8">{children}</div>
         </article>

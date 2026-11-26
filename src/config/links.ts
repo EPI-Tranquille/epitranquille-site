@@ -9,7 +9,8 @@
  * file needs to change.
  */
 export const appStoreReady = true
-export const appStoreUrl = 'https://apps.apple.com/fr/app/epi-tranquille/id6478505798'
+export const appStoreId = '6478505798'
+export const appStoreUrl = `https://apps.apple.com/fr/app/epi-tranquille/id${appStoreId}`
 
 export const playStoreReady = true
 export const playStoreUrl =

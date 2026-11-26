@@ -1,0 +1,121 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import { articleOpenGraph } from '@/lib/articles'
+
+export const article = {
+  title:
+    'Gestion des EPI : contrôles, fiche de vie et registre, le guide pratique',
+  description:
+    "Comment organiser la gestion des EPI d'un parc d'escalade, de canyoning, de spéléologie ou de via ferrata : identification, fiche de vie, contrôles avant et après usage, contrôle périodique, statuts, prêts et registre.",
+  author: 'EPI Tranquille',
+  date: '2026-10-28',
+}
+
+export const metadata = {
+  title: 'Gestion des EPI : contrôles, fiche de vie et registre',
+  description:
+    "Guide pratique de la gestion des EPI pour moniteur·rices, clubs et structures : identification, fiche de vie, contrôle périodique, points à vérifier, statuts, prêts et registre EPI.",
+  alternates: {
+    canonical: '/blog/gestion-controle-epi',
+  },
+  openGraph: articleOpenGraph(article),
+}
+
+export default (props) => (
+  <ArticleLayout article={article} slug="gestion-controle-epi" {...props} />
+)
+
+**En bref :** bien gérer ses EPI, c'est pouvoir dire à tout moment, pour
+chaque équipement, ce qu'il est, d'où il vient, comment il a été utilisé et
+contrôlé, et s'il peut encore servir. Cela repose sur quatre piliers :
+l'identification, la fiche de vie, les contrôles et le registre.
+
+## 1. Identifier chaque EPI
+
+Chaque EPI du parc doit pouvoir être distingué des autres : fabricant,
+modèle, numéro de série ou de lot, date de fabrication. Quand le fabricant
+ne fournit pas de numéro individuel (certains mousquetons ou sangles), on
+attribue un numéro interne, reporté sur l'EPI par un marquage adapté qui ne
+l'endommage pas.
+
+Dans un club ou une structure, une convention de numérotation par catégorie
+(par exemple « HA-012 » pour un harnais, « CO-004 » pour une corde) facilite
+le rangement et les contrôles.
+
+## 2. Tenir la fiche de vie
+
+La fiche de vie retrace l'historique de l'EPI :
+
+- dates de fabrication, d'achat et de mise en service ;
+- durée de vie maximale indiquée par le fabricant et date de mise au rebut
+  qui en découle (voir notre guide sur la [durée de vie des EPI](/blog/duree-de-vie-epi)) ;
+- résultats de chaque contrôle, incidents (chute, choc, contact chimique),
+  réparations éventuelles ;
+- notice du fabricant.
+
+## 3. Contrôler régulièrement
+
+On distingue généralement deux niveaux de contrôle :
+
+- **la vérification avant et après chaque utilisation**, rapide, faite par
+  l'utilisateur ou l'encadrant·e ;
+- **le contrôle périodique approfondi**, réalisé par une personne
+  compétente, au moins une fois par an en général, et plus souvent si le
+  matériel est très sollicité (initiation, location, parcs aventure). La
+  notice du fabricant précise la fréquence et la méthode.
+
+### Que vérifier ?
+
+- **Textiles** (baudriers, cordes, longes, sangles) : coupures, abrasion,
+  brûlures, fibres fondues ou durcies, coutures de sécurité, décoloration
+  importante, état des boucles.
+- **Métal** (mousquetons, descendeurs, poulies) : fissures, déformations,
+  usure de la gorge, arêtes tranchantes, corrosion, fonctionnement du doigt
+  et du verrou, mobilité des pièces.
+- **Casques** : fissures ou déformations de la coque, état de la mousse,
+  de la coiffe, de la jugulaire et de ses attaches.
+
+### Quel statut après le contrôle ?
+
+Chaque contrôle se conclut par un statut clair : **valide**, **à
+surveiller**, **à réparer**, **réformé** (retiré et détruit) ou
+**disparu**. Le statut, la date, l'auteur·e du contrôle et un éventuel
+commentaire sont consignés dans la fiche de vie.
+
+## 4. Suivre les prêts et les sorties
+
+Pour un club ou une structure qui prête du matériel, il faut savoir qui a
+emporté quel EPI, quand, et pour quelle sortie. Ce suivi permet de
+vérifier le matériel au retour et de connaître précisément l'historique
+d'utilisation de chaque EPI.
+
+## 5. Centraliser le tout dans un registre EPI
+
+Le registre EPI rassemble l'ensemble de ces informations pour tout le parc.
+Il doit être à jour et consultable en cas de contrôle, d'audit ou
+d'accident. C'est aussi l'outil qui vous indique quels EPI arrivent en fin
+de vie et quand le prochain contrôle périodique est dû.
+
+La norme NF S72-701 (2008) décrit cette organisation pour les EPI
+d'escalade, d'alpinisme, de spéléologie et des activités utilisant les
+mêmes techniques.
+
+## Gérer ses EPI avec EPI Tranquille
+
+[EPI Tranquille](/) a été conçu pour les moniteur·rices, clubs, salles
+d'escalade et collectivités qui veulent un registre EPI rigoureux sans y
+passer leurs soirées :
+
+- ajout des EPI depuis une base de données de produits et scan du numéro
+  de série, du QR code ou du datamatrix ;
+- fiche de vie complète et date de mise au rebut calculée automatiquement ;
+- contrôles unitaires ou par lot, avec statut, commentaire et photos ;
+- alertes avant les contrôles et avant l'expiration des EPI ;
+- gestion des prêts et des sorties ;
+- registre exportable en PDF, application mobile utilisable hors connexion.
+
+La formule Basique est gratuite jusqu'à 50 EPI. Découvrez aussi nos [tutoriels vidéo](/tutoriels) pour prendre l'application
+en main.
+
+*Ce contenu est fourni à titre informatif et ne remplace ni la notice du
+fabricant, ni les textes réglementaires en vigueur, ni les recommandations
+de votre fédération ou syndicat professionnel.*
