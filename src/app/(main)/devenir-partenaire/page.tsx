@@ -10,7 +10,7 @@ import Image from 'next/image'
 export const metadata: Metadata = {
   title: 'Devenir partenaire',
   description:
-    'Syndicats, regroupements de professionnels, clubs et centres de formation : proposez à vos adhérent·es un accès privilégié à EPI Tranquille.',
+    'Syndicats, regroupements de professionnels, clubs, centres de formation, universités et collectivités : proposez à vos adhérent·es un accès privilégié à EPI Tranquille.',
   alternates: {
     canonical: '/devenir-partenaire',
   },
@@ -135,6 +135,20 @@ function AcademicCapIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
+function LandmarkIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
+      <path
+        d="m12 3 9 4.5H3L12 3ZM4 20.5h16M5.5 10v7.5M9.5 10v7.5M14.5 10v7.5M18.5 10v7.5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
 const audiences = [
   {
     icon: BuildingIcon,
@@ -158,7 +172,13 @@ const audiences = [
     icon: AcademicCapIcon,
     title: 'Centres de formation',
     description:
-      "Proposez aux stagiaires un outil de de suivi EPI adapté pendant la formation, qu'ils garderont ensuite dans leur pratique professionnelle.",
+      "Proposez aux stagiaires un outil de suivi EPI adapté pendant la formation, qu'ils garderont ensuite dans leur pratique professionnelle.",
+  },
+  {
+    icon: LandmarkIcon,
+    title: 'Universités et collectivités',
+    description:
+      "Parcs EPI des éducateur·rices sportif·ves de l'Éducation nationale, SUAPS, services des sports : centralisez plusieurs parcs et gestionnaires, avec un registre exportable en PDF pour les contrôles.",
   },
 ]
 
@@ -270,7 +290,7 @@ export default function DevenirPartenairePage() {
           <div className="mx-auto mt-24 max-w-2xl text-center">
             <h2 className="section-title">Pour quel type d'organisation ?</h2>
           </div>
-          <div className="mx-auto mt-12 grid max-w-2xl grid-cols-1 gap-8 sm:grid-cols-2 lg:max-w-none">
+          <div className="mx-auto mt-12 grid max-w-2xl grid-cols-1 gap-8 sm:grid-cols-2 lg:max-w-none lg:grid-cols-3">
             {audiences.map((audience) => (
               <div
                 key={audience.title}
